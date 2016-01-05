@@ -23,6 +23,11 @@
 		1238B7F31C3B4F3000CFF0E5 /* UIImageView+HighlightedWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7E11C3B4F3000CFF0E5 /* UIImageView+HighlightedWebCache.m */; };
 		1238B7F41C3B4F3000CFF0E5 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7E31C3B4F3000CFF0E5 /* UIImageView+WebCache.m */; };
 		1238B7F51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7E51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m */; };
+		1238B8001C3B9F8B00CFF0E5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238B7FF1C3B9F8B00CFF0E5 /* libz.tbd */; };
+		1238B8021C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238B8011C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd */; };
+		1238B8041C3B9FB600CFF0E5 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238B8031C3B9FB600CFF0E5 /* libc++.tbd */; };
+		1238B8051C3B9FC800CFF0E5 /* MAMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238B7FB1C3B96C200CFF0E5 /* MAMapKit.framework */; };
+		1238B8061C3B9FD100CFF0E5 /* AMapSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1238B7FD1C3B973000CFF0E5 /* AMapSearchKit.framework */; };
 		126E70E41C3A798A0062C8F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E70E31C3A798A0062C8F6 /* main.m */; };
 		126E70E71C3A798A0062C8F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E70E61C3A798A0062C8F6 /* AppDelegate.m */; };
 		126E70EA1C3A798A0062C8F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E70E91C3A798A0062C8F6 /* ViewController.m */; };
@@ -200,6 +205,12 @@
 		1238B7E31C3B4F3000CFF0E5 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		1238B7E41C3B4F3000CFF0E5 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		1238B7E51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		1238B7F91C3B8E7D00CFF0E5 /* MAMapKit */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; name = MAMapKit; path = Pods/AMap3DMap/MAMapKit.framework/Versions/3.2.1.94eef6d.752/MAMapKit; sourceTree = "<group>"; };
+		1238B7FB1C3B96C200CFF0E5 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MAMapKit.framework; path = Pods/AMap3DMap/MAMapKit.framework; sourceTree = "<group>"; };
+		1238B7FD1C3B973000CFF0E5 /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AMapSearchKit.framework; path = Pods/AMapSearch/AMapSearchKit.framework; sourceTree = "<group>"; };
+		1238B7FF1C3B9F8B00CFF0E5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		1238B8011C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		1238B8031C3B9FB600CFF0E5 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		126E70DF1C3A798A0062C8F6 /* LePower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LePower.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		126E70E31C3A798A0062C8F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		126E70E51C3A798A0062C8F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -384,6 +395,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1238B8061C3B9FD100CFF0E5 /* AMapSearchKit.framework in Frameworks */,
+				1238B8051C3B9FC800CFF0E5 /* MAMapKit.framework in Frameworks */,
+				1238B8041C3B9FB600CFF0E5 /* libc++.tbd in Frameworks */,
+				1238B8021C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd in Frameworks */,
+				1238B8001C3B9F8B00CFF0E5 /* libz.tbd in Frameworks */,
 				126E72111C3A7BFF0062C8F6 /* CoreLocation.framework in Frameworks */,
 				126E720F1C3A7BF20062C8F6 /* CoreMotion.framework in Frameworks */,
 				126E720D1C3A7BE30062C8F6 /* CoreText.framework in Frameworks */,
@@ -446,6 +462,44 @@
 				1238B7E51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m */,
 			);
 			path = SDWebImage;
+			sourceTree = "<group>";
+		};
+		1238B7F61C3B6C0B00CFF0E5 /* Sports */ = {
+			isa = PBXGroup;
+			children = (
+				126E713A1C3A7B2E0062C8F6 /* DetailSportsViewController.m */,
+				126E71391C3A7B2E0062C8F6 /* DetailSportsViewController.h */,
+				126E71371C3A7B2E0062C8F6 /* DateView.h */,
+				126E71381C3A7B2E0062C8F6 /* DateView.m */,
+				126E71471C3A7B2E0062C8F6 /* TimeView.h */,
+				126E71481C3A7B2E0062C8F6 /* TimeView.m */,
+				126E71421C3A7B2E0062C8F6 /* SportsCollectionViewCell.h */,
+				126E71431C3A7B2E0062C8F6 /* SportsCollectionViewCell.m */,
+				126E71441C3A7B2E0062C8F6 /* SportsCollectionViewCell.xib */,
+				126E71451C3A7B2E0062C8F6 /* SportsViewController.h */,
+				126E71461C3A7B2E0062C8F6 /* SportsViewController.m */,
+			);
+			name = Sports;
+			sourceTree = "<group>";
+		};
+		1238B7F71C3B6C3000CFF0E5 /* Running */ = {
+			isa = PBXGroup;
+			children = (
+				126E71401C3A7B2E0062C8F6 /* RunningViewController.h */,
+				126E71411C3A7B2E0062C8F6 /* RunningViewController.m */,
+			);
+			name = Running;
+			sourceTree = "<group>";
+		};
+		1238B7F81C3B6C4500CFF0E5 /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				126E71491C3A7B2E0062C8F6 /* WeightViewController.h */,
+				126E714A1C3A7B2E0062C8F6 /* WeightViewController.m */,
+				126E713B1C3A7B2E0062C8F6 /* EditBtnViewController.h */,
+				126E713C1C3A7B2E0062C8F6 /* EditBtnViewController.m */,
+			);
+			name = Weight;
 			sourceTree = "<group>";
 		};
 		126E70D61C3A79890062C8F6 = {
@@ -623,26 +677,12 @@
 		126E71361C3A7B2E0062C8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				126E71371C3A7B2E0062C8F6 /* DateView.h */,
-				126E71381C3A7B2E0062C8F6 /* DateView.m */,
-				126E71391C3A7B2E0062C8F6 /* DetailSportsViewController.h */,
-				126E713A1C3A7B2E0062C8F6 /* DetailSportsViewController.m */,
-				126E713B1C3A7B2E0062C8F6 /* EditBtnViewController.h */,
-				126E713C1C3A7B2E0062C8F6 /* EditBtnViewController.m */,
 				126E713D1C3A7B2E0062C8F6 /* FuncView.h */,
 				126E713E1C3A7B2E0062C8F6 /* FuncView.m */,
+				1238B7F81C3B6C4500CFF0E5 /* Weight */,
+				1238B7F71C3B6C3000CFF0E5 /* Running */,
+				1238B7F61C3B6C0B00CFF0E5 /* Sports */,
 				126E713F1C3A7B2E0062C8F6 /* Information.storyboard */,
-				126E71401C3A7B2E0062C8F6 /* RunningViewController.h */,
-				126E71411C3A7B2E0062C8F6 /* RunningViewController.m */,
-				126E71421C3A7B2E0062C8F6 /* SportsCollectionViewCell.h */,
-				126E71431C3A7B2E0062C8F6 /* SportsCollectionViewCell.m */,
-				126E71441C3A7B2E0062C8F6 /* SportsCollectionViewCell.xib */,
-				126E71451C3A7B2E0062C8F6 /* SportsViewController.h */,
-				126E71461C3A7B2E0062C8F6 /* SportsViewController.m */,
-				126E71471C3A7B2E0062C8F6 /* TimeView.h */,
-				126E71481C3A7B2E0062C8F6 /* TimeView.m */,
-				126E71491C3A7B2E0062C8F6 /* WeightViewController.h */,
-				126E714A1C3A7B2E0062C8F6 /* WeightViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -901,6 +941,12 @@
 		A8B09553BEFF97ADCF6A1284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1238B8031C3B9FB600CFF0E5 /* libc++.tbd */,
+				1238B8011C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd */,
+				1238B7FF1C3B9F8B00CFF0E5 /* libz.tbd */,
+				1238B7FD1C3B973000CFF0E5 /* AMapSearchKit.framework */,
+				1238B7FB1C3B96C200CFF0E5 /* MAMapKit.framework */,
+				1238B7F91C3B8E7D00CFF0E5 /* MAMapKit */,
 				696A610A6A0FE05FA52F2962 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1358,10 +1404,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9A75079EFC87F17AC368FB1F /* Pods.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/AMap3DMap",
+					"$(PROJECT_DIR)/Pods/AMapSearch",
+				);
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wjh.LePower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1371,10 +1427,20 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3A974CB7B2765C984DB7F76D /* Pods.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/AMap3DMap",
+					"$(PROJECT_DIR)/Pods/AMapSearch",
+				);
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.wjh.LePower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

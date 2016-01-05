@@ -1,3 +1,4 @@
 platform :ios,'7.0'
 pod 'AMap3DMap', '~> 3.2.1'
+pod 'AMapSearch', '~> 3.1.0'
 

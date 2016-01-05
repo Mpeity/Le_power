@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+
 
 @interface RunningViewController : UIViewController
+
 
 @end
