@@ -9,6 +9,7 @@
 #import "RunningViewController.h"
 #import "DataServer.h"
 #import "Commen.h"
+#import "UIColor+Wonderful.h"
 
 
 @interface RunningViewController ()<MAMapViewDelegate,AMapSearchDelegate>
@@ -17,16 +18,20 @@
     CLLocationManager * locationManager;
     AMapSearchAPI *_search;
     
+    CLLocationDegrees _latitude; //
+    CLLocationDegrees _longitude; //
+    
 }
 
 @end
 
 @implementation RunningViewController
 
+#pragma mark - 返回按钮
 - (void)_createSubview {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
     [button setTitle:@"返回" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor doderBlue] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = leftItem;
@@ -37,11 +42,13 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark -
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     [self _createSubview];
+    
     
     locationManager =[[CLLocationManager alloc] init];
     
@@ -62,12 +69,12 @@
     
     
 //    [self _createAlertView];
-    //配置用户Key
-    [MAMapServices sharedServices].apiKey = @"05ab2e3ff78e14d5d9fd90c0af51777c";    
-    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
-    _mapView.delegate = self;
+//    _latitude = [CLLocationDegrees alloc] 
+
+    [self showMap];
     
-    _mapView.mapType = MAMapTypeStandard; // 设置地图类型
+    //配置用户Key
+    [MAMapServices sharedServices].apiKey = APIKey;
     
     _mapView.showsUserLocation = YES;    //YES 为打开定位，NO为关闭定位
     
@@ -75,9 +82,6 @@
     
     _mapView.showsCompass= YES; // 设置成NO表示关闭指南针；YES表示显示指南针
     _mapView.compassOrigin= CGPointMake(_mapView.compassOrigin.x, 22); //设置指南针位置
-    
-    
-    
     
     [_mapView setUserTrackingMode: MAUserTrackingModeFollow animated:YES]; //地图跟着位置移动
     
@@ -88,7 +92,6 @@
 //    
 //    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     
-    [self.view addSubview:_mapView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,22 +99,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 大头针标注
 
-- (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay
-{
-    /* 自定义定位精度对应的MACircleView. */
-    if (overlay == mapView.userLocationAccuracyCircle)
-    {
-        MACircleView *accuracyCircleView = [[MACircleView alloc] initWithCircle:overlay];
-        
-        accuracyCircleView.lineWidth    = 2.f;
-        accuracyCircleView.strokeColor  = [UIColor lightGrayColor];
-        accuracyCircleView.fillColor    = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
-        
-        return accuracyCircleView;
-    }
-    return nil;
+// 在viewDidAppear方法中添加如下所示代码添加标注数据对象。
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    MAPointAnnotation *pointAnnotation = [[MAPointAnnotation alloc] init];
+    pointAnnotation.coordinate = CLLocationCoordinate2DMake(_latitude, _longitude);
+    pointAnnotation.title = @"当前位置";
+    pointAnnotation.subtitle = @"当前位置====";
+    [_mapView addAnnotation:pointAnnotation];
 }
+////实现 <MAMapViewDelegate> 协议中的 mapView:viewForAnnotation:回调函数，设置标注样式。
+//- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
+//    if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+//        static NSString *pointReuseIndentfier = @"pointReuseIndentfier";
+//        MAPinAnnotationView *annotationView = (MAPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentfier];
+//        if (annotation == nil) {
+//            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentfier];
+//        }
+//        annotationView.canShowCallout = YES; // 设置气泡可以动弹，默认为NO；
+//        annotationView.animatesDrop = YES; // 设置标注动画显示，默认为NO；
+//        annotationView.draggable = YES; // 设置标注可以拖动，默认NO;
+//        annotationView.pinColor = MAPinAnnotationColorRed; // 设置大头针的颜色
+//        return annotationView;
+//    }
+//    return nil;
+//}
 
 - (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
 {
@@ -132,6 +146,44 @@
     return nil;
 }
 
+
+#pragma mark - 显示地图
+- (void)showMap {
+    //配置用户Key
+    [MAMapServices sharedServices].apiKey = APIKey;
+    
+    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
+    _mapView.delegate = self;
+    
+    [self.view addSubview:_mapView];
+    
+//    3D矢量地图SDK提供三种地图类型 MAMapTypeStandard、MAMapTypeSatellite 和 MAMapTypeStandardNight；
+//    
+//    2D栅格地图SDK提供两种地图类型 MAMapTypeStandard 和 MAMapTypeSatellite。
+//    
+//    其中：MAMapTypeStandard为标准地图（即：3D为矢量地图，2D为栅格地图），MAMapTypeSatellite为卫星地图，MAMapTypeStandardNight为夜景地图。
+    
+//    _mapView.showTraffic= YES; // 显示实时交通
+}
+
+- (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay
+{
+    /* 自定义定位精度对应的MACircleView. */
+    if (overlay == mapView.userLocationAccuracyCircle)
+    {
+        MACircleView *accuracyCircleView = [[MACircleView alloc] initWithCircle:overlay];
+        
+        accuracyCircleView.lineWidth    = 2.f;
+        accuracyCircleView.strokeColor  = [UIColor lightGrayColor];
+        accuracyCircleView.fillColor    = [UIColor colorWithRed:1 green:0 blue:0 alpha:.3];
+        
+        return accuracyCircleView;
+    }
+    return nil;
+}
+
+
+#pragma mark - 开启定位后回调
 // 开启定位后的回调
 -(void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation
 updatingLocation:(BOOL)updatingLocation
@@ -140,6 +192,10 @@ updatingLocation:(BOOL)updatingLocation
     {
         //取出当前位置的坐标
         NSLog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
+        
+        // 取出当前位置的经纬度
+//        _latitude = userLocation.coordinate.latitude;
+//        _longitude = userLocation.coordinate.longitude;
     }
 }
 
@@ -158,7 +214,7 @@ updatingLocation:(BOOL)updatingLocation
 
 - (void)_searchCloud {
     //配置用户Key
-    [AMapSearchServices sharedServices].apiKey = @"05ab2e3ff78e14d5d9fd90c0af51777c";
+    [AMapSearchServices sharedServices].apiKey = APIKey;
     
     //初始化检索对象
     _search = [[AMapSearchAPI alloc] init];

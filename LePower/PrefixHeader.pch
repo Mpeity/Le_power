@@ -1,19 +1,18 @@
 //
-//  Le_power.pch
+//  PrefixHeader.pch
 //  LePower
 //
-//  Created by nick_beibei on 16/1/4.
+//  Created by nick_beibei on 16/1/6.
 //  Copyright © 2016年 nick_beibei. All rights reserved.
 //
 
-#ifndef Le_power_pch
-#define Le_power_pch
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import "UIColor+Wonderful.h"
 
-#import "Commen.h"
 
-
-#endif /* Le_power_pch */
+#endif /* PrefixHeader_pch */

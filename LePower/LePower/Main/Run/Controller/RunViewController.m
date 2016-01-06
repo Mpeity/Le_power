@@ -7,6 +7,8 @@
 //
 
 #import "RunViewController.h"
+#import "UIColor+Wonderful.h"
+
 
 @interface RunViewController ()
 
@@ -19,7 +21,7 @@
     // Do any additional setup after loading the view.
     
     // 设置背景颜色
-    self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor paleGreen];
 }
 
 - (void)didReceiveMemoryWarning {

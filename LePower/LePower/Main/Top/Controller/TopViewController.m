@@ -7,6 +7,8 @@
 //
 
 #import "TopViewController.h"
+#import "UIColor+Wonderful.h"
+
 
 @interface TopViewController ()
 
@@ -19,7 +21,7 @@
     // Do any additional setup after loading the view.
     
     // 设置背景颜色
-    self.view.backgroundColor = [UIColor yellowColor];
+    self.view.backgroundColor = [UIColor lightPink];
 }
 
 - (void)didReceiveMemoryWarning {

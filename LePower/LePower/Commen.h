@@ -26,7 +26,7 @@
 
 /* 使用高德地图API，请注册Key，注册地址：http://lbs.amap.com/console/key */
 
-#define APIKey @"05ab2e3ff78e14d5d9fd90c0af51777c"
+#define APIKey @"8b37b0cecf4b6ae96ab5934f6d6116a5"
 
 #define BaiDuAPIKey @"8y6GYygGFUbKBoY5XIYw0nO0"
 

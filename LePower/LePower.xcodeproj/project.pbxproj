@@ -151,6 +151,11 @@
 		126E72431C3A7D6B0062C8F6 /* SDPieLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72311C3A7D6B0062C8F6 /* SDPieLoopProgressView.m */; };
 		126E72441C3A7D6B0062C8F6 /* MotionServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72331C3A7D6B0062C8F6 /* MotionServer.m */; };
 		126E72451C3A7D6B0062C8F6 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72361C3A7D6B0062C8F6 /* UIViewExt.m */; };
+		12FA2C201C3D226400B41AC8 /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */; };
+		12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C191C3D226400B41AC8 /* SXColorLabel.m */; };
+		12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C1B1C3D226400B41AC8 /* SXMarquee.m */; };
+		12FA2C231C3D226400B41AC8 /* UIColor+Separate.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C1D1C3D226400B41AC8 /* UIColor+Separate.m */; };
+		12FA2C241C3D226400B41AC8 /* UIColor+Wonderful.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C1F1C3D226400B41AC8 /* UIColor+Wonderful.m */; };
 		7D2A3768E0A7BB798CAB4AD8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 696A610A6A0FE05FA52F2962 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -353,7 +358,6 @@
 		126E720C1C3A7BE20062C8F6 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		126E720E1C3A7BF20062C8F6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		126E72101C3A7BFF0062C8F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		126E72121C3A7C8F0062C8F6 /* Le_power.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Le_power.pch; sourceTree = "<group>"; };
 		126E72131C3A7D170062C8F6 /* Commen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Commen.h; sourceTree = "<group>"; };
 		126E72151C3A7D6B0062C8F6 /* ActivityTypeList.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ActivityTypeList.plist; sourceTree = "<group>"; };
 		126E72171C3A7D6B0062C8F6 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -385,6 +389,17 @@
 		126E72331C3A7D6B0062C8F6 /* MotionServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionServer.m; sourceTree = "<group>"; };
 		126E72351C3A7D6B0062C8F6 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		126E72361C3A7D6B0062C8F6 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		12FA2C141C3CF00100B41AC8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
+		12FA2C161C3D226400B41AC8 /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
+		12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
+		12FA2C181C3D226400B41AC8 /* SXColorLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorLabel.h; sourceTree = "<group>"; };
+		12FA2C191C3D226400B41AC8 /* SXColorLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorLabel.m; sourceTree = "<group>"; };
+		12FA2C1A1C3D226400B41AC8 /* SXMarquee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMarquee.h; sourceTree = "<group>"; };
+		12FA2C1B1C3D226400B41AC8 /* SXMarquee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXMarquee.m; sourceTree = "<group>"; };
+		12FA2C1C1C3D226400B41AC8 /* UIColor+Separate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Separate.h"; sourceTree = "<group>"; };
+		12FA2C1D1C3D226400B41AC8 /* UIColor+Separate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Separate.m"; sourceTree = "<group>"; };
+		12FA2C1E1C3D226400B41AC8 /* UIColor+Wonderful.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Wonderful.h"; sourceTree = "<group>"; };
+		12FA2C1F1C3D226400B41AC8 /* UIColor+Wonderful.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Wonderful.m"; sourceTree = "<group>"; };
 		3A974CB7B2765C984DB7F76D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		696A610A6A0FE05FA52F2962 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A75079EFC87F17AC368FB1F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -553,8 +568,8 @@
 		126E70E21C3A798A0062C8F6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				12FA2C141C3CF00100B41AC8 /* PrefixHeader.pch */,
 				126E70E31C3A798A0062C8F6 /* main.m */,
-				126E72121C3A7C8F0062C8F6 /* Le_power.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -878,6 +893,7 @@
 			isa = PBXGroup;
 			children = (
 				126E72151C3A7D6B0062C8F6 /* ActivityTypeList.plist */,
+				12FA2C151C3D226400B41AC8 /* Wonderful */,
 				1238B7C41C3B4F3000CFF0E5 /* SDWebImage */,
 				126E72161C3A7D6B0062C8F6 /* AFNetworking */,
 				126E722B1C3A7D6B0062C8F6 /* DataServer.h */,
@@ -927,6 +943,23 @@
 				126E72311C3A7D6B0062C8F6 /* SDPieLoopProgressView.m */,
 			);
 			path = Lib;
+			sourceTree = "<group>";
+		};
+		12FA2C151C3D226400B41AC8 /* Wonderful */ = {
+			isa = PBXGroup;
+			children = (
+				12FA2C161C3D226400B41AC8 /* SXColorGradientView.h */,
+				12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */,
+				12FA2C181C3D226400B41AC8 /* SXColorLabel.h */,
+				12FA2C191C3D226400B41AC8 /* SXColorLabel.m */,
+				12FA2C1A1C3D226400B41AC8 /* SXMarquee.h */,
+				12FA2C1B1C3D226400B41AC8 /* SXMarquee.m */,
+				12FA2C1C1C3D226400B41AC8 /* UIColor+Separate.h */,
+				12FA2C1D1C3D226400B41AC8 /* UIColor+Separate.m */,
+				12FA2C1E1C3D226400B41AC8 /* UIColor+Wonderful.h */,
+				12FA2C1F1C3D226400B41AC8 /* UIColor+Wonderful.m */,
+			);
+			path = Wonderful;
 			sourceTree = "<group>";
 		};
 		2DEA0F480523A5B9C9195A49 /* Pods */ = {
@@ -1208,6 +1241,7 @@
 				1238B7F01C3B4F3000CFF0E5 /* UIImage+GIF.m in Sources */,
 				126E72411C3A7D6B0062C8F6 /* DataServer.m in Sources */,
 				1238B7E61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m in Sources */,
+				12FA2C201C3D226400B41AC8 /* SXColorGradientView.m in Sources */,
 				126E71771C3A7B2E0062C8F6 /* FuncView.m in Sources */,
 				1238B7ED1C3B4F3000CFF0E5 /* SDWebImageManager.m in Sources */,
 				126E716A1C3A7B2E0062C8F6 /* DateCollectionView.m in Sources */,
@@ -1236,16 +1270,19 @@
 				126E71791C3A7B2E0062C8F6 /* RunningViewController.m in Sources */,
 				126E717E1C3A7B2E0062C8F6 /* WeightViewController.m in Sources */,
 				1238B7E81C3B4F3000CFF0E5 /* SDImageCache.m in Sources */,
+				12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */,
 				1238B7E91C3B4F3000CFF0E5 /* SDWebImageCompat.m in Sources */,
 				126E71761C3A7B2E0062C8F6 /* EditBtnViewController.m in Sources */,
 				1238B7EE1C3B4F3000CFF0E5 /* SDWebImagePrefetcher.m in Sources */,
 				1238B7F11C3B4F3000CFF0E5 /* UIImage+MultiFormat.m in Sources */,
 				1238B7EA1C3B4F3000CFF0E5 /* SDWebImageDecoder.m in Sources */,
+				12FA2C231C3D226400B41AC8 /* UIColor+Separate.m in Sources */,
 				126E71821C3A7B2E0062C8F6 /* MoreTableViewCell.m in Sources */,
 				126E72391C3A7D6B0062C8F6 /* AFHTTPRequestOperationManager.m in Sources */,
 				126E71801C3A7B2E0062C8F6 /* SetViewController.m in Sources */,
 				126E71751C3A7B2E0062C8F6 /* DetailSportsViewController.m in Sources */,
 				1238B7F31C3B4F3000CFF0E5 /* UIImageView+HighlightedWebCache.m in Sources */,
+				12FA2C241C3D226400B41AC8 /* UIColor+Wonderful.m in Sources */,
 				126E723A1C3A7D6B0062C8F6 /* AFHTTPSessionManager.m in Sources */,
 				126E717A1C3A7B2E0062C8F6 /* SportsCollectionViewCell.m in Sources */,
 				126E71691C3A7B2E0062C8F6 /* HomeViewController.m in Sources */,
@@ -1256,6 +1293,7 @@
 				1238B7F51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m in Sources */,
 				126E71881C3A7B2E0062C8F6 /* TopViewController.m in Sources */,
 				126E70E41C3A798A0062C8F6 /* main.m in Sources */,
+				12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */,
 				126E717D1C3A7B2E0062C8F6 /* TimeView.m in Sources */,
 				1238B7E71C3B4F3000CFF0E5 /* NSData+ImageContentType.m in Sources */,
 				126E71A11C3A7B3F0062C8F6 /* MainTabBarController.m in Sources */,
@@ -1411,6 +1449,7 @@
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
 					"$(PROJECT_DIR)/Pods/AMapSearch",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
@@ -1434,6 +1473,7 @@
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
 					"$(PROJECT_DIR)/Pods/AMapSearch",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "";
