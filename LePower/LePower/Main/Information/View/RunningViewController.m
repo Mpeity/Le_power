@@ -29,16 +29,11 @@
 
 #pragma mark - 返回按钮
 - (void)_createSubview {
-    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 30)];
-    [button setTitle:@"返回" forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor doderBlue] forState:UIControlStateNormal];
-    [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
+    [self.navigationItem.leftBarButtonItem setTintColor:[UIColor orpimentColor]];
 }
 
-- (void)buttonAction {
-    
+- (void)backAction {    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -88,9 +83,9 @@
     [self _searchCloud];
     
     
-//    _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
-//    
-//    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
+    
+    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     
 }
 
@@ -110,41 +105,41 @@
     pointAnnotation.subtitle = @"当前位置====";
     [_mapView addAnnotation:pointAnnotation];
 }
-////实现 <MAMapViewDelegate> 协议中的 mapView:viewForAnnotation:回调函数，设置标注样式。
-//- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
-//    if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
-//        static NSString *pointReuseIndentfier = @"pointReuseIndentfier";
-//        MAPinAnnotationView *annotationView = (MAPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentfier];
-//        if (annotation == nil) {
-//            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentfier];
-//        }
-//        annotationView.canShowCallout = YES; // 设置气泡可以动弹，默认为NO；
-//        annotationView.animatesDrop = YES; // 设置标注动画显示，默认为NO；
-//        annotationView.draggable = YES; // 设置标注可以拖动，默认NO;
-//        annotationView.pinColor = MAPinAnnotationColorRed; // 设置大头针的颜色
-//        return annotationView;
-//    }
-//    return nil;
-//}
-
-- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
-{
-    /* 自定义userLocation对应的annotationView. */
-    if ([annotation isKindOfClass:[MAUserLocation class]])
-    {
-        static NSString *userLocationStyleReuseIndetifier = @"userLocationStyleReuseIndetifier";
-        MAAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:userLocationStyleReuseIndetifier];
-        if (annotationView == nil)
-        {
-            annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:userLocationStyleReuseIndetifier];
+//实现 <MAMapViewDelegate> 协议中的 mapView:viewForAnnotation:回调函数，设置标注样式。
+- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation {
+    if ([annotation isKindOfClass:[MAPointAnnotation class]]) {
+        static NSString *pointReuseIndentfier = @"pointReuseIndentfier";
+        MAPinAnnotationView *annotationView = (MAPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:pointReuseIndentfier];
+        if (annotation == nil) {
+            annotationView = [[MAPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:pointReuseIndentfier];
         }
-        annotationView.image = [UIImage imageNamed:@"userPosition"];
-        
+        annotationView.canShowCallout = YES; // 设置气泡可以动弹，默认为NO；
+        annotationView.animatesDrop = YES; // 设置标注动画显示，默认为NO；
+        annotationView.draggable = YES; // 设置标注可以拖动，默认NO;
+        annotationView.pinColor = MAPinAnnotationColorRed; // 设置大头针的颜色
         return annotationView;
     }
     return nil;
 }
+//
+//- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
+//{
+//    /* 自定义userLocation对应的annotationView. */
+//    if ([annotation isKindOfClass:[MAUserLocation class]])
+//    {
+//        static NSString *userLocationStyleReuseIndetifier = @"userLocationStyleReuseIndetifier";
+//        MAAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:userLocationStyleReuseIndetifier];
+//        if (annotationView == nil)
+//        {
+//            annotationView = [[MAAnnotationView alloc] initWithAnnotation:annotation
+//                                                          reuseIdentifier:userLocationStyleReuseIndetifier];
+//        }
+//        annotationView.image = [UIImage imageNamed:@"userPosition"];
+//        
+//        return annotationView;
+//    }
+//    return nil;
+//}
 
 
 #pragma mark - 显示地图
@@ -163,7 +158,7 @@
 //    
 //    其中：MAMapTypeStandard为标准地图（即：3D为矢量地图，2D为栅格地图），MAMapTypeSatellite为卫星地图，MAMapTypeStandardNight为夜景地图。
     
-//    _mapView.showTraffic= YES; // 显示实时交通
+    _mapView.showTraffic= YES; // 显示实时交通
 }
 
 - (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay
@@ -194,8 +189,8 @@ updatingLocation:(BOOL)updatingLocation
         NSLog(@"latitude : %f,longitude: %f",userLocation.coordinate.latitude,userLocation.coordinate.longitude);
         
         // 取出当前位置的经纬度
-//        _latitude = userLocation.coordinate.latitude;
-//        _longitude = userLocation.coordinate.longitude;
+        _latitude = userLocation.coordinate.latitude;
+        _longitude = userLocation.coordinate.longitude;
     }
 }
 

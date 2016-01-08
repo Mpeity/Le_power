@@ -47,7 +47,7 @@
 
 - (void)_createSubVc {
     
-    NSArray *names = @[@"Home",@"Top",@"Information",@"Run",@"More"];
+    NSArray *names = @[@"Home",@"Top",@"Run",@"Information",@"More"];
     NSMutableArray *vcArray = [[NSMutableArray alloc] init];
     for (NSString *name in names) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:name bundle:nil];

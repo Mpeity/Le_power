@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		121199DF1C3F9426002DBD20 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121199DE1C3F9426002DBD20 /* InfoViewController.m */; };
+		121199E21C3F94B1002DBD20 /* TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121199E11C3F94B1002DBD20 /* TargetViewController.m */; };
 		1238B7E61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7C61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m */; };
 		1238B7E71C3B4F3000CFF0E5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7C81C3B4F3000CFF0E5 /* NSData+ImageContentType.m */; };
 		1238B7E81C3B4F3000CFF0E5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7CA1C3B4F3000CFF0E5 /* SDImageCache.m */; };
@@ -151,6 +153,7 @@
 		126E72431C3A7D6B0062C8F6 /* SDPieLoopProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72311C3A7D6B0062C8F6 /* SDPieLoopProgressView.m */; };
 		126E72441C3A7D6B0062C8F6 /* MotionServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72331C3A7D6B0062C8F6 /* MotionServer.m */; };
 		126E72451C3A7D6B0062C8F6 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72361C3A7D6B0062C8F6 /* UIViewExt.m */; };
+		12AAED111C3FA0120042FD78 /* *28.png in Resources */ = {isa = PBXBuildFile; fileRef = 12AAED101C3FA0120042FD78 /* *28.png */; };
 		12FA2C201C3D226400B41AC8 /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */; };
 		12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C191C3D226400B41AC8 /* SXColorLabel.m */; };
 		12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C1B1C3D226400B41AC8 /* SXMarquee.m */; };
@@ -177,6 +180,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		121199DD1C3F9426002DBD20 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		121199DE1C3F9426002DBD20 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		121199E01C3F94B1002DBD20 /* TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewController.h; sourceTree = "<group>"; };
+		121199E11C3F94B1002DBD20 /* TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewController.m; sourceTree = "<group>"; };
 		1238B7C51C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		1238B7C61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		1238B7C71C3B4F3000CFF0E5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -252,19 +259,19 @@
 		126E712E1C3A7B2E0062C8F6 /* WeatherView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherView.m; sourceTree = "<group>"; };
 		126E71311C3A7B2E0062C8F6 /* InformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InformationViewController.h; sourceTree = "<group>"; };
 		126E71321C3A7B2E0062C8F6 /* InformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InformationViewController.m; sourceTree = "<group>"; };
-		126E71341C3A7B2E0062C8F6 /* SportsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsModel.h; sourceTree = "<group>"; };
-		126E71351C3A7B2E0062C8F6 /* SportsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsModel.m; sourceTree = "<group>"; };
+		126E71341C3A7B2E0062C8F6 /* SportsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SportsModel.h; path = ../../Information/Model/SportsModel.h; sourceTree = "<group>"; };
+		126E71351C3A7B2E0062C8F6 /* SportsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SportsModel.m; path = ../../Information/Model/SportsModel.m; sourceTree = "<group>"; };
 		126E71371C3A7B2E0062C8F6 /* DateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateView.h; sourceTree = "<group>"; };
 		126E71381C3A7B2E0062C8F6 /* DateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateView.m; sourceTree = "<group>"; };
 		126E71391C3A7B2E0062C8F6 /* DetailSportsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailSportsViewController.h; sourceTree = "<group>"; };
 		126E713A1C3A7B2E0062C8F6 /* DetailSportsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailSportsViewController.m; sourceTree = "<group>"; };
 		126E713B1C3A7B2E0062C8F6 /* EditBtnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditBtnViewController.h; sourceTree = "<group>"; };
 		126E713C1C3A7B2E0062C8F6 /* EditBtnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditBtnViewController.m; sourceTree = "<group>"; };
-		126E713D1C3A7B2E0062C8F6 /* FuncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuncView.h; sourceTree = "<group>"; };
-		126E713E1C3A7B2E0062C8F6 /* FuncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuncView.m; sourceTree = "<group>"; };
+		126E713D1C3A7B2E0062C8F6 /* FuncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FuncView.h; path = ../../Information/View/FuncView.h; sourceTree = "<group>"; };
+		126E713E1C3A7B2E0062C8F6 /* FuncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FuncView.m; path = ../../Information/View/FuncView.m; sourceTree = "<group>"; };
 		126E713F1C3A7B2E0062C8F6 /* Information.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Information.storyboard; sourceTree = "<group>"; };
-		126E71401C3A7B2E0062C8F6 /* RunningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunningViewController.h; sourceTree = "<group>"; };
-		126E71411C3A7B2E0062C8F6 /* RunningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunningViewController.m; sourceTree = "<group>"; };
+		126E71401C3A7B2E0062C8F6 /* RunningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RunningViewController.h; path = ../../Information/View/RunningViewController.h; sourceTree = "<group>"; };
+		126E71411C3A7B2E0062C8F6 /* RunningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RunningViewController.m; path = ../../Information/View/RunningViewController.m; sourceTree = "<group>"; };
 		126E71421C3A7B2E0062C8F6 /* SportsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportsCollectionViewCell.h; sourceTree = "<group>"; };
 		126E71431C3A7B2E0062C8F6 /* SportsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportsCollectionViewCell.m; sourceTree = "<group>"; };
 		126E71441C3A7B2E0062C8F6 /* SportsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportsCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -282,9 +289,9 @@
 		126E71541C3A7B2E0062C8F6 /* MoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTableViewCell.h; sourceTree = "<group>"; };
 		126E71551C3A7B2E0062C8F6 /* MoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTableViewCell.m; sourceTree = "<group>"; };
 		126E71561C3A7B2E0062C8F6 /* MoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreTableViewCell.xib; sourceTree = "<group>"; };
-		126E71571C3A7B2E0062C8F6 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCell.h; sourceTree = "<group>"; };
-		126E71581C3A7B2E0062C8F6 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCell.m; sourceTree = "<group>"; };
-		126E71591C3A7B2E0062C8F6 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		126E71571C3A7B2E0062C8F6 /* UserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserCell.h; path = ../../More/View/UserCell.h; sourceTree = "<group>"; };
+		126E71581C3A7B2E0062C8F6 /* UserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserCell.m; path = ../../More/View/UserCell.m; sourceTree = "<group>"; };
+		126E71591C3A7B2E0062C8F6 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserCell.xib; path = ../../More/View/UserCell.xib; sourceTree = "<group>"; };
 		126E715C1C3A7B2E0062C8F6 /* RunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunViewController.h; sourceTree = "<group>"; };
 		126E715D1C3A7B2E0062C8F6 /* RunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunViewController.m; sourceTree = "<group>"; };
 		126E71601C3A7B2E0062C8F6 /* Run.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Run.storyboard; sourceTree = "<group>"; };
@@ -389,6 +396,7 @@
 		126E72331C3A7D6B0062C8F6 /* MotionServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionServer.m; sourceTree = "<group>"; };
 		126E72351C3A7D6B0062C8F6 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		126E72361C3A7D6B0062C8F6 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		12AAED101C3FA0120042FD78 /* *28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "*28.png"; sourceTree = "<group>"; };
 		12FA2C141C3CF00100B41AC8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		12FA2C161C3D226400B41AC8 /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
 		12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
@@ -495,15 +503,15 @@
 				126E71461C3A7B2E0062C8F6 /* SportsViewController.m */,
 			);
 			name = Sports;
+			path = ../../Information/View;
 			sourceTree = "<group>";
 		};
 		1238B7F71C3B6C3000CFF0E5 /* Running */ = {
 			isa = PBXGroup;
 			children = (
-				126E71401C3A7B2E0062C8F6 /* RunningViewController.h */,
-				126E71411C3A7B2E0062C8F6 /* RunningViewController.m */,
 			);
 			name = Running;
+			path = ../../Information/View;
 			sourceTree = "<group>";
 		};
 		1238B7F81C3B6C4500CFF0E5 /* Weight */ = {
@@ -515,6 +523,7 @@
 				126E713C1C3A7B2E0062C8F6 /* EditBtnViewController.m */,
 			);
 			name = Weight;
+			path = ../../Information/View;
 			sourceTree = "<group>";
 		};
 		126E70D61C3A79890062C8F6 = {
@@ -598,8 +607,8 @@
 				126E71181C3A7B2E0062C8F6 /* Base */,
 				126E711B1C3A7B2E0062C8F6 /* Home */,
 				126E71611C3A7B2E0062C8F6 /* Top */,
-				126E712F1C3A7B2E0062C8F6 /* Information */,
 				126E715A1C3A7B2E0062C8F6 /* Run */,
+				126E712F1C3A7B2E0062C8F6 /* Information */,
 				126E714B1C3A7B2E0062C8F6 /* More */,
 			);
 			path = Main;
@@ -683,8 +692,6 @@
 		126E71331C3A7B2E0062C8F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				126E71341C3A7B2E0062C8F6 /* SportsModel.h */,
-				126E71351C3A7B2E0062C8F6 /* SportsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -692,11 +699,13 @@
 		126E71361C3A7B2E0062C8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				126E713D1C3A7B2E0062C8F6 /* FuncView.h */,
-				126E713E1C3A7B2E0062C8F6 /* FuncView.m */,
-				1238B7F81C3B6C4500CFF0E5 /* Weight */,
-				1238B7F71C3B6C3000CFF0E5 /* Running */,
-				1238B7F61C3B6C0B00CFF0E5 /* Sports */,
+				121199DD1C3F9426002DBD20 /* InfoViewController.h */,
+				121199DE1C3F9426002DBD20 /* InfoViewController.m */,
+				121199E01C3F94B1002DBD20 /* TargetViewController.h */,
+				121199E11C3F94B1002DBD20 /* TargetViewController.m */,
+				126E71571C3A7B2E0062C8F6 /* UserCell.h */,
+				126E71581C3A7B2E0062C8F6 /* UserCell.m */,
+				126E71591C3A7B2E0062C8F6 /* UserCell.xib */,
 				126E713F1C3A7B2E0062C8F6 /* Information.storyboard */,
 			);
 			path = View;
@@ -733,13 +742,10 @@
 		126E71521C3A7B2E0062C8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				126E71531C3A7B2E0062C8F6 /* More.storyboard */,
 				126E71541C3A7B2E0062C8F6 /* MoreTableViewCell.h */,
 				126E71551C3A7B2E0062C8F6 /* MoreTableViewCell.m */,
 				126E71561C3A7B2E0062C8F6 /* MoreTableViewCell.xib */,
-				126E71571C3A7B2E0062C8F6 /* UserCell.h */,
-				126E71581C3A7B2E0062C8F6 /* UserCell.m */,
-				126E71591C3A7B2E0062C8F6 /* UserCell.xib */,
+				126E71531C3A7B2E0062C8F6 /* More.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -766,6 +772,8 @@
 		126E715E1C3A7B2E0062C8F6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				126E71341C3A7B2E0062C8F6 /* SportsModel.h */,
+				126E71351C3A7B2E0062C8F6 /* SportsModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -773,6 +781,13 @@
 		126E715F1C3A7B2E0062C8F6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				126E713D1C3A7B2E0062C8F6 /* FuncView.h */,
+				126E713E1C3A7B2E0062C8F6 /* FuncView.m */,
+				1238B7F81C3B6C4500CFF0E5 /* Weight */,
+				1238B7F71C3B6C3000CFF0E5 /* Running */,
+				126E71401C3A7B2E0062C8F6 /* RunningViewController.h */,
+				126E71411C3A7B2E0062C8F6 /* RunningViewController.m */,
+				1238B7F61C3B6C0B00CFF0E5 /* Sports */,
 				126E71601C3A7B2E0062C8F6 /* Run.storyboard */,
 			);
 			path = View;
@@ -842,6 +857,7 @@
 		126E71B51C3A7BAD0062C8F6 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				12AAED101C3FA0120042FD78 /* *28.png */,
 				126E71B61C3A7BAD0062C8F6 /* 1.png */,
 				126E71B71C3A7BAD0062C8F6 /* 2.png */,
 				126E71B81C3A7BAD0062C8F6 /* 3.png */,
@@ -1055,6 +1071,11 @@
 				TargetAttributes = {
 					126E70DE1C3A798A0062C8F6 = {
 						CreatedOnToolsVersion = 7.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					126E70F71C3A798A0062C8F6 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -1149,6 +1170,7 @@
 				126E71781C3A7B2E0062C8F6 /* Information.storyboard in Resources */,
 				126E71AB1C3A7B3F0062C8F6 /* tabbar_discover_highlighted@2x.png in Resources */,
 				126E71891C3A7B2E0062C8F6 /* Top.storyboard in Resources */,
+				12AAED111C3FA0120042FD78 /* *28.png in Resources */,
 				126E71E71C3A7BAD0062C8F6 /* home_weather.png in Resources */,
 				126E71B11C3A7B3F0062C8F6 /* tabbar_more_highlighted@2x.png in Resources */,
 				126E72071C3A7BAD0062C8F6 /* icon_tennis.png in Resources */,
@@ -1255,6 +1277,7 @@
 				126E72421C3A7D6B0062C8F6 /* SDBaseProgressView.m in Sources */,
 				126E723F1C3A7D6B0062C8F6 /* AFURLResponseSerialization.m in Sources */,
 				126E71681C3A7B2E0062C8F6 /* BaseViewController.m in Sources */,
+				121199E21C3F94B1002DBD20 /* TargetViewController.m in Sources */,
 				126E71741C3A7B2E0062C8F6 /* DateView.m in Sources */,
 				126E716D1C3A7B2E0062C8F6 /* MainCollectionView.m in Sources */,
 				126E72441C3A7D6B0062C8F6 /* MotionServer.m in Sources */,
@@ -1271,6 +1294,7 @@
 				126E717E1C3A7B2E0062C8F6 /* WeightViewController.m in Sources */,
 				1238B7E81C3B4F3000CFF0E5 /* SDImageCache.m in Sources */,
 				12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */,
+				121199DF1C3F9426002DBD20 /* InfoViewController.m in Sources */,
 				1238B7E91C3B4F3000CFF0E5 /* SDWebImageCompat.m in Sources */,
 				126E71761C3A7B2E0062C8F6 /* EditBtnViewController.m in Sources */,
 				1238B7EE1C3B4F3000CFF0E5 /* SDWebImagePrefetcher.m in Sources */,

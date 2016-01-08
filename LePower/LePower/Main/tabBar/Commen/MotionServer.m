@@ -24,7 +24,6 @@
     return motionServer;
 }
 
-
 - (void)beginRunning{
 
     pedometer = [[CMPedometer alloc] init];

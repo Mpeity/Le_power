@@ -8,6 +8,11 @@
 
 #import "BaseViewController.h"
 
-@interface InformationViewController : BaseViewController
+@interface InformationViewController : BaseViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+{
+    UICollectionView *_collectionView;
+}
+
 
 @end
