@@ -9,6 +9,9 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "Commen.h"
+#import "Commen.h"
+#import "GuideViewController.h"
+#import "DataServer.h"
 
 @interface AppDelegate ()
 
@@ -23,11 +26,61 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[MainTabBarController alloc] init];
+   self.window.rootViewController = [[MainTabBarController alloc] init];
     
+//    self.window.rootViewController = [[GuideViewController alloc] init];
+    
+    // 向微信注册
+    [WXApi registerApp:WXAppID];
+    [self sendAuthRequest];
+    [self logIn];
     
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [WXApi handleOpenURL:url delegate:self];
+}
+
+
+#pragma mark - 微信登录
+-(void)sendAuthRequest
+{
+    //构造SendAuthReq结构体
+    SendAuthReq* req =[[SendAuthReq alloc ] init ];
+    req.scope = @"snsapi_userinfo" ;
+    req.state = @"123" ;
+    //第三方向微信终端发送一个SendAuthReq消息结构
+    [WXApi sendReq:req];
+    
+
+}
+
+
+- (void)logIn {
+    //    https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+    
+    NSString *urlString = @"https://api.weixin.qq.com/sns/oauth2/access_token?";
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSString *appid = WXAppID;
+    NSString *secret = WXAppSecret;
+    NSString *code = @"CODE";
+    NSString *grant_type = @"authorization_code";
+    [params setObject:appid forKey:@"appid"];
+    [params setObject:secret forKey:@"secret"];
+    [params setObject:code forKey:@"code"];
+    [params setObject:grant_type forKey:@"grant_type"];
+    
+    [DataServer requestWithFullUrlString:urlString params:params method:@"GET" data:nil block:^(id result) {
+        
+        NSLog(@"%@",result);
+    }];
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

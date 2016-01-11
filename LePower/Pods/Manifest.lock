@@ -1,13 +1,16 @@
 PODS:
   - AMap3DMap (3.2.1)
   - AMapSearch (3.1.0)
+  - WeixinSDK (1.4.3)
 
 DEPENDENCIES:
   - AMap3DMap (~> 3.2.1)
   - AMapSearch (~> 3.1.0)
+  - WeixinSDK (~> 1.4.3)
 
 SPEC CHECKSUMS:
   AMap3DMap: 1f179c4fc41a60e42243466eb188e3be946aa163
   AMapSearch: aa7621ae8aec9cb8df116710b26e3fe3d09dc0ff
+  WeixinSDK: 012c72fbaf8cef68afa7b0d0bb81c67a7a5c9136
 
 COCOAPODS: 0.39.0

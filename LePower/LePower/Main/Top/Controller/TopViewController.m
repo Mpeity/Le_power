@@ -8,6 +8,8 @@
 
 #import "TopViewController.h"
 #import "UIColor+Wonderful.h"
+#import "WXApi.h"
+#import "Commen.h"
 
 
 @interface TopViewController ()
@@ -19,16 +21,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     // 设置背景颜色
     self.view.backgroundColor = [UIColor lightPink];
+    
+    [self _createSubviews];
+}
+
+- (void)_createSubviews {
+    UIButton *clickBtn = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-100)/2, kScreenHeight*0.70, 100, 30)];
+    clickBtn.backgroundColor = [UIColor bronzeColor];
+    [self.view addSubview:clickBtn];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
+}
 
+#pragma mark - tool
+- (void)clickBtn:(UIButton *)button {
     
 }
 

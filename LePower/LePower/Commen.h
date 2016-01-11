@@ -36,5 +36,7 @@
 // 微信SDK信息
 //AppID：wx5d8a7cafde5441d1
 //AppSecret：90fd2104acacbc2c9006ca63c4ecdf71
+#define WXAppID @"wx5d8a7cafde5441d1"
+#define WXAppSecret @"90fd2104acacbc2c9006ca63c4ecdf71"
 
 #endif

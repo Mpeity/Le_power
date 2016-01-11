@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		121199DF1C3F9426002DBD20 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121199DE1C3F9426002DBD20 /* InfoViewController.m */; };
 		121199E21C3F94B1002DBD20 /* TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121199E11C3F94B1002DBD20 /* TargetViewController.m */; };
+		121AD3AF1C433EAA00570843 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 121AD3AE1C433EAA00570843 /* libWeChatSDK.a */; };
+		121AD3B21C43476D00570843 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121AD3B11C43476D00570843 /* GuideViewController.m */; };
 		1238B7E61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7C61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m */; };
 		1238B7E71C3B4F3000CFF0E5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7C81C3B4F3000CFF0E5 /* NSData+ImageContentType.m */; };
 		1238B7E81C3B4F3000CFF0E5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7CA1C3B4F3000CFF0E5 /* SDImageCache.m */; };
@@ -154,6 +156,8 @@
 		126E72441C3A7D6B0062C8F6 /* MotionServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72331C3A7D6B0062C8F6 /* MotionServer.m */; };
 		126E72451C3A7D6B0062C8F6 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 126E72361C3A7D6B0062C8F6 /* UIViewExt.m */; };
 		12AAED111C3FA0120042FD78 /* *28.png in Resources */ = {isa = PBXBuildFile; fileRef = 12AAED101C3FA0120042FD78 /* *28.png */; };
+		12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */; };
+		12AAED151C3FC0AC0042FD78 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */; };
 		12FA2C201C3D226400B41AC8 /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */; };
 		12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C191C3D226400B41AC8 /* SXColorLabel.m */; };
 		12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C1B1C3D226400B41AC8 /* SXMarquee.m */; };
@@ -184,6 +188,9 @@
 		121199DE1C3F9426002DBD20 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		121199E01C3F94B1002DBD20 /* TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewController.h; sourceTree = "<group>"; };
 		121199E11C3F94B1002DBD20 /* TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewController.m; sourceTree = "<group>"; };
+		121AD3AE1C433EAA00570843 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = Pods/WeixinSDK/WeChatSDK_1.4.3/libWeChatSDK.a; sourceTree = "<group>"; };
+		121AD3B01C43476D00570843 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = ../GuideViewController.h; sourceTree = "<group>"; };
+		121AD3B11C43476D00570843 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = ../GuideViewController.m; sourceTree = "<group>"; };
 		1238B7C51C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		1238B7C61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		1238B7C71C3B4F3000CFF0E5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -397,6 +404,8 @@
 		126E72351C3A7D6B0062C8F6 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		126E72361C3A7D6B0062C8F6 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
 		12AAED101C3FA0120042FD78 /* *28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "*28.png"; sourceTree = "<group>"; };
+		12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		12FA2C141C3CF00100B41AC8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		12FA2C161C3D226400B41AC8 /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
 		12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
@@ -418,6 +427,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				121AD3AF1C433EAA00570843 /* libWeChatSDK.a in Frameworks */,
+				12AAED151C3FC0AC0042FD78 /* libsqlite3.0.tbd in Frameworks */,
+				12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */,
 				1238B8061C3B9FD100CFF0E5 /* AMapSearchKit.framework in Frameworks */,
 				1238B8051C3B9FC800CFF0E5 /* MAMapKit.framework in Frameworks */,
 				1238B8041C3B9FB600CFF0E5 /* libc++.tbd in Frameworks */,
@@ -564,6 +576,8 @@
 				126E70E91C3A798A0062C8F6 /* ViewController.m */,
 				126E718A1C3A7B3F0062C8F6 /* MainTabBarController.h */,
 				126E718B1C3A7B3F0062C8F6 /* MainTabBarController.m */,
+				121AD3B01C43476D00570843 /* GuideViewController.h */,
+				121AD3B11C43476D00570843 /* GuideViewController.m */,
 				126E72131C3A7D170062C8F6 /* Commen.h */,
 				126E70EB1C3A798A0062C8F6 /* Main.storyboard */,
 				126E70EE1C3A798A0062C8F6 /* Assets.xcassets */,
@@ -990,6 +1004,9 @@
 		A8B09553BEFF97ADCF6A1284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				121AD3AE1C433EAA00570843 /* libWeChatSDK.a */,
+				12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */,
+				12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */,
 				1238B8031C3B9FB600CFF0E5 /* libc++.tbd */,
 				1238B8011C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd */,
 				1238B7FF1C3B9F8B00CFF0E5 /* libz.tbd */,
@@ -1317,6 +1334,7 @@
 				1238B7F51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m in Sources */,
 				126E71881C3A7B2E0062C8F6 /* TopViewController.m in Sources */,
 				126E70E41C3A798A0062C8F6 /* main.m in Sources */,
+				121AD3B21C43476D00570843 /* GuideViewController.m in Sources */,
 				12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */,
 				126E717D1C3A7B2E0062C8F6 /* TimeView.m in Sources */,
 				1238B7E71C3B4F3000CFF0E5 /* NSData+ImageContentType.m in Sources */,
@@ -1472,11 +1490,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
 					"$(PROJECT_DIR)/Pods/AMapSearch",
+					"$(PROJECT_DIR)/Pods/WeixinSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/WeixinSDK/WeChatSDK_1.4.3\"",
+					"$(PROJECT_DIR)/Pods/WeixinSDK/WeChatSDK_1.4.3",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -1496,11 +1518,15 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
 					"$(PROJECT_DIR)/Pods/AMapSearch",
+					"$(PROJECT_DIR)/Pods/WeixinSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "";
+				LIBRARY_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/WeixinSDK/WeChatSDK_1.4.3\"",
+					"$(PROJECT_DIR)/Pods/WeixinSDK/WeChatSDK_1.4.3",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

@@ -9,6 +9,7 @@
 #import "MainTabBarController.h"
 #import "FuncView.h"
 #import "Commen.h"
+#import "UIColor+Wonderful.h"
 
 
 @interface MainTabBarController ()
@@ -114,8 +115,7 @@
 
 /****** 在window上添加一个view   然后再添加小view  放三个button
  
-        在 selectedIndex == 2 的时候显示，其余时候隐藏 
- 
+        在 selectedIndex == 2 的时候显示，其余时候隐藏
  */
     
     if (selectedIndex == 2) {
@@ -140,7 +140,6 @@
 
 #pragma mark - tabBar 上的 button 响应方法
 - (void)selectBtnAction:(UIButton *)button {
-    
     self.selectedIndex = button.tag;
     [UIView animateWithDuration:0.2 animations:^{
         _selectImgView.center = button.center;
