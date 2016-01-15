@@ -10,6 +10,7 @@
 #import "MainCollectionView.h"
 #import "MainCollectionViewCell.h"
 #import "Commen.h"
+#import "UIColor+Wonderful.h"
 
 
 @interface HomeViewController ()
@@ -25,6 +26,7 @@
 
 - (void)viewDidLoad {
     
+    self.view.backgroundColor = [UIColor skyBlue];
     //关闭自动偏移
     self.modalPresentationCapturesStatusBarAppearance = NO;
     self.edgesForExtendedLayout = UIRectEdgeNone;

@@ -11,9 +11,14 @@
 #import "UIColor+Wonderful.h"
 #import "WXApi.h"
 #import "DataServer.h"
+#import "ChoiceViewController.h"
 
 
 @interface GuideViewController ()
+{
+    UIView *_homePage; // 起始页
+    NSTimer *_timer; // 计时器
+}
 
 @end
 
@@ -23,8 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self _createSubview];
-//    [self logIn];
+    [self _createSubviews];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,6 +37,27 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - 创建子视图
+- (void)_createSubviews {
+    _homePage = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    _homePage.backgroundColor = [UIColor azureColor];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-100)/2, kScreenHeight*0.75, 100, 40)];
+    [button setTitle:@"欢迎使用" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor khakiColor];
+    [_homePage addSubview:button];
+    [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_homePage];
+}
+
+
+- (void)buttonAction {
+    ChoiceViewController *vc = [[ChoiceViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:NO completion:nil];
+}
+
+// 微信登录相关
+/*
 #pragma mark - 创建子视图
 - (void)_createSubview {
     UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-100)/2, kScreenHeight*0.6, 100, 30)];
@@ -71,6 +97,7 @@
         NSLog(@"%@",result);
     }];
 }
+  */
 /*
 #pragma mark - Navigation
 

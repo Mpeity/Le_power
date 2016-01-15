@@ -7,28 +7,19 @@
 //
 
 #import "InformationViewController.h"
-#import "UIColor+Wonderful.h"
-#import "Commen.h"
+#import "SetViewController.h"
 #import "UIViewExt.h"
-#import "UserCell.h"
-#import "InfoViewController.h"
-#import "TargetViewController.h"
+#import "Commen.h"
+#import "UIColor+Wonderful.h"
 
-
-@interface InformationViewController ()
+@interface InformationViewController ()<UIScrollViewDelegate>
 {
-    UIImageView *_headerImageView;
-    UIImageView *_iconImageView;
-    UILabel *_userNameLabel;
-    UILabel *_heightLabel;
-    UILabel *_weightLabel;
-    UILabel *_BMILabel;
-    UILabel *_targetLabel;
-    UILabel *_heightDataLabel;
-    UILabel *_weightDataLabel;
-    UILabel *_BMIDataLabel;
-    UILabel *_targetDataLabel;
-    UIButton *_setButton;
+    UIButton *_setButton; // 设置按钮
+    UIScrollView *_scrollView; // 滑动视图
+    UIView *_welfareView; // 乐福利视图
+    UIView *_activityView; //乐活动视图
+    UIView *_setView; // 设置视图
+    NSInteger _index;
 }
 
 @end
@@ -41,11 +32,8 @@
     
     // 设置背景颜色
 //    self.view.backgroundColor = [UIColor greenYellow];
-    [self _createHeaderView];
-    [self _createLabel];
-    [self _createDataLabel];
-    [self _createCollectionView];
-    
+    [self _createSubviews];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,123 +41,112 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 创建子视图
-- (void)_createHeaderView{
-    _headerImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -320, kScreenWidth, kScreenHeight)];
-    //自适应宽高比
-    _headerImageView.contentMode = UIViewContentModeScaleAspectFit;
-    [_headerImageView setImage:[UIImage imageNamed:@"headImage.jpg"]];
-    [self.view addSubview:_headerImageView];
+#pragma mark - CreateSubviews
+// 创建子视图
+- (void)_createSubviews {
+    // 创建滑动视图
+    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight*0.40)];
+    _scrollView.backgroundColor = [UIColor lightCyan];
+    _scrollView.contentSize = CGSizeMake(kScreenWidth*4, kScreenHeight*0.40); // 设置滚动内容的尺寸
+    _scrollView.contentOffset = CGPointMake(0, 0); // 设置滚动的偏移量
+    _scrollView.pagingEnabled = YES;
+    _scrollView.delegate = self;
+    [self.view addSubview:_scrollView];
     
-    _setButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 30, 30, 30)];
-    [_setButton addTarget:self action:@selector(setBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_setButton setImage:[UIImage imageNamed:@"set.png"] forState:UIControlStateNormal];
-    [self.view addSubview:_setButton];
+    _index = 0;
+    for (int i = 0; i<4; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"%d.png",i+1];
+        UIImage *image = [UIImage imageNamed:imageName];
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth*i, 0, kScreenWidth, kScreenHeight*0.40)];
+        //        imgView.image = image;
+        imgView.userInteractionEnabled = YES;
+        [_scrollView addSubview:imgView];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth*i, 0, kScreenWidth, kScreenHeight*0.40)];
+        button.tag = 100+i;
+        button.backgroundColor = [UIColor clearColor];
+        [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [_scrollView addSubview:button];
+        
+        if (i == 0) {
+            imgView.backgroundColor = [UIColor lotusRoot];
+        }
+        if (i == 1) {
+            imgView.backgroundColor = [UIColor blueViolet];
+        }
+        if (i == 2) {
+            imgView.backgroundColor = [UIColor greenYellow];
+        }
+    }
+    [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
     
-    _userNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth/2-30, 30, 60, 30)];
-    _userNameLabel.text = @"用户id";
-    _userNameLabel.highlighted = YES;
-    _userNameLabel.textColor = [UIColor whiteColor];
-    [self.view addSubview:_userNameLabel];
     
-    _iconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(kScreenWidth/2-40, 70, 80, 80)];
-    _iconImageView.image = [UIImage imageNamed:@"iconImage.jpg"];
-    _iconImageView.layer.cornerRadius = 40;
-    _iconImageView.layer.borderWidth = 1;
-    _iconImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    _iconImageView.layer.masksToBounds = YES;
     
-    //_headerImageView.bottom = _collectionView.top;
-    [self.view addSubview:_iconImageView];
+    
+    // 创建乐福利视图
+    _welfareView = [[UIView alloc] initWithFrame:CGRectMake(0, _scrollView.height+30, kScreenWidth, kScreenHeight*0.20)];
+    _welfareView.backgroundColor = [UIColor paleVioletRed];
+    [self.view addSubview:_welfareView];
+    
+    // 创建乐活动视图
+    _activityView = [[UIView alloc] initWithFrame:CGRectMake(0, _welfareView.height+_scrollView.height+40, kScreenWidth, kScreenHeight*0.20)];
+    _activityView.backgroundColor = [UIColor mediumOrchid];
+    [self.view addSubview:_activityView];
+    
+    // 创建设置视图
+    _setView = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(_activityView.frame)+10, kScreenWidth, kScreenHeight*0.06)];
+    _setView.backgroundColor = [UIColor mistyRose];
+    _setView.userInteractionEnabled = YES;
+    _setButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, _setView.width, _setView.height)];
+    [_setButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
+    [_setButton setTitle:@"设置" forState:UIControlStateNormal];
+    [_setButton setTitleColor:[UIColor blueViolet] forState:UIControlStateNormal];
+    // 设置文字的内边距 UIEdgeInsets(上,左,下,右)
+    //    [_setButton setTitleEdgeInsets:UIEdgeInsetsMake(5, 10, 0, 0)];
+    //    _setButton.titleLabel.textAlignment = NSTextAlignmentLeft;
+    [_setView addSubview:_setButton];
+    [self.view addSubview:_setView];
 }
 
-- (void)_createLabel{
-    _heightLabel = [[UILabel alloc]initWithFrame:CGRectMake(15,160,80,20)];
-    _heightLabel.text = @"身高";
-    _heightLabel.textAlignment = NSTextAlignmentCenter;
-    _heightLabel.font = [UIFont systemFontOfSize:15];
-    _heightLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightLabel];
-    _heightLabel = [[UILabel alloc]initWithFrame:CGRectMake(110,160,80,20)];
-    _heightLabel.text = @"体重";
-    _heightLabel.textAlignment = NSTextAlignmentCenter;
-    _heightLabel.font = [UIFont systemFontOfSize:15];
-    _heightLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightLabel];
-    
-    _heightLabel = [[UILabel alloc]initWithFrame:CGRectMake(200,160,80,20)];
-    _heightLabel.text = @"BMI";
-    _heightLabel.textAlignment = NSTextAlignmentCenter;
-    _heightLabel.font = [UIFont systemFontOfSize:15];
-    _heightLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightLabel];
-    
-    _heightLabel = [[UILabel alloc]initWithFrame:CGRectMake(295,160,80,20)];
-    _heightLabel.text = @"目标";
-    _heightLabel.textAlignment = NSTextAlignmentCenter;
-    _heightLabel.font = [UIFont systemFontOfSize:15];
-    _heightLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightLabel];
-    
+- (void)btnAction{
+    SetViewController *vc = [[SetViewController alloc]init];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    [self presentViewController:nav animated:YES completion:nil];
 }
-- (void)_createDataLabel{
-    _heightDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(15,175,80,20)];
-    _heightDataLabel.text = @"175cm";
-    _heightDataLabel.textAlignment = NSTextAlignmentCenter;
-    _heightDataLabel.font = [UIFont systemFontOfSize:15];
-    _heightDataLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightDataLabel];
-    _heightDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(110,175,80,20)];
-    _heightDataLabel.text = @"72kg";
-    _heightDataLabel.textAlignment = NSTextAlignmentCenter;
-    _heightDataLabel.font = [UIFont systemFontOfSize:15];
-    _heightDataLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightDataLabel];
-    
-    _heightDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(200,175,80,20)];
-    _heightDataLabel.text = @"23.5";
-    _heightDataLabel.textAlignment = NSTextAlignmentCenter;
-    _heightDataLabel.font = [UIFont systemFontOfSize:15];
-    _heightDataLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightDataLabel];
-    
-    _heightDataLabel = [[UILabel alloc]initWithFrame:CGRectMake(295,175,80,20)];
-    _heightDataLabel.text = @"10000步";
-    _heightDataLabel.textAlignment = NSTextAlignmentCenter;
-    _heightDataLabel.font = [UIFont systemFontOfSize:15];
-    _heightDataLabel.textColor = [UIColor blackColor];
-    [self.view addSubview:_heightDataLabel];
+
+
+- (void)timerAction:(NSTimer *)timer {
+    //    [_scrollView setContentOffset:CGPointMake(_index*kScreenWidth, 0) animated:YES];
+    [_scrollView scrollRectToVisible:CGRectMake(_index*kScreenWidth, 0, kScreenWidth, kScreenHeight*0.4) animated:YES];
+    if (_index == 4) {
+        _index = 0;
+        [_scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
+    }
+    _index++;
     
 }
 
-- (void)_createCollectionView{
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.itemSize = CGSizeMake(kScreenWidth/2-10, kScreenWidth/2-10);
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 200, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
-    _collectionView.delegate = self;
-    _collectionView.dataSource = self;
-    _collectionView.backgroundColor = [UIColor clearColor];
-    
-    //    [_collectionView registerClass:[UserCell class] forCellWithReuseIdentifier:@"cell"];
-    [_collectionView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellWithReuseIdentifier:@"cell"];
-    
-    [self.view addSubview:_collectionView];
-}
-
-#pragma mark - CollectionViewDelegate
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 8;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    NSString *imageToLoad = [NSString stringWithFormat:@"%ld",indexPath.row+1];
-    //    cell.viewImage.image = [UIImage imageNamed:imageToLoad];
-    [cell.viewImage setImage:[UIImage imageNamed:imageToLoad]];
-    cell.backgroundColor = [UIColor redColor];
-    cell.target.text = [NSString stringWithFormat:@"kkkk"];
-    return cell;
+// 点击图片响应方法
+- (void)buttonAction:(UIButton *)btn {
+    NSLog(@"%s",__func__);
+    NSInteger tag;
+    tag = btn.tag;
+    switch (tag) {
+        case 100:
+            NSLog(@"%ld",tag);
+            break;
+        case 101:
+            NSLog(@"%ld",tag);
+            break;
+        case 102:
+            NSLog(@"%ld",tag);
+            break;
+        case 103:
+            NSLog(@"%ld",tag);
+            break;
+            
+        default:
+            break;
+    }
 }
 
 
@@ -177,26 +154,26 @@
 #pragma mark - tool 
 // 设置按钮响应方法
 - (void)setBtnAction:(UIButton *)button {
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *actionInfo = [UIAlertAction actionWithTitle:@"修改个人信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"修改个人信息");
-        InfoViewController *vc = [[InfoViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self presentViewController:nav animated:YES completion:nil];
-    }];
-    UIAlertAction *actionSports = [UIAlertAction actionWithTitle:@"修改运动目标" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"修改运动目标");
-        TargetViewController *vc = [[TargetViewController alloc] init];
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self presentViewController:nav animated:NO completion:nil];
-    }];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        NSLog(@"取消");
-    }];
-    [alertController addAction:actionInfo];
-    [alertController addAction:actionSports];
-    [alertController addAction:cancelAction];
-    [self presentViewController:alertController animated:YES completion:nil];
+//    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertAction *actionInfo = [UIAlertAction actionWithTitle:@"修改个人信息" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"修改个人信息");
+//        InfoViewController *vc = [[InfoViewController alloc] init];
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//        [self presentViewController:nav animated:YES completion:nil];
+//    }];
+//    UIAlertAction *actionSports = [UIAlertAction actionWithTitle:@"修改运动目标" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"修改运动目标");
+//        TargetViewController *vc = [[TargetViewController alloc] init];
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+//        [self presentViewController:nav animated:NO completion:nil];
+//    }];
+//    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//        NSLog(@"取消");
+//    }];
+//    [alertController addAction:actionInfo];
+//    [alertController addAction:actionSports];
+//    [alertController addAction:cancelAction];
+//    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 

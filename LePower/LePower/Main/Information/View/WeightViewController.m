@@ -9,6 +9,7 @@
 #import "WeightViewController.h"
 #import "EditBtnViewController.h"
 #import "Commen.h"
+#import "UIColor+Wonderful.h"
 
 @interface WeightViewController ()
 {
@@ -22,10 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    self.view.backgroundColor = [UIColor lotusRoot];
     [self _createnavigationBar];
     
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeData:) name:@"DataChange" object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +35,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)changeData:(NSNotification *)notification {
+        NSLog(@"%s",__func__);
+//    NSLog(@"%@",notification.userInfo);
+}
 
+#pragma mark - 创建子视图
 - (void)_createnavigationBar {
     
     // 设置返回按钮
@@ -59,26 +66,25 @@
 
     
     // 体重Label
-    _weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 70, kScreenWidth/2, 100)];
-    _weightLabel.backgroundColor = [UIColor grayColor];
+    _weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, kScreenWidth/2-20, 100)];
+    _weightLabel.backgroundColor = [UIColor skyBlue];
     _weightLabel.text = @"70.0kg";
     _weightLabel.font = [UIFont systemFontOfSize:30];
     _weightLabel.textAlignment = NSTextAlignmentCenter;
-    _weightLabel.textColor = [UIColor orangeColor];
+    _weightLabel.textColor = [UIColor silverColor];
     [self.view addSubview:_weightLabel];
    
     //BMI
-    _BMILabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth/2, 70, kScreenWidth/2, 100)];
-    _BMILabel.backgroundColor = [UIColor grayColor];
+    _BMILabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth/2, 80, kScreenWidth/2-10, 100)];
+    _BMILabel.backgroundColor = [UIColor skyBlue];
     _BMILabel.text = @"24.6";
     _BMILabel.font = [UIFont systemFontOfSize:30];
     _BMILabel.textAlignment = NSTextAlignmentCenter;
-    _BMILabel.textColor = [UIColor orangeColor];
+    _BMILabel.textColor = [UIColor silverColor];
     [self.view addSubview:_BMILabel];
     
 }
 
-#warning 返回按钮 响应方法---(没写)
 // 返回按钮 响应方法
 - (void)itemBtnAction:(UIButton *)button {
 
@@ -89,23 +95,29 @@
 - (void)editBtnAction:(UIButton *)button {
     
     editBtnVC = [[EditBtnViewController alloc] init];
-    [self.navigationController pushViewController:editBtnVC animated:YES];
+    [self.navigationController pushViewController:editBtnVC animated:NO];
     
 }
 
 // 删除按钮 响应方法
 - (void)deletionBtnAction:(UIButton *)button {
+
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定要删除这条体重" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"确定");
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        NSLog(@"取消");
+    }];
+    [alertController addAction:action];
+    [alertController addAction:cancelAction];
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"确定要删除这条体重么？" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alertView show];
+    [self.navigationController presentViewController:alertController animated:YES completion:nil];
 }
 
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
-    if (buttonIndex == 1) {
-        NSLog(@"22222222");
-    }
-}
+
 
 
 

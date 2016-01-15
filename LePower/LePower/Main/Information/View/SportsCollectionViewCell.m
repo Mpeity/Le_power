@@ -25,7 +25,6 @@
 }
 
 - (void)layoutSubviews {
-    
     [super layoutSubviews];
     self.nameLabel.text = self.sportsModel.name;
     self.iconImgView.image = [UIImage imageNamed:self.sportsModel.icon];

@@ -81,7 +81,6 @@
     _selectImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 49)];
     _selectImgView.image = [UIImage imageNamed:@""];
     [self.tabBar addSubview:_selectImgView];
-    
     // 底部标签视图 添加5个button
     NSArray *imageNames = @[ @"tabbar_home_highlighted@2x",
                              @"tabbar_discover_highlighted@2x",
@@ -120,6 +119,7 @@
     
     if (selectedIndex == 2) {
         
+        
         // 在window上添加的半透明view
         _funcView = [[FuncView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeight)];
         _funcView.hidden = NO;
@@ -127,9 +127,14 @@
         _funcView.alpha = 0.6;
         UIWindow *window =  [UIApplication sharedApplication].keyWindow;
         [window addSubview:_funcView];
+        
+//        // 将第三个button隐藏
+//        UIButton *button = (UIButton *)[self.view viewWithTag:2];
+//        button.hidden = YES;
         return;
     }
     else {
+
         _funcView.hidden = YES;
         [_funcView removeFromSuperview];
         _funcView = nil;

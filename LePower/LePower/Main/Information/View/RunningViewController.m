@@ -21,6 +21,10 @@
     CLLocationDegrees _latitude; //
     CLLocationDegrees _longitude; //
     
+    
+    CLLocation *_currentLocation; // 当前位置
+    UIButton *_locationButton;
+    
 }
 
 @end
@@ -37,13 +41,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#warning 地图有点搞不定
 #pragma mark -
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    [self _createSubview];
     
-    [self _createSubview];
-    
+    self.navigationController.navigationBarHidden = YES;
     
     locationManager =[[CLLocationManager alloc] init];
     
@@ -54,7 +59,6 @@
         {
             [locationManager performSelector:@selector(requestAlwaysAuthorization)];//用这个方法，plist中需要NSLocationAlwaysUsageDescription
         }
-        
         if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
         {
             [locationManager performSelector:@selector(requestWhenInUseAuthorization)];//用这个方法，plist里要加字段NSLocationWhenInUseUsageDescription
@@ -66,26 +70,24 @@
 //    [self _createAlertView];
 //    _latitude = [CLLocationDegrees alloc] 
 
-    [self showMap];
+//    _mapView.showsUserLocation = YES;    //YES 为打开定位，NO为关闭定位
+//    
+//    _mapView.showTraffic= YES; // 打开交通
+//    
+//    _mapView.showsCompass= YES; // 设置成NO表示关闭指南针；YES表示显示指南针
+//    _mapView.compassOrigin= CGPointMake(_mapView.compassOrigin.x, 22); //设置指南针位置
+//    
+//    [_mapView setUserTrackingMode: MAUserTrackingModeFollow animated:YES]; //地图跟着位置移动
+//    
+//    
+//    
+//    _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
+//    
+//    _mapView.userTrackingMode = MAUserTrackingModeFollow;
     
-    //配置用户Key
-    [MAMapServices sharedServices].apiKey = APIKey;
-    
-    _mapView.showsUserLocation = YES;    //YES 为打开定位，NO为关闭定位
-    
-    _mapView.showTraffic= YES; // 打开交通
-    
-    _mapView.showsCompass= YES; // 设置成NO表示关闭指南针；YES表示显示指南针
-    _mapView.compassOrigin= CGPointMake(_mapView.compassOrigin.x, 22); //设置指南针位置
-    
-    [_mapView setUserTrackingMode: MAUserTrackingModeFollow animated:YES]; //地图跟着位置移动
-    
-    [self _searchCloud];
-    
-    
-    _mapView.customizeUserLocationAccuracyCircleRepresentation = YES;
-    
-    _mapView.userTrackingMode = MAUserTrackingModeFollow;
+    [self initMapView];
+    [self initSearch];
+    [self initControls];
     
 }
 
@@ -93,6 +95,185 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//-(void)viewDidLoad
+//{
+//    //配置用户Key
+//    [AMapSearchServices sharedServices].apiKey = @"用户Key";
+//    
+//    //初始化检索对象
+//    _search = [[AMapSearchAPI alloc] init];
+//    _search.delegate = self;
+//    
+//    //构造AMapReGeocodeSearchRequest对象
+//    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
+//    regeo.location = [AMapGeoPoint locationWithLatitude:39.990459     longtitude:116.481476];
+//    regeo.radius = 10000;
+//    regeoRequest.requireExtension = YES;
+//    
+//    //发起逆地理编码
+//    [_search AMapReGoecodeSearch: regeo];
+//    
+//}
+//
+////实现逆地理编码的回调函数
+//- (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
+//{
+//    if(response.regeocode != nil)
+//    {
+//        //通过AMapReGeocodeSearchResponse对象处理搜索结果
+//        NSString *result = [NSString stringWithFormat:@"ReGeocode: %@", response.regeocode];
+//        NSLog(@"ReGeo: %@", result);
+//    }
+//}
+
+- (void)initMapView
+{
+    [MAMapServices sharedServices].apiKey = APIKey;
+    _mapView = [[MAMapView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds))];
+    
+    _mapView.delegate = self;
+    _mapView.compassOrigin = CGPointMake(_mapView.compassOrigin.x, 22);
+    _mapView.scaleOrigin = CGPointMake(_mapView.scaleOrigin.x, 22);
+    [self.view addSubview:_mapView];
+    
+    _mapView.showsUserLocation = YES;
+    
+//    _mapView.centerCoordinate = _mapView.userLocation.location.coordinate;
+
+}
+
+- (void)initSearch
+{
+    //配置用户Key
+    [AMapSearchServices sharedServices].apiKey = APIKey;
+    //初始化检索对象
+    _search = [[AMapSearchAPI alloc] init];
+    _search.delegate = self;
+    
+    
+    //构造AMapReGeocodeSearchRequest对象
+    AMapReGeocodeSearchRequest *regeo = [[AMapReGeocodeSearchRequest alloc] init];
+    regeo.location = [AMapGeoPoint locationWithLatitude:+37.33233141 longitude:-122.03121860];
+
+    regeo.radius = 10000;
+    regeo.requireExtension = YES;
+    //发起逆地理编码
+    [_search AMapReGoecodeSearch: regeo];
+    
+//    //构造AMapCloudPOIAroundSearchRequest对象，设置云周边检索请求参数
+//    AMapCloudPOIAroundSearchRequest *request = [[AMapCloudPOIAroundSearchRequest alloc] init];
+//    request.tableID = @"5694a25c305a2a6e283b7909";//在数据管理台中取得
+//    request.center = [AMapGeoPoint locationWithLatitude:+37.33233141 longitude:-122.03121860
+//];
+////    +37.33233141,-122.03121860
+//    request.radius = 1000;
+//    request.keywords = @"学校";
+//    
+//    //发起云周边搜索
+//    [_search AMapCloudPOIAroundSearch: request];
+}
+
+//实现逆地理编码的回调函数
+- (void)onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
+{
+    if(response.regeocode != nil)
+    {
+        //通过AMapReGeocodeSearchResponse对象处理搜索结果
+        NSString *result = [NSString stringWithFormat:@"ReGeocode: %@", response.regeocode];
+        NSLog(@"ReGeo: %@", result);
+    }
+}
+
+////实现云检索对应的回调函数
+//- (void)onCloudSearchDone:(AMapCloudSearchBaseRequest *)request response:(AMapCloudPOISearchResponse *)response
+//{
+//    if(response.POIs.count == 0)
+//    {
+//        return;
+//    }
+//    //获取云图数据并显示
+//    NSLog(@"-------------------%@ %@",request,response);
+//
+//}
+
+- (void)initControls
+{
+    _locationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _locationButton.backgroundColor = [UIColor plumColor];
+    _locationButton.frame = CGRectMake(20, CGRectGetHeight(_mapView.bounds) - 80, 40, 40);
+    _locationButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin;
+//    _locationButton.backgroundColor = [UIColor whiteColor];
+    _locationButton.layer.cornerRadius = 5;
+    
+    [_locationButton addTarget:self action:@selector(locateAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [_locationButton setImage:[UIImage imageNamed:@"location_no"] forState:UIControlStateNormal];
+    
+    [_mapView addSubview:_locationButton];
+    
+}
+
+#pragma mark - Helpers
+
+- (void)locateAction
+{
+    if (_mapView.userTrackingMode != MAUserTrackingModeFollow)
+    {
+        [_mapView setUserTrackingMode:MAUserTrackingModeFollow animated:YES];
+    }
+}
+
+- (void)reGeoAction
+{
+    if (_currentLocation)
+    {
+        AMapReGeocodeSearchRequest *request = [[AMapReGeocodeSearchRequest alloc] init];
+        
+        request.location = [AMapGeoPoint locationWithLatitude:_currentLocation.coordinate.latitude longitude:_currentLocation.coordinate.longitude];
+        
+        [_search AMapReGoecodeSearch:request];
+    }
+}
+
+
+
+#pragma mark - MAMapViewDelegate
+
+- (void)mapView:(MAMapView *)mapView didChangeUserTrackingMode:(MAUserTrackingMode)mode animated:(BOOL)animated
+{
+    // 修改定位按钮状态
+    if (mode == MAUserTrackingModeNone)
+    {
+        [_locationButton setImage:[UIImage imageNamed:@"location_no"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_locationButton setImage:[UIImage imageNamed:@"location_yes"] forState:UIControlStateNormal];
+    }
+}
+
+- (void)mapView:(MAMapView *)mapView didUpdateUserLocation:(MAUserLocation *)userLocation updatingLocation:(BOOL)updatingLocation
+{
+//        NSLog(@"userLocation: %@", userLocation.location);
+    _currentLocation = [userLocation.location copy];
+    // 取出当前位置的经纬度
+    _latitude = userLocation.coordinate.latitude;
+    _longitude = userLocation.coordinate.longitude;
+}
+
+- (void)mapView:(MAMapView *)mapView didSelectAnnotationView:(MAAnnotationView *)view
+{
+    // 选中定位annotation的时候进行逆地理编码查询
+    if ([view.annotation isKindOfClass:[MAUserLocation class]])
+    {
+        [self reGeoAction];
+    }
+}
+
+
+
+/*
 
 #pragma mark - 大头针标注
 
@@ -124,7 +305,7 @@
 //
 //- (MAAnnotationView *)mapView:(MAMapView *)mapView viewForAnnotation:(id <MAAnnotation>)annotation
 //{
-//    /* 自定义userLocation对应的annotationView. */
+//    自定义userLocation对应的annotationView.
 //    if ([annotation isKindOfClass:[MAUserLocation class]])
 //    {
 //        static NSString *userLocationStyleReuseIndetifier = @"userLocationStyleReuseIndetifier";
@@ -163,7 +344,7 @@
 
 - (MAOverlayView *)mapView:(MAMapView *)mapView viewForOverlay:(id <MAOverlay>)overlay
 {
-    /* 自定义定位精度对应的MACircleView. */
+//     自定义定位精度对应的MACircleView.
     if (overlay == mapView.userLocationAccuracyCircle)
     {
         MACircleView *accuracyCircleView = [[MACircleView alloc] initWithCircle:overlay];
@@ -236,6 +417,7 @@ updatingLocation:(BOOL)updatingLocation
     NSString *result = [NSString stringWithFormat:@"%@ \n %@", strCount, strGeocodes];
     NSLog(@"Geocode:%@",result);
 }
+ */
 
 
 
