@@ -10,10 +10,14 @@
 #import "EditBtnViewController.h"
 #import "Commen.h"
 #import "UIColor+Wonderful.h"
+#import "DataDB.h"
 
 @interface WeightViewController ()
 {
-    EditBtnViewController *editBtnVC;
+    EditBtnViewController *_editBtnVC;
+    NSInteger _index;
+    NSString *_data;
+    DataDB *_dataDb;
 }
 
 @end
@@ -23,11 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _dataDb = [[DataDB alloc] init];
+    _index = 1;
     self.view.backgroundColor = [UIColor lotusRoot];
     [self _createnavigationBar];
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeData:) name:@"DataChange" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeData:) name:DataChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,8 +41,23 @@
 }
 
 - (void)changeData:(NSNotification *)notification {
-        NSLog(@"%s",__func__);
-//    NSLog(@"%@",notification.userInfo);
+    NSLog(@"%s",__func__);
+    NSLog(@"%@",notification.userInfo);
+    _data = [notification.userInfo objectForKey:DataChange];
+    _weightLabel.text = _data;
+    [self _dataDbFunc];
+}
+
+- (void)_dataDbFunc {
+    NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
+    long long int date = (long long int)time;
+    NSLog(@"date\n%lld",date);
+    NSDate *dd = [NSDate dateWithTimeIntervalSince1970:date];
+    NSLog(@"dd:%@",dd);
+    _index++;
+    [_dataDb createTable];
+    [_dataDb insertIndex:_index WithData:_data WithCurrentDate:dd];
+    [_dataDb queryData];
 }
 
 #pragma mark - 创建子视图
@@ -68,7 +88,7 @@
     // 体重Label
     _weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 80, kScreenWidth/2-20, 100)];
     _weightLabel.backgroundColor = [UIColor skyBlue];
-    _weightLabel.text = @"70.0kg";
+//    _weightLabel.text = @"70.0kg";
     _weightLabel.font = [UIFont systemFontOfSize:30];
     _weightLabel.textAlignment = NSTextAlignmentCenter;
     _weightLabel.textColor = [UIColor silverColor];
@@ -94,9 +114,8 @@
 // 编辑按钮 响应方法
 - (void)editBtnAction:(UIButton *)button {
     
-    editBtnVC = [[EditBtnViewController alloc] init];
-    [self.navigationController pushViewController:editBtnVC animated:NO];
-    
+    _editBtnVC = [[EditBtnViewController alloc] init];
+    [self.navigationController pushViewController:_editBtnVC animated:NO];
 }
 
 // 删除按钮 响应方法
@@ -104,7 +123,6 @@
 
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"确定要删除这条体重" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
         NSLog(@"确定");
     }];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

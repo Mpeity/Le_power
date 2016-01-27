@@ -38,7 +38,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - tool
+#pragma mark - Tools
+
+// 点击按钮响应方法
 - (void)clickBtn:(UIButton *)button {
     
 }

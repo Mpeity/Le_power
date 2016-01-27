@@ -39,4 +39,21 @@
 #define WXAppID @"wx5d8a7cafde5441d1"
 #define WXAppSecret @"90fd2104acacbc2c9006ca63c4ecdf71"
 
+
+
+#define SexValue @"sexValue"  // 性别
+#define SexValueNotification @"sexValueNotification" // 性别通知
+#define WeightValue @"weightValue" // 体重
+#define WeightValueNotification @"weightValueNotification" // 体重通知
+#define HeightValue @"heightValue" // 身高
+#define HeightValueNotification @"HeightValueNotification" // 身高通知
+
+#define DataChange @"dataChange" // 体重改变
+#define DataChangeNotification @"dataChangeNotification" // 体重改变通知
+
+
+
+
+
+
 #endif

@@ -13,10 +13,11 @@
 @interface EditBtnViewController ()<UITextFieldDelegate>
 {
     NSMutableArray *_strArray1;
-    
     NSMutableArray *_strArray2;
-    
-    NSMutableArray *_mutableArray;
+    NSString *_str1;
+    NSString *_str2;
+    NSMutableDictionary *_dic;
+    NSString *_value; //
 }
 
 @end
@@ -71,21 +72,11 @@
 
 #pragma mark - 添加数据
 - (void)_addData {
-    _mutableArray = [[NSMutableArray alloc] init];
+    _dic = [[NSMutableDictionary alloc] init];
+    _str1 = [[NSString alloc] init];
+    _str2 = [[NSString alloc] init];
     _strArray1 = [[NSMutableArray alloc] init];
     _strArray2 = [[NSMutableArray alloc] init];
-//    for (int i = 25; i<206; i++) {
-//        NSString *str = [NSString stringWithFormat:@"%i",i];
-//        [_mutableArray addObject:str];
-////        NSLog(@"%@",_mutableArray[i]);
-//        for (int j = 0; j<10; j++) {
-//            
-//            NSString *str = [NSString stringWithFormat:@".%i Kg",j];
-//            [_mutableArray addObject:str];
-//        }
-//    }
-//    _mutableArray = [NSMutableArray arrayWithObjects:_strArray1,_strArray2, nil];
-    
     for (int i = 25; i<206; i++) {
         NSString *str = [NSString stringWithFormat:@"%i",i];
         [_strArray1 addObject:str];
@@ -106,25 +97,30 @@
 
 // 确定按钮
 - (void)completionBtnAction:(UIButton *)button {
+    [[NSNotificationCenter defaultCenter] postNotificationName:DataChangeNotification object:self userInfo:_dic];
+    [self.navigationController popViewControllerAnimated:NO];
     
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"体重添加成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    [self.navigationController presentViewController:alertController animated:NO completion:^{
-        [UIView animateWithDuration:10 animations:^{
-            [alertController dismissViewControllerAnimated:nil completion:nil];
-        }];
-    }];
+//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//    UIView *view1 = [[UIView alloc] initWithFrame:CGRectMake((kScreenWidth-200)/2, 300, 200, 40)];
+//    view1.backgroundColor = [UIColor lavender];
+//    [window addSubview:view1];
+//    view1.hidden = YES;
+//    [UIView animateKeyframesWithDuration:100 delay:1 options:UIViewKeyframeAnimationOptionLayoutSubviews animations:^{
+//        view1.hidden = NO;
+//    } completion:^(BOOL finished) {
+//        view1.hidden = YES;
+//    }];
+//    
 }
 
 
 #pragma mark - UIPickerView Delegate
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    
     return 2;
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    
     if (component == 0) {
         return 181;
     }
@@ -135,65 +131,30 @@
 
 //返回显⽰的文本
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    
-//    _strArray1 = [[NSMutableArray alloc] init];
-//    NSMutableArray *strArray2 = [[NSMutableArray alloc] init];
-//    if (component == 0) {
-//        for (int i = 25; i<206; i++) {
-//            NSString *str = [NSString stringWithFormat:@"%i",i];
-//            [strArray1 addObject:str];
-//        }
-//        return [strArray1 objectAtIndex:row];
-//    }
-//    else {
-//        for (int i = 0; i<10; i++) {
-//            NSString *str = [NSString stringWithFormat:@".%i  Kg",i];
-//            [strArray2 addObject:str];
-//        }
-//        return [strArray2 objectAtIndex:row];
-//    }
-    
     if (component == 0) {
-//        NSArray *array = [_mutableArray objectAtIndex:0];
         return [_strArray1 objectAtIndex:row];
     }
     else {
-//        NSArray *array = [_mutableArray objectAtIndex:1];
         return [_strArray2 objectAtIndex:row];
     }
 }
 
 
 - (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    
     return 50;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
-//    这个pickerView是在pickerViewController这个UIViewController中。
-//    
-//    ／／获取选中的列中的所在的行
-//    
-//    NSInteger row=[_pickerViewController.pickerView selectedRowInComponent:0];
-//    
-//    ／／然后是获取这个行中的值，就是数组中的值
-//    
-//    NSString *value=[_pickerViewController.array objectAtIndex:row];
-    
-    if (component == 0) {
-        
-        NSString *str = [_strArray1 objectAtIndex:row];
-        
-        NSString *value = [NSString stringWithFormat:@""];
-    }
-    else {
-        
-    }
-    
-    
-    
-//    [[NSNotificationCenter defaultCenter] postNotificationName:@"DataChange" object:self userInfo:dic];
+        if (component == 0) {
+            _str1 = [_strArray1 objectAtIndex:row];
+        }
+        else {
+            _str2 = [_strArray2 objectAtIndex:row];
+        }
+    _value = [NSString stringWithFormat:@"%@%@",_str1,_str2];
+    [_dic setValue:_value forKey:DataChange];
+    NSLog(@"%@",_dic);
+
 }
 
 //- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {

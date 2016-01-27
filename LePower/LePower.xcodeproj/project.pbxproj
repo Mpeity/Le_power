@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120104C01C4C825900EF6D25 /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120104BD1C4C825900EF6D25 /* ChoiceViewController.m */; };
+		120104C11C4C825900EF6D25 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120104BF1C4C825900EF6D25 /* GuideViewController.m */; };
+		120104C41C4C835B00EF6D25 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120104C31C4C835B00EF6D25 /* PersonalViewController.m */; };
+		120104C71C4CB49300EF6D25 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 120104C61C4CB49300EF6D25 /* TaskViewController.m */; };
+		1206F39D1C55B7F300111062 /* TaskViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1206F39C1C55B7F300111062 /* TaskViewController.xib */; };
 		121199DF1C3F9426002DBD20 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121199DE1C3F9426002DBD20 /* InfoViewController.m */; };
 		121199E21C3F94B1002DBD20 /* TargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121199E11C3F94B1002DBD20 /* TargetViewController.m */; };
 		121AD3AF1C433EAA00570843 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 121AD3AE1C433EAA00570843 /* libWeChatSDK.a */; };
-		121AD3B21C43476D00570843 /* GuideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 121AD3B11C43476D00570843 /* GuideViewController.m */; };
 		122481D91C44D65C00237443 /* location_no@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 122481D71C44D65C00237443 /* location_no@2x.png */; };
 		122481DA1C44D65C00237443 /* location_yes@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 122481D81C44D65C00237443 /* location_yes@2x.png */; };
+		12285DA11C4F836E00FA0FF1 /* DataDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 12285DA01C4F836E00FA0FF1 /* DataDB.m */; };
 		1238B7E61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7C61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m */; };
 		1238B7E71C3B4F3000CFF0E5 /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7C81C3B4F3000CFF0E5 /* NSData+ImageContentType.m */; };
 		1238B7E81C3B4F3000CFF0E5 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 1238B7CA1C3B4F3000CFF0E5 /* SDImageCache.m */; };
@@ -161,7 +166,6 @@
 		12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */; };
 		12AAED151C3FC0AC0042FD78 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */; };
 		12E1CF781C48FA3200FBB23C /* homePage.png in Resources */ = {isa = PBXBuildFile; fileRef = 12E1CF771C48FA3200FBB23C /* homePage.png */; };
-		12E1CF7B1C490A6200FBB23C /* ChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E1CF7A1C490A6200FBB23C /* ChoiceViewController.m */; };
 		12FA2C201C3D226400B41AC8 /* SXColorGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */; };
 		12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C191C3D226400B41AC8 /* SXColorLabel.m */; };
 		12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */ = {isa = PBXBuildFile; fileRef = 12FA2C1B1C3D226400B41AC8 /* SXMarquee.m */; };
@@ -188,15 +192,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120104BC1C4C825900EF6D25 /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
+		120104BD1C4C825900EF6D25 /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
+		120104BE1C4C825900EF6D25 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideViewController.h; sourceTree = "<group>"; };
+		120104BF1C4C825900EF6D25 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideViewController.m; sourceTree = "<group>"; };
+		120104C21C4C835B00EF6D25 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		120104C31C4C835B00EF6D25 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		120104C51C4CB49300EF6D25 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		120104C61C4CB49300EF6D25 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		1206F39C1C55B7F300111062 /* TaskViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaskViewController.xib; sourceTree = "<group>"; };
 		121199DD1C3F9426002DBD20 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
 		121199DE1C3F9426002DBD20 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
 		121199E01C3F94B1002DBD20 /* TargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TargetViewController.h; sourceTree = "<group>"; };
 		121199E11C3F94B1002DBD20 /* TargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetViewController.m; sourceTree = "<group>"; };
 		121AD3AE1C433EAA00570843 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = Pods/WeixinSDK/WeChatSDK_1.4.3/libWeChatSDK.a; sourceTree = "<group>"; };
-		121AD3B01C43476D00570843 /* GuideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GuideViewController.h; path = ../GuideViewController.h; sourceTree = "<group>"; };
-		121AD3B11C43476D00570843 /* GuideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GuideViewController.m; path = ../GuideViewController.m; sourceTree = "<group>"; };
 		122481D71C44D65C00237443 /* location_no@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_no@2x.png"; sourceTree = "<group>"; };
 		122481D81C44D65C00237443 /* location_yes@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "location_yes@2x.png"; sourceTree = "<group>"; };
+		12285D9F1C4F836E00FA0FF1 /* DataDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataDB.h; sourceTree = "<group>"; };
+		12285DA01C4F836E00FA0FF1 /* DataDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataDB.m; sourceTree = "<group>"; };
 		1238B7C51C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		1238B7C61C3B4F3000CFF0E5 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		1238B7C71C3B4F3000CFF0E5 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -413,8 +426,6 @@
 		12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		12E1CF771C48FA3200FBB23C /* homePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homePage.png; sourceTree = "<group>"; };
-		12E1CF791C490A6200FBB23C /* ChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoiceViewController.h; sourceTree = "<group>"; };
-		12E1CF7A1C490A6200FBB23C /* ChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoiceViewController.m; sourceTree = "<group>"; };
 		12FA2C141C3CF00100B41AC8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		12FA2C161C3D226400B41AC8 /* SXColorGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXColorGradientView.h; sourceTree = "<group>"; };
 		12FA2C171C3D226400B41AC8 /* SXColorGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXColorGradientView.m; sourceTree = "<group>"; };
@@ -468,6 +479,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120104BB1C4C825900EF6D25 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				120104BE1C4C825900EF6D25 /* GuideViewController.h */,
+				120104BF1C4C825900EF6D25 /* GuideViewController.m */,
+				120104BC1C4C825900EF6D25 /* ChoiceViewController.h */,
+				120104BD1C4C825900EF6D25 /* ChoiceViewController.m */,
+				120104C21C4C835B00EF6D25 /* PersonalViewController.h */,
+				120104C31C4C835B00EF6D25 /* PersonalViewController.m */,
+				120104C51C4CB49300EF6D25 /* TaskViewController.h */,
+				120104C61C4CB49300EF6D25 /* TaskViewController.m */,
+				1206F39C1C55B7F300111062 /* TaskViewController.xib */,
+			);
+			name = Guide;
+			path = Main/Guide;
+			sourceTree = "<group>";
+		};
 		1238B7C41C3B4F3000CFF0E5 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,8 +539,8 @@
 		1238B7F61C3B6C0B00CFF0E5 /* Sports */ = {
 			isa = PBXGroup;
 			children = (
-				126E713A1C3A7B2E0062C8F6 /* DetailSportsViewController.m */,
 				126E71391C3A7B2E0062C8F6 /* DetailSportsViewController.h */,
+				126E713A1C3A7B2E0062C8F6 /* DetailSportsViewController.m */,
 				126E71371C3A7B2E0062C8F6 /* DateView.h */,
 				126E71381C3A7B2E0062C8F6 /* DateView.m */,
 				126E71471C3A7B2E0062C8F6 /* TimeView.h */,
@@ -542,6 +570,8 @@
 				126E714A1C3A7B2E0062C8F6 /* WeightViewController.m */,
 				126E713B1C3A7B2E0062C8F6 /* EditBtnViewController.h */,
 				126E713C1C3A7B2E0062C8F6 /* EditBtnViewController.m */,
+				12285D9F1C4F836E00FA0FF1 /* DataDB.h */,
+				12285DA01C4F836E00FA0FF1 /* DataDB.m */,
 			);
 			name = Weight;
 			path = ../../Information/View;
@@ -585,10 +615,7 @@
 				126E70E91C3A798A0062C8F6 /* ViewController.m */,
 				126E718A1C3A7B3F0062C8F6 /* MainTabBarController.h */,
 				126E718B1C3A7B3F0062C8F6 /* MainTabBarController.m */,
-				121AD3B01C43476D00570843 /* GuideViewController.h */,
-				121AD3B11C43476D00570843 /* GuideViewController.m */,
-				12E1CF791C490A6200FBB23C /* ChoiceViewController.h */,
-				12E1CF7A1C490A6200FBB23C /* ChoiceViewController.m */,
+				120104BB1C4C825900EF6D25 /* Guide */,
 				126E72131C3A7D170062C8F6 /* Commen.h */,
 				126E70EB1C3A798A0062C8F6 /* Main.storyboard */,
 				126E70EE1C3A798A0062C8F6 /* Assets.xcassets */,
@@ -1168,6 +1195,7 @@
 				126E71811C3A7B2E0062C8F6 /* More.storyboard in Resources */,
 				126E71F51C3A7BAD0062C8F6 /* icon_dance.png in Resources */,
 				126E72001C3A7BAD0062C8F6 /* icon_running.png in Resources */,
+				1206F39D1C55B7F300111062 /* TaskViewController.xib in Resources */,
 				126E71F41C3A7BAD0062C8F6 /* icon_cycling.png in Resources */,
 				126E71E41C3A7BAD0062C8F6 /* 4.png in Resources */,
 				126E72091C3A7BAD0062C8F6 /* icon_yoga.png in Resources */,
@@ -1311,9 +1339,9 @@
 				126E72421C3A7D6B0062C8F6 /* SDBaseProgressView.m in Sources */,
 				126E723F1C3A7D6B0062C8F6 /* AFURLResponseSerialization.m in Sources */,
 				126E71681C3A7B2E0062C8F6 /* BaseViewController.m in Sources */,
+				120104C71C4CB49300EF6D25 /* TaskViewController.m in Sources */,
 				121199E21C3F94B1002DBD20 /* TargetViewController.m in Sources */,
 				126E71741C3A7B2E0062C8F6 /* DateView.m in Sources */,
-				12E1CF7B1C490A6200FBB23C /* ChoiceViewController.m in Sources */,
 				126E716D1C3A7B2E0062C8F6 /* MainCollectionView.m in Sources */,
 				126E72441C3A7D6B0062C8F6 /* MotionServer.m in Sources */,
 				126E70E71C3A798A0062C8F6 /* AppDelegate.m in Sources */,
@@ -1324,9 +1352,11 @@
 				126E71711C3A7B2E0062C8F6 /* WeatherView.m in Sources */,
 				126E71701C3A7B2E0062C8F6 /* TargetProgressView.m in Sources */,
 				1238B7F41C3B4F3000CFF0E5 /* UIImageView+WebCache.m in Sources */,
+				120104C11C4C825900EF6D25 /* GuideViewController.m in Sources */,
 				1238B7EF1C3B4F3000CFF0E5 /* UIButton+WebCache.m in Sources */,
 				126E71791C3A7B2E0062C8F6 /* RunningViewController.m in Sources */,
 				126E717E1C3A7B2E0062C8F6 /* WeightViewController.m in Sources */,
+				120104C41C4C835B00EF6D25 /* PersonalViewController.m in Sources */,
 				1238B7E81C3B4F3000CFF0E5 /* SDImageCache.m in Sources */,
 				12FA2C211C3D226400B41AC8 /* SXColorLabel.m in Sources */,
 				121199DF1C3F9426002DBD20 /* InfoViewController.m in Sources */,
@@ -1335,6 +1365,7 @@
 				1238B7EE1C3B4F3000CFF0E5 /* SDWebImagePrefetcher.m in Sources */,
 				1238B7F11C3B4F3000CFF0E5 /* UIImage+MultiFormat.m in Sources */,
 				1238B7EA1C3B4F3000CFF0E5 /* SDWebImageDecoder.m in Sources */,
+				120104C01C4C825900EF6D25 /* ChoiceViewController.m in Sources */,
 				12FA2C231C3D226400B41AC8 /* UIColor+Separate.m in Sources */,
 				126E71821C3A7B2E0062C8F6 /* MoreTableViewCell.m in Sources */,
 				126E72391C3A7D6B0062C8F6 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -1352,12 +1383,12 @@
 				1238B7F51C3B4F3000CFF0E5 /* UIView+WebCacheOperation.m in Sources */,
 				126E71881C3A7B2E0062C8F6 /* TopViewController.m in Sources */,
 				126E70E41C3A798A0062C8F6 /* main.m in Sources */,
-				121AD3B21C43476D00570843 /* GuideViewController.m in Sources */,
 				12FA2C221C3D226400B41AC8 /* SXMarquee.m in Sources */,
 				126E717D1C3A7B2E0062C8F6 /* TimeView.m in Sources */,
 				1238B7E71C3B4F3000CFF0E5 /* NSData+ImageContentType.m in Sources */,
 				126E71A11C3A7B3F0062C8F6 /* MainTabBarController.m in Sources */,
 				126E72451C3A7D6B0062C8F6 /* UIViewExt.m in Sources */,
+				12285DA11C4F836E00FA0FF1 /* DataDB.m in Sources */,
 				1238B7EC1C3B4F3000CFF0E5 /* SDWebImageDownloaderOperation.m in Sources */,
 				126E723B1C3A7D6B0062C8F6 /* AFNetworkReachabilityManager.m in Sources */,
 				1238B7EB1C3B4F3000CFF0E5 /* SDWebImageDownloader.m in Sources */,
@@ -1511,6 +1542,7 @@
 					"$(PROJECT_DIR)/Pods/WeixinSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = /Users/nick_beibei/Desktop/MTY/LePower/Le_power/LePower/PrefixHeader.pch;
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -1539,6 +1571,7 @@
 					"$(PROJECT_DIR)/Pods/WeixinSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = /Users/nick_beibei/Desktop/MTY/LePower/Le_power/LePower/PrefixHeader.pch;
 				INFOPLIST_FILE = LePower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
