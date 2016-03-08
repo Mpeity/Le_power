@@ -10,6 +10,9 @@
 #import "MainTabBarController.h"
 
 @interface TaskViewController ()
+{
+    NSDictionary *_countDataDic;
+}
 
 @end
 
@@ -18,7 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor soilColor];
     [self _createSubviews];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,8 +39,13 @@
 
 #pragma mark - 滑块视图响应方法
 - (IBAction)sliderAction:(id)sender {
-    self.countSlider = (UISlider *)sender;
+    self.countSlider = (ASValueTrackingSlider *)sender;
     NSLog(@"%lf",self.countSlider.value);
+    NSString *stepCount = [NSString stringWithFormat:@"今日运动目标:%i步",(int)roundf(self.countSlider.value)];
+    self.countLabel.text = stepCount;
+    _countDataDic = [NSDictionary dictionaryWithObjectsAndKeys:stepCount,@"stepCount", nil];
+    [[NSUserDefaults standardUserDefaults] setObject:_countDataDic forKey:CountData];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
@@ -44,28 +54,68 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     [self.navigationItem.leftBarButtonItem setTintColor:[UIColor blueViolet]];
     
+    // 完成按钮
+    self.completeBtn.backgroundColor = [UIColor clearColor];
+    self.completeBtn.titleLabel.font = [UIFont systemFontOfSize:20];
+    
     // 步数Label
-    self.countLabel.text = @"1111111步";
+    self.countLabel.backgroundColor = [UIColor clearColor];
     self.countLabel.textAlignment = NSTextAlignmentCenter;
-    self.countLabel.font = [UIFont systemFontOfSize:50];
+    self.countLabel.font = [UIFont systemFontOfSize:28];
     self.countLabel.textColor = [UIColor beigeColor];
     [self.view addSubview:self.countLabel];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
+        self.countLabel.text = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
+    }
     
     // 卡路里Label
+    self.calLabel.backgroundColor = [UIColor clearColor];
+    self.calLabel.textAlignment = NSTextAlignmentCenter;
+    self.calLabel.font = [UIFont systemFontOfSize:21];
+    self.calorie.backgroundColor = [UIColor clearColor];
+    self.calorie.textAlignment = NSTextAlignmentCenter;
+    self.calorie.text = @"卡路里";
+    self.calorie.font = [UIFont systemFontOfSize:19];
     [self.view addSubview:self.calLabel];
     
     // 距离Label
+    self.distanceLabel.backgroundColor = [UIColor clearColor];
+    self.distanceLabel.textAlignment = NSTextAlignmentCenter;
+    self.distanceLabel.font = [UIFont systemFontOfSize:21];
+    self.distance.backgroundColor = [UIColor clearColor];
+    self.distance.textAlignment = NSTextAlignmentCenter;
+    self.distance.text = @"距离";
+    self.distance.font = [UIFont systemFontOfSize:19];
     [self.view addSubview:self.distanceLabel];
     
     // 时间Label
+    self.timeLabel.backgroundColor = [UIColor clearColor];
+    self.timeLabel.textAlignment = NSTextAlignmentCenter;
+    self.timeLabel.font = [UIFont systemFontOfSize:21];
+    self.time.backgroundColor = [UIColor clearColor];
+    self.time.textAlignment = NSTextAlignmentCenter;
+    self.time.text = @"时间";
+    self.time.font = [UIFont systemFontOfSize:19];
     [self.view addSubview:self.timeLabel];
     
-    //目标View
+    // 目标View
+    self.taskView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.taskView];
     [self.taskView addSubview:self.countSlider];
-    self.countSlider.minimumValue = 3000;
-    self.countSlider.maximumValue = 10000;
-    self.countSlider.continuous = YES;
+    self.countSlider.minimumValue = 500;
+    self.countSlider.maximumValue = 19000;
+    [self.countSlider setMaxFractionDigitsDisplayed:0];
+    self.countSlider.popUpViewColor = [UIColor colorWithHue:0.55 saturation:0.8 brightness:0.9 alpha:0.7];
+    self.countSlider.font = [UIFont fontWithName:@"Menlo-Bold" size:22];
+    self.countSlider.textColor = [UIColor colorWithHue:0.55 saturation:1.0 brightness:0.5 alpha:0.7];
+
+    // 文字说明Label
+    self.textLabel.backgroundColor = [UIColor clearColor];
+    self.textLabel.text = @"根据您的个人情况推荐的运动目标";
+    self.textLabel.textAlignment = NSTextAlignmentCenter;
+    self.textLabel.font = [UIFont systemFontOfSize:20];
+
 }
 
 

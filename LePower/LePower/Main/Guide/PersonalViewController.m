@@ -10,12 +10,19 @@
 #import "ChoiceViewController.h"
 #import "TaskViewController.h"
 #import "MainTabBarController.h"
+#import "ZHRulerview.h"
 
-@interface PersonalViewController ()
+//static CGFloat const rulerMultiple=10;
+
+@interface PersonalViewController ()<ZHRulerViewDelegate>
 {
-    UILabel *_weightLabel; // 体重
-    UILabel *_heightLabel; // 身高
-    UILabel *_ageLabel; // 体重
+    ZHRulerView *_weightRulerview; // 体重
+    ZHRulerView *_heightRulerview; // 身高
+    ZHRulerView *_ageRulerview; // 年龄
+    UILabel *_weightLabel; // 记录体重
+    UILabel *_heightLabel; // 记录身高
+    UILabel *_ageLabel; // 记录年份
+    NSDictionary *_personInfoDic; // 记录个人信息
 }
 
 @end
@@ -26,7 +33,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor lightCyan];
     [self _createSubviews];
+    //查看本地 有没有上一次选择的信息
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    _personInfoDic = [defaults objectForKey:PersonInfo];
+    if ([_personInfoDic objectForKey:@"weightData"] && [_personInfoDic objectForKey:@"ageData"] && [_personInfoDic objectForKey:@"heightData"]) {
+        _weightLabel.text = [_personInfoDic objectForKey:@"weightData"];
+        _ageLabel.text = [_personInfoDic objectForKey:@"ageData"];
+        _heightLabel.text = [_personInfoDic objectForKey:@"heightData"];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,25 +54,93 @@
 - (void)_createSubviews {
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(backAction)];
     [self.navigationItem.leftBarButtonItem setTintColor:[UIColor orpimentColor]];
-    
-    _weightLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth*0.1, 150, kScreenWidth*0.8, 70)];
-    _weightLabel.backgroundColor = [UIColor olive];
-    [self.view addSubview:_weightLabel];
-    
-    
-    
+    UILabel *pointLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 75, kScreenWidth, 20)];
+    pointLabel.textAlignment = NSTextAlignmentLeft;
+//    pointLabel.backgroundColor = [UIColor beigeColor];
+    pointLabel.text = @"请选择您的出生年份、身高及体重";
+    [self.view addSubview:pointLabel];
+    CGFloat rulerViewWidth = kScreenWidth*0.6;
+    for (int i = 0; i<3; i++) {
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(rulerViewWidth+15, 120+130*i, kScreenWidth*0.4-20, 50)];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.tag = 200+i;
+        // 将第一个尺子控件隐藏
+        ZHRulerView *rulerView = [[ZHRulerView alloc] initWithMixNuber:10 maxNuber:100 showType:rulerViewshowHorizontalType rulerMultiple:1];
+        rulerView.frame = CGRectMake(0, 0, kScreenWidth, 40);
+        rulerView.backgroundColor = [UIColor realgarColor];
+        [self.view addSubview:rulerView];
+        rulerView.hidden = YES;
+        
+        if (label.tag == 200) {
+            label.backgroundColor = [UIColor lavender];
+            _ageLabel = label;
+            _ageRulerview = [[ZHRulerView alloc] initWithMixNuber:1949 maxNuber:2016 showType:rulerViewshowHorizontalType rulerMultiple:1];
+            _ageRulerview.frame = CGRectMake(5, 120, rulerViewWidth, 50);
+            _ageRulerview.backgroundColor = [UIColor lavender];
+            _ageRulerview.defaultVaule=2000;
+            _ageRulerview.tag = 210;
+            _ageRulerview.delegate = self;
+            [self.view addSubview:_ageRulerview];
+        } else if (label.tag == 201) {
+            label.backgroundColor = [UIColor honeydew];
+            _heightLabel = label;
+            _heightRulerview = [[ZHRulerView alloc] initWithMixNuber:100 maxNuber:250 showType:rulerViewshowHorizontalType rulerMultiple:1];
+            _heightRulerview.frame = CGRectMake(5, 250, rulerViewWidth, 50);
+            _heightRulerview.backgroundColor = [UIColor honeydew];
+            _heightRulerview.defaultVaule = 170;
+            _heightRulerview.tag = 211;
+            _heightRulerview.delegate = self;
+            [self.view addSubview:_heightRulerview];
+        } else {
+            label.backgroundColor = [UIColor LemonChiffon];
+            _weightLabel = label;
+            _weightRulerview = [[ZHRulerView alloc] initWithMixNuber:30 maxNuber:200 showType:rulerViewshowHorizontalType rulerMultiple:10];
+            _weightRulerview.frame = CGRectMake(5, 380, rulerViewWidth, 50);
+            _weightRulerview.backgroundColor = [UIColor LemonChiffon];
+            _weightRulerview.defaultVaule = 50;
+            _weightRulerview.tag = 212;
+            _weightRulerview.delegate = self;
+            [self.view addSubview:_weightRulerview];
+        }
+        [self.view addSubview:label];
+    }
     for (int i = 0; i<2; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-50)*(i+0.5)/2, kScreenHeight*0.8, 50, 50)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-70)*(i+0.5)/2, kScreenHeight*0.8, 70, 70)];
         button.backgroundColor = [UIColor plumColor];
         button.tag = i+100;
+        if (button.tag == 100) {
+            [button setTitle:@"上一步" forState:UIControlStateNormal];
+        } else {
+            [button setTitle:@"下一步" forState:UIControlStateNormal];
+        }
         button.showsTouchWhenHighlighted = YES;
         [button addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
-
     }
 }
 
-#pragma mark - Tools 
+#pragma mark - rulerviewDelagete
+-(void)getRulerValue:(CGFloat)rulerValue withScrollRulerView:(ZHRulerView *)rulerView{
+    if (rulerView.tag == 210) {
+//        _ageLabel = (UILabel *)[self.view viewWithTag:200];
+        _ageLabel.text = [NSString stringWithFormat:@"年份:%i 年",(int)roundf(rulerValue)];
+    } else if (rulerView.tag == 211) {
+        _heightLabel.text = [NSString stringWithFormat:@"身高:%@ cm",[self decimalwithFormat:@"0.0" floatV:rulerValue]];
+    } else {
+        _weightLabel.text = [NSString stringWithFormat:@"体重:%@ Kg",[self decimalwithFormat:@"0.0" floatV:rulerValue]];
+    }
+
+
+}
+
+#pragma mark - 格式话小数 四舍五入类型
+- (NSString *) decimalwithFormat:(NSString *)format  floatV:(float)floatV {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setPositiveFormat:format];
+    return  [numberFormatter stringFromNumber:[NSNumber numberWithFloat:floatV]];
+}
+
+#pragma mark - Tools
 - (void)backAction {
     [self dismissViewControllerAnimated:NO completion:nil];
 }
@@ -65,15 +149,14 @@
     if (btn.tag == 100) {
         NSLog(@"上一步");
         [self dismissViewControllerAnimated:NO completion:nil];
-    }
-    else {
+    } else {
         NSLog(@"下一步");
-        
+        // 点击下一步时保存 年龄 身高 体重
+        NSDictionary *personInfo = [NSDictionary dictionaryWithObjectsAndKeys:_weightLabel.text,@"weightData",_heightLabel.text,@"heightData",_ageLabel.text,@"ageData", nil];
+        [[NSUserDefaults standardUserDefaults] setObject:personInfo forKey:PersonInfo];
+        [[NSUserDefaults standardUserDefaults] synchronize];        
         TaskViewController *vc = [[TaskViewController alloc] initWithNibName:@"TaskViewController" bundle:nil];
-//        TaskViewController *vc = [[TaskViewController alloc] init];
-//        MainTabBarController *vc = [[MainTabBarController alloc] init];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//        [self.navigationController pushViewController:vc animated:nil];
         [self presentViewController:nav animated:nil completion:nil];
     }
 }

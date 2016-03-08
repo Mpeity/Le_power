@@ -43,7 +43,6 @@ static NSString *cellId = @"cell";
     return self;
 }
 
-#warning 处理响应方法 （不会写）
 // 返回按钮 响应方法
 - (void)itemBtnAction:(UIButton *)button {
     

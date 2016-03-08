@@ -39,7 +39,8 @@
 #define WXAppID @"wx5d8a7cafde5441d1"
 #define WXAppSecret @"90fd2104acacbc2c9006ca63c4ecdf71"
 
-
+#define PersonInfo @"personInfo" // 个人身高体重出生年份数据
+#define CountData @"countData" //步数记录
 
 #define SexValue @"sexValue"  // 性别
 #define SexValueNotification @"sexValueNotification" // 性别通知

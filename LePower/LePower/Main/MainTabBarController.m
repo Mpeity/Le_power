@@ -62,9 +62,7 @@
 
 #pragma mark - CreateTabBar 创建底部的tabBar
 - (void)_createTabBarView {
-    
-    // 把原tabBar上的按钮移除
-    
+    // 把原tabBar上的按钮移除    
     for (UIView *view in self.tabBar.subviews) {
         Class class = NSClassFromString(@"UITabBarButton");
         if ([view isKindOfClass:class]) {

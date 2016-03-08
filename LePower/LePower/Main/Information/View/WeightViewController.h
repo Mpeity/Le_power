@@ -10,8 +10,7 @@
 
 @interface WeightViewController : UIViewController
 {
-    UILabel *_weightLabel; // 体重
-    
+    UILabel *_weightLabel; // 体重    
     UILabel *_BMILabel; // BMI
 }
 

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASValueTrackingSlider.h"
+
 
 @interface TaskViewController : UIViewController
 
@@ -16,6 +18,12 @@
 @property (weak, nonatomic) IBOutlet UIView *taskView;
 @property (weak, nonatomic) IBOutlet UIButton *completeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *calLabel;
-@property (weak, nonatomic) IBOutlet UISlider *countSlider;
+@property (weak, nonatomic) IBOutlet ASValueTrackingSlider *countSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *calorie;
+@property (weak, nonatomic) IBOutlet UILabel *distance;
+@property (weak, nonatomic) IBOutlet UILabel *time;
 
 @end

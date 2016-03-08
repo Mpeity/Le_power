@@ -94,10 +94,11 @@
     _weightLabel.textColor = [UIColor silverColor];
     [self.view addSubview:_weightLabel];
    
-    //BMI
+    //BMI 体质指数（BMI）=体重（kg）÷ 身高^2（m）
     _BMILabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth/2, 80, kScreenWidth/2-10, 100)];
     _BMILabel.backgroundColor = [UIColor skyBlue];
-    _BMILabel.text = @"24.6";
+//    _BMILabel.text = @"24.6";
+    _BMILabel.text = [NSString stringWithFormat:@"%@/身高",_weightLabel.text];
     _BMILabel.font = [UIFont systemFontOfSize:30];
     _BMILabel.textAlignment = NSTextAlignmentCenter;
     _BMILabel.textColor = [UIColor silverColor];

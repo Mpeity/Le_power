@@ -32,9 +32,7 @@
             
             if (i < [allKeyArray count] -1) {
                 [dataString appendString:@"&"];
-                
             }
-            
         }
         
         NSString* preString = url.query?@"&":@"?";
