@@ -45,19 +45,19 @@
     NSLog(@"%@",notification.userInfo);
     _data = [notification.userInfo objectForKey:DataChange];
     _weightLabel.text = _data;
-    [self _dataDbFunc];
+    [self _dataDbFuncWithData:_data];
 }
 
-- (void)_dataDbFunc {
+- (void)_dataDbFuncWithData:(NSString *)weightData {
     NSTimeInterval time = [[NSDate date] timeIntervalSince1970];
     long long int date = (long long int)time;
     NSLog(@"date\n%lld",date);
     NSDate *dd = [NSDate dateWithTimeIntervalSince1970:date];
     NSLog(@"dd:%@",dd);
     _index++;
-    [_dataDb createTable];
-    [_dataDb insertIndex:_index WithData:_data WithCurrentDate:dd];
-    [_dataDb queryData];
+    [_dataDb createDBWithIndex:_index WithData:weightData WithCurrentData:dd];
+//    [_dataDb insertIndex:_index WithData:weightData WithCurrentDate:dd];
+//    [_dataDb searchValues];
 }
 
 #pragma mark - 创建子视图
@@ -136,7 +136,11 @@
     [self.navigationController presentViewController:alertController animated:YES completion:nil];
 }
 
-
+//销毁通知
+- (void)dealloc {
+    //[super dealloc];  非ARC中需要调用此句
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 
 

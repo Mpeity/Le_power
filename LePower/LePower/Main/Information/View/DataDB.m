@@ -7,19 +7,109 @@
 //
 
 #import "DataDB.h"
-
+#define DANAME     @"personInfo.sqlite"
+#define NAME       @"name"
+#define AGE        @"age"
+#define ADDRESS    @"address"
+#define TABLENAME  @"PERSONINFO"
+#define WEIGHTDATA @"weightData"
+#define TIME       @"time"
 
 @implementation DataDB
 {
     sqlite3 *_pDb;
 }
 
-- (NSString *)filePath {
-    NSString *path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@",@"data.db"];
-    NSLog(@"%@",path);
-    return path;
+- (void)createDBWithIndex:(NSInteger)count WithData:(NSString *)data WithCurrentData:(NSDate *)date {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSLog(@"%@",paths);
+    NSString *dataBase_path = [[paths objectAtIndex:0] stringByAppendingPathComponent:DANAME];
+    if (sqlite3_open([dataBase_path UTF8String], &_pDb) != SQLITE_OK) {
+        sqlite3_close(_pDb);
+        NSLog(@"db open failed!");
+    }
+    else {
+        NSLog(@"db open successed!");
+//        NSString *sqlCreateTable = @"CREATE TABLE IF NOT EXISTS PERSONINFO (ID INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,age INTEGER,address TEXT)";
+        NSString *sql = @"CREATE TABLE IF NOT EXISTS PERSONINFO (ID INTEGER PRIMARY KEY AUTOINCREMENT,weightData TEXT,date TEXT)";
+//        [self execSqlWithString:sqlCreateTable];
+        [self execSqlWithString:sql];
+        [self insertIndex:count WithData:data WithCurrentDate:date];
+//        [self addData];
+        [self searchValues];
+    }
 }
 
+
+- (void)execSqlWithString:(NSString *)str{
+    char *err;
+    if (sqlite3_exec(_pDb, [str UTF8String], NULL, NULL, &err) != SQLITE_OK) {
+        sqlite3_close(_pDb);
+        NSLog(@"falied to create table----%s",err);
+    }
+    else {
+        NSLog(@"successed to create table");
+    }
+}
+
+- (void)insertIndex:(NSInteger)count WithData:(NSString *)weightData WithCurrentDate:(NSDate *)date {
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSString *strDate = [dateFormatter stringFromDate:date];
+//    const char *cDate = [strDate UTF8String]; // 时间
+//    const char *cData = [data UTF8String]; // 体重
+    
+    NSString *sql3 = [NSString stringWithFormat:@"INSERT INTO '%@' ('%@','%@') VALUES ('%@','%@')",TABLENAME,WEIGHTDATA,TIME,weightData,strDate];
+    [self execSqlWithString:sql3];
+    
+    
+//    NSString *sql1 = [NSString stringWithFormat:@"INSERT INTO '%@' ('%@','%@','%@') VALUES ('%@','%@','%@')",TABLENAME,NAME,AGE,ADDRESS,@"张三",@"15",@"辽宁抚顺市望花区丹东路西段一号"];
+//    NSString *sql2 = [NSString stringWithFormat:@"INSERT INTO '%@' ('%@','%@','%@') VALUES ('%@','%@','%@')",TABLENAME,NAME,AGE,ADDRESS,@"流川枫",@"1212212",@"中国安徽安庆岳西"];
+//    [self execSqlWithString:sql1];
+//    [self execSqlWithString:sql2];
+
+}
+
+- (void)addData {
+    NSString *sql1 = [NSString stringWithFormat:@"INSERT INTO '%@' ('%@','%@','%@') VALUES ('%@','%@','%@')",TABLENAME,NAME,AGE,ADDRESS,@"张三",@"15",@"辽宁抚顺市望花区丹东路西段一号"];
+    NSString *sql2 = [NSString stringWithFormat:@"INSERT INTO '%@' ('%@','%@','%@') VALUES ('%@','%@','%@')",TABLENAME,NAME,AGE,ADDRESS,@"流川枫",@"1212212",@"中国安徽安庆岳西"];
+    [self execSqlWithString:sql1];
+    [self execSqlWithString:sql2];
+}
+
+- (void)searchValues {
+    NSString *sqlQuery = @"SELECT * FROM PERSONINFO";
+    sqlite3_stmt *statement;
+    if (sqlite3_prepare_v2(_pDb, [sqlQuery UTF8String], -1, &statement, nil) == SQLITE_OK) {
+        while (sqlite3_step(statement) == SQLITE_ROW) {
+            char *data = (char *)sqlite3_column_text(statement, 1);
+            NSString *dataStr = [[NSString alloc] initWithUTF8String:data];
+//            int age = sqlite3_column_int(statement, 2);
+            char *date = (char *)sqlite3_column_text(statement, 3);
+            NSString *dateStr = [[NSString alloc] initWithUTF8String:date];
+            NSLog(@"data:%@ date:%@",dataStr,dateStr);
+        }
+    }
+    sqlite3_close(_pDb);
+}
+
+
+     
+
+
+
+
+
+
+
+
+//- (NSString *)filePath {
+//    NSString *path = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@",@"data.db"];
+//    NSLog(@"%@",path);
+//    return path;
+//}
+/*
 // 创建打开表
 - (void)createTable {
     NSString *filePath = [self filePath];
@@ -127,7 +217,7 @@
     sqlite3_finalize(statement);
 }
 
-
+*/
 
 
 

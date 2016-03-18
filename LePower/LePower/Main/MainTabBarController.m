@@ -26,6 +26,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // 添加在window上的view
+    [self _addView];
     
     // 创建五个viewController
     [self _createSubVc];
@@ -33,8 +35,7 @@
     // 创建底部的tabBar
     [self _createTabBarView];
     
-    // 添加在window上的view
-    [self _addView];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,17 +81,23 @@
     _selectImgView.image = [UIImage imageNamed:@""];
     [self.tabBar addSubview:_selectImgView];
     // 底部标签视图 添加5个button
-    NSArray *imageNames = @[ @"tabbar_home_highlighted@2x",
-                             @"tabbar_discover_highlighted@2x",
-                             @"tabbar_compose_background_icon_add@2x",
-                             @"tabbar_profile_highlighted@2x",
-                             @"tabbar_more_highlighted@2x"
+    NSArray *imageNames = @[ @"tabicon_home_notsel",
+                             @"tabicon_rank_notsel",
+                             @"tabicon_add_notsel",
+                             @"tabicon_discovery_notsel",
+                             @"tabicon_more_notsel"
                             ];
+    NSArray *selectedImgNames = @[@"tabicon_home_sel",
+                                  @"tabicon_rank_sel",
+                                  @"tabicon_add_sel",
+                                  @"tabicon_discovery_sel",
+                                  @"tabicon_more_sel"];
     
     CGFloat kItemWidth = kScreenWidth/5.0;
     for (int i = 0; i<imageNames.count; i++) {
-        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i*kItemWidth, 0, kItemWidth, 49)];
+        UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i*kItemWidth+(kItemWidth-40)/2, 4.5, 40, 40)];
         [button setImage:[UIImage imageNamed:imageNames[i]] forState:UIControlStateNormal];
+//        [button setImage:[UIImage imageNamed:selectedImgNames[i]] forState:UIControlStateSelected];
         button.tag = i;
         [button addTarget:self action:@selector(selectBtnAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.tabBar addSubview:button];
@@ -143,6 +150,9 @@
 
 #pragma mark - tabBar 上的 button 响应方法
 - (void)selectBtnAction:(UIButton *)button {
+    button.selected = !button.selected;
+    if (button.tag == 0 && button.selected) {
+    }
     self.selectedIndex = button.tag;
     [UIView animateWithDuration:0.2 animations:^{
         _selectImgView.center = button.center;

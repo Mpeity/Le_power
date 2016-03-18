@@ -1345,7 +1345,10 @@
 		12AAED111C3FA0120042FD78 /* *28.png in Resources */ = {isa = PBXBuildFile; fileRef = 12AAED101C3FA0120042FD78 /* *28.png */; };
 		12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */; };
 		12AAED151C3FC0AC0042FD78 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */; };
+		12B16A741C900A87004F819F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B16A731C900A87004F819F /* CoreTelephony.framework */; };
+		12C4C36F1C8EC65000E817FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C4C36E1C8EC65000E817FF /* MapKit.framework */; };
 		12E1CF781C48FA3200FBB23C /* homePage.png in Resources */ = {isa = PBXBuildFile; fileRef = 12E1CF771C48FA3200FBB23C /* homePage.png */; };
+		12E2A0591C924FA6003AD193 /* GuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E2A0581C924FA6003AD193 /* GuideView.m */; };
 		12E784C41C7AF33400A2141C /* ActivityTypeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 12E784721C7AF33300A2141C /* ActivityTypeList.plist */; };
 		12E784C51C7AF33400A2141C /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E784751C7AF33400A2141C /* AFHTTPRequestOperation.m */; };
 		12E784C61C7AF33400A2141C /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E784771C7AF33400A2141C /* AFHTTPRequestOperationManager.m */; };
@@ -2791,7 +2794,11 @@
 		12AAED101C3FA0120042FD78 /* *28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "*28.png"; sourceTree = "<group>"; };
 		12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		12B16A731C900A87004F819F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		12C4C36E1C8EC65000E817FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		12E1CF771C48FA3200FBB23C /* homePage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homePage.png; sourceTree = "<group>"; };
+		12E2A0571C924FA6003AD193 /* GuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuideView.h; sourceTree = "<group>"; };
+		12E2A0581C924FA6003AD193 /* GuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuideView.m; sourceTree = "<group>"; };
 		12E784721C7AF33300A2141C /* ActivityTypeList.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = ActivityTypeList.plist; sourceTree = "<group>"; };
 		12E784741C7AF33400A2141C /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		12E784751C7AF33400A2141C /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
@@ -2887,6 +2894,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B16A741C900A87004F819F /* CoreTelephony.framework in Frameworks */,
+				12C4C36F1C8EC65000E817FF /* MapKit.framework in Frameworks */,
 				1208C9901C7BF84A00CD5480 /* UIKit.framework in Frameworks */,
 				1208C98F1C7BF83D00CD5480 /* Foundation.framework in Frameworks */,
 				1208C98A1C7BEB3F00CD5480 /* CoreGraphics.framework in Frameworks */,
@@ -2926,6 +2935,8 @@
 		120104BB1C4C825900EF6D25 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
+				12E2A0571C924FA6003AD193 /* GuideView.h */,
+				12E2A0581C924FA6003AD193 /* GuideView.m */,
 				120104BE1C4C825900EF6D25 /* GuideViewController.h */,
 				120104BF1C4C825900EF6D25 /* GuideViewController.m */,
 				120104BC1C4C825900EF6D25 /* ChoiceViewController.h */,
@@ -4843,6 +4854,8 @@
 		A8B09553BEFF97ADCF6A1284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12B16A731C900A87004F819F /* CoreTelephony.framework */,
+				12C4C36E1C8EC65000E817FF /* MapKit.framework */,
 				1208C98D1C7BEBEE00CD5480 /* Foundation.framework */,
 				1208C98B1C7BEB5300CD5480 /* UIKit.framework */,
 				12E784F81C7B03C300A2141C /* CoreGraphics.framework */,
@@ -6342,6 +6355,7 @@
 				126E71771C3A7B2E0062C8F6 /* FuncView.m in Sources */,
 				12E784DA1C7AF33400A2141C /* SDWebImagePrefetcher.m in Sources */,
 				12E784E81C7AF33400A2141C /* ZHRulerScrollView.m in Sources */,
+				12E2A0591C924FA6003AD193 /* GuideView.m in Sources */,
 				126E716A1C3A7B2E0062C8F6 /* DateCollectionView.m in Sources */,
 				126E717F1C3A7B2E0062C8F6 /* MoreViewController.m in Sources */,
 				12E784E71C7AF33400A2141C /* UIColor+Wonderful.m in Sources */,

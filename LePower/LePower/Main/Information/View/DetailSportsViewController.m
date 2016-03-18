@@ -35,24 +35,16 @@
 
 // 自定义左侧按钮
 - (void)_createNavigationItem {
-    
     NSString *title = self.sportsModel.name;
-    
     // 自定义左侧按钮
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]
-                                  initWithTitle:title
-                                  style:UIBarButtonItemStylePlain
-                                  target:self
-                                  action:@selector(popButtonAction:)];
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(popButtonAction:)];
     // 设置导航栏右侧按钮
     self.navigationItem.leftBarButtonItem = leftItem;
 }
 
 //  左边按钮 响应方法
 - (void)popButtonAction:(UIButton *)button {
-    
     [self.navigationController popViewControllerAnimated:YES];
-
 }
 
 #pragma mark - 创建子视图
@@ -133,13 +125,11 @@
 
 // 取消按钮
 - (void)deletionBtnAction:(UIButton *)button {
-    
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 // 确定按钮 (可以用HUD试一下)
 - (void)completionBtnAction:(UIButton *)button {
-    
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"活动添加成功" message:nil delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [alertView show];
 }

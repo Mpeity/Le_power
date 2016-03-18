@@ -11,6 +11,7 @@
 #import "WeightViewController.h"
 #import "RunningViewController.h"
 #import "Commen.h"
+#import "MainTabBarController.h"
 
 @implementation FuncView
 
@@ -37,19 +38,19 @@
     [self addSubview:clearButton];
     
     // 创建sportButton
-    _sportButton= [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth/3-50)/2, 600, 50, 50)];
+    _sportButton= [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth/3-50)/2, self.height+40, 50, 50)];
 //    _sportButton.backgroundColor = [UIColor redColor];
     [_sportButton setImage:[UIImage imageNamed:@"sports"] forState:UIControlStateNormal];
     [_sportButton addTarget:self action:@selector(sportBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     // 创建runButton
-    _runButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth/3+(kScreenWidth/3-50)/2, 600, 50, 50)];
+    _runButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth/3+(kScreenWidth/3-50)/2, self.height+40, 50, 50)];
 //    _runButton.backgroundColor = [UIColor greenColor];
     [_runButton setImage:[UIImage imageNamed:@"run"] forState:UIControlStateNormal];
     [_runButton addTarget:self action:@selector(runBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     
     // 创建weightButton
-    _weightButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth/3*2+(kScreenWidth/3-50)/2, 600, 50, 50)];
+    _weightButton = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth/3*2+(kScreenWidth/3-50)/2, self.height+40, 50, 50)];
 //    _weightButton.backgroundColor = [UIColor purpleColor];
     [_weightButton setImage:[UIImage imageNamed:@"weight"] forState:UIControlStateNormal];
     [_weightButton addTarget:self action:@selector(weightBtnAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -81,9 +82,13 @@
     CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
     
     // 02 设置 关键值
-    NSValue *value1 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,600)];
-    NSValue *value2 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,450)];
-    NSValue *value3 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,500)];
+//    NSValue *value1 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,700)];
+//    NSValue *value2 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,550)];
+//    NSValue *value3 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,600)];
+    
+    NSValue *value1 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,self.height+40)];
+    NSValue *value2 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,self.height-187)];
+    NSValue *value3 = [NSValue valueWithCGPoint:CGPointMake(view.frame.origin.x - 25,self.height-137)];
     
     // 03 设置animation 的属性
     animation.values = @[value1,value2,value3];
@@ -93,15 +98,18 @@
     
     // 04 把animation添加到layer中
     [view.layer addAnimation:animation forKey:nil];
-    
 }
 
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
-    _sportButton.frame = CGRectMake((kScreenWidth/3-50)/2, 500, 50, 50);
-    _runButton.frame = CGRectMake(kScreenWidth/3+(kScreenWidth/3-50)/2, 500, 50, 50);
-    _weightButton.frame = CGRectMake(kScreenWidth/3*2+(kScreenWidth/3-50)/2, 500, 50, 50);
+//    _sportButton.frame = CGRectMake((kScreenWidth/3-50)/2, 600, 50, 50);
+//    _runButton.frame = CGRectMake(kScreenWidth/3+(kScreenWidth/3-50)/2, 600, 50, 50);
+//    _weightButton.frame = CGRectMake(kScreenWidth/3*2+(kScreenWidth/3-50)/2, 600, 50, 50);
+ 
+    // 适配
+    _sportButton.frame = CGRectMake((kScreenWidth/3-50)/2, self.height-137, 50, 50);
+    _runButton.frame = CGRectMake(kScreenWidth/3+(kScreenWidth/3-50)/2, self.height-137, 50, 50);
+    _weightButton.frame = CGRectMake(kScreenWidth/3*2+(kScreenWidth/3-50)/2, self.height -137, 50, 50);
 }
 
 
@@ -114,8 +122,24 @@
     self.hidden = YES;
     SportsViewController *vc = [[SportsViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    MainTabBarController *vca = [[MainTabBarController alloc] init];
     
+//    UIResponder *next = self.nextResponder;
+//    while (next != nil) {
+//        if ([next isKindOfClass:[UIWindow class]]) {
+//            //沿着响应者链可以找到vc
+//            UIWindow *vc = (UIWindow *)next;
+//            [vc.rootViewController presentViewController:nav animated:NO completion:nil];
+//            return;
+//        }
+//        next = next.nextResponder;
+//    }
+//    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
+
+//    [vca presentViewController:nav animated:NO completion:nil];
+    
+//    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:nav animated:NO completion:nil];
+    NSLog(@"%@",[UIApplication sharedApplication].windows);
 }
 
 // runButton 开始跑步
@@ -124,7 +148,7 @@
     self.hidden = YES;
     RunningViewController *vc = [[RunningViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
     
 }
 
@@ -134,14 +158,13 @@
     self.hidden = YES;
     WeightViewController *vc = [[WeightViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
 }
 
 
 
 // 点击clearButton 从window上移除阴影部分
-- (void)buttonAction:(UIButton *)button {
-    
+- (void)buttonAction:(UIButton *)button {    
     [self removeFromSuperview];
 }
 

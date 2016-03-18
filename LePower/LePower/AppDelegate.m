@@ -12,6 +12,7 @@
 #import "Commen.h"
 #import "GuideViewController.h"
 #import "DataServer.h"
+#import "GuideView.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +29,7 @@
     [self.window makeKeyAndVisible];
 //   self.window.rootViewController = [[MainTabBarController alloc] init];
     
-    self.window.rootViewController = [[GuideViewController alloc] init];
+//    self.window.rootViewController = [[GuideViewController alloc] init];
     
     /**
      *  思路一(1)判断 沙盒有没有某个文件a
@@ -42,18 +43,20 @@
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
     NSNumber *number = [dic objectForKey:@"notFirst"];
     notFirst = [number boolValue];
-    
-//    if (!notFirst) {//第一次
-//        NSDictionary *dic = @{@"notFirst":@YES};
-//        [dic writeToFile:filePath atomically:YES];
-//        GuideViewController *vc = [[GuideViewController alloc] init];
-//        [self.window setRootViewController:vc];
-//        //创建某个文件a
-//        
-//    }else{
-//        MainTabBarController *vc = [[MainTabBarController alloc] init];
-//        [self.window setRootViewController:vc];
-//    }
+    if (!notFirst) {//第一次
+        NSDictionary *dic = @{@"notFirst":@YES};
+        [dic writeToFile:filePath atomically:YES];
+        
+//        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//        [self.window addSubview:guideView];
+        GuideViewController *vc = [[GuideViewController alloc] init];
+        [self.window setRootViewController:vc];
+        //创建某个文件a
+        
+    }else{
+        MainTabBarController *vc = [[MainTabBarController alloc] init];
+        [self.window setRootViewController:vc];
+    }
     
 //    // 向微信注册
 //    [WXApi registerApp:WXAppID];

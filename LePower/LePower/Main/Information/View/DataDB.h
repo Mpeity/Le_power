@@ -11,8 +11,15 @@
 
 @interface DataDB : NSObject
 
-- (void)createTable;
+//- (void)createTable;
+
+- (void)createDB;
+
+- (void)createDBWithIndex:(NSInteger)count WithData:(NSString *)data WithCurrentData:(NSDate *)date;
 - (void)insertIndex:(NSInteger)count WithData:(NSString *)data WithCurrentDate:(NSDate *)date;
-- (void)queryData;
+
+- (void)searchValues;
+
+//- (void)queryData;
 
 @end
