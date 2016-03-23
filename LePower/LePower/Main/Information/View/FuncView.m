@@ -122,7 +122,7 @@
     self.hidden = YES;
     SportsViewController *vc = [[SportsViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    MainTabBarController *vca = [[MainTabBarController alloc] init];
+//    MainTabBarController *vca = [[MainTabBarController alloc] init];
     
 //    UIResponder *next = self.nextResponder;
 //    while (next != nil) {
