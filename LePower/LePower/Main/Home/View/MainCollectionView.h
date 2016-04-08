@@ -11,7 +11,9 @@
 
 
 @interface MainCollectionView : UICollectionView<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource>
-
+{
+    NSInteger count;
+}
 
 
 @end

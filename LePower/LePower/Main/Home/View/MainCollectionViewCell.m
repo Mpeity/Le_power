@@ -76,8 +76,12 @@
     
 //    self.targetValueLabel.attributedText = showedTargetString;
     
-    self.targetValueLabel.text = [NSString stringWithFormat:@"%ld  step",_target];
-    self.completedValueLabel.text = [NSString stringWithFormat:@"%ld  step",_completed];
+ 
+    self.targetValueLabel.text = [NSString stringWithFormat:@"%ld步",_target];
+    self.completedValueLabel.text = [NSString stringWithFormat:@"%ld步",_completed];
+    self.targetValueLabel.font = [UIFont systemFontOfSize:30];
+    self.completedValueLabel.font = [UIFont systemFontOfSize:30];
+
     
  
 //    self.progressView.progress = progress;

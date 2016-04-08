@@ -34,14 +34,12 @@ static NSString *cellId = @"cell";
     // Dispose of any resources that can be recreated.
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    
-    if (self = [super initWithCoder:aDecoder]) {
-        
-    }
-    
-    return self;
-}
+//- (instancetype)initWithCoder:(NSCoder *)aDecoder {    
+//    if (self = [super initWithCoder:aDecoder]) {
+//        
+//    }
+//    return self;
+//}
 
 // 返回按钮 响应方法
 - (void)itemBtnAction:(UIButton *)button {
@@ -62,13 +60,10 @@ static NSString *cellId = @"cell";
     // 创建 CollectionView
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
-    layout.itemSize = CGSizeMake((kScreenWidth-20)/5,(kScreenWidth)/5);
+    layout.minimumInteritemSpacing = 10;
+    layout.minimumLineSpacing = 10;
+    layout.itemSize = CGSizeMake((kScreenWidth-40)/4,(kScreenWidth-40)/4+10);
     layout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    
-//    layout.minimumInteritemSpacing = 10;
-//    
-//    layout.minimumLineSpacing = 10;
-    
     _collectionView.backgroundColor = [UIColor clearColor];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -77,7 +72,6 @@ static NSString *cellId = @"cell";
     UINib *nib = [UINib nibWithNibName:@"SportsCollectionViewCell" bundle:[NSBundle mainBundle]];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:cellId];
     [self.view addSubview:_collectionView];
-    
 }
 
 
@@ -132,7 +126,7 @@ static NSString *cellId = @"cell";
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(5, 20, 5, 0); // top, left, bottom, right
+    return UIEdgeInsetsMake(5, 5, 5, 5); // top, left, bottom, right
 }
 
 

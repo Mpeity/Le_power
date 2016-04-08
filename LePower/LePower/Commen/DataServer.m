@@ -11,6 +11,18 @@
 #define weatherAPIKey @"02e39a6cc76cd891fea44fe0ccf6aa85"
 
 @implementation DataServer
+
+
+#pragma mark - 格式话小数 四舍五入类型
++ (NSString *) decimalwithFormat:(NSString *)format  floatV:(float)floatV {
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setPositiveFormat:format];
+    return  [numberFormatter stringFromNumber:[NSNumber numberWithFloat:floatV]];
+}
+
+
+
+
 + (void)requestWithFullUrlString:(NSString *)urlString    //url
                           params:(NSDictionary *)params  //requestBody
                           method:(NSString *)method     //方法

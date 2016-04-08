@@ -28,7 +28,8 @@
     [super layoutSubviews];
     self.nameLabel.text = self.sportsModel.name;
     self.iconImgView.image = [UIImage imageNamed:self.sportsModel.icon];
-    NSLog(@"%@",self.iconImgView.image);
+    self.nameLabel.textAlignment = NSTextAlignmentCenter;
+    self.nameLabel.numberOfLines = 0;
 }
 
 

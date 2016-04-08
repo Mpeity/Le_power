@@ -3,3 +3,4 @@ pod 'AMap3DMap', '~> 3.2.1'
 pod 'AMapSearch', '~> 3.1.0'
 pod 'WeixinSDK', '~> 1.4.3'
 pod 'ASValueTrackingSlider'
+pod 'AMapLocation' #定位SDK

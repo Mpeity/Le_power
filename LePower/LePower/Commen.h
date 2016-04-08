@@ -43,6 +43,7 @@
 #define CountData @"countData" //步数记录
 
 #define SexValue @"sexValue"  // 性别
+
 #define SexValueNotification @"sexValueNotification" // 性别通知
 #define WeightValue @"weightValue" // 体重
 #define WeightValueNotification @"weightValueNotification" // 体重通知

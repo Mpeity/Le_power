@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B5F9EF8BB589E0205DAF5F181BB165C /* ASValueTrackingSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = D0FA2313F734CEC781FAD42ADF78D28F /* ASValueTrackingSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B5F9EF8BB589E0205DAF5F181BB165C /* ASValueTrackingSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DC354E2098643F2C4E56CDDB393F27B /* ASValueTrackingSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1D1022DA7FA97D5536855F9B05404910 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
 		22A393841845511B54734AE12473F4FB /* Pods-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */; };
-		6917B8193A16214E0F8E759BA9060811 /* ASValuePopUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = 180BFDF2056F19CBCDAE53741704052F /* ASValuePopUpView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		757975BA0B845727ACCEA262BB5650DA /* ASValueTrackingSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A343E51842C088ED5DC5142807DCEAC4 /* ASValueTrackingSlider-dummy.m */; };
+		6917B8193A16214E0F8E759BA9060811 /* ASValuePopUpView.h in Headers */ = {isa = PBXBuildFile; fileRef = B37720F9B4F6085B6359EA57B7C8363B /* ASValuePopUpView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		757975BA0B845727ACCEA262BB5650DA /* ASValueTrackingSlider-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 347739F2C80C2C78D1469EDA93BF2A57 /* ASValueTrackingSlider-dummy.m */; };
 		A45314C015D7B993F79ABEF9EF6DDDF9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */; };
-		AC02CC6A262EE1E7B2C2E1FFA9030B20 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3B0A2E32214CCCF91A3DC09833C81D /* ASValueTrackingSlider.m */; };
-		EE9CD8C2C9119458A92374B1C138C53D /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C6EC4579EFD3B4779B0E5AA60DCE141 /* ASValuePopUpView.m */; };
+		AC02CC6A262EE1E7B2C2E1FFA9030B20 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = EAB7AB319E199B8D69BE1C2F5E9EA442 /* ASValueTrackingSlider.m */; };
+		EE9CD8C2C9119458A92374B1C138C53D /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6770D4F732D3CB4ED6DADACB7FF22945 /* ASValuePopUpView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,30 +28,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0E22A5D04CEF892B7EB8F8C8054BD63D /* AMapLocationKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapLocationKit.framework; sourceTree = "<group>"; };
 		10834806BD7B412BC24F347361FA2C8E /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
-		180BFDF2056F19CBCDAE53741704052F /* ASValuePopUpView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValuePopUpView.h; path = ASValueTrackingSlider/ASValuePopUpView.h; sourceTree = "<group>"; };
+		112A198909B6AA9304561B0FBBA4FFB5 /* AMap.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/Versions/3.2.1.94eef6d.752/Resources/AMap.bundle; sourceTree = "<group>"; };
+		13B65F2644A43D00EB3951164ECDAA77 /* ASValueTrackingSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASValueTrackingSlider.xcconfig; sourceTree = "<group>"; };
+		147DFF8389B729267CB8918E1DC25B90 /* libWeChatSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChatSDK_1.4.3/libWeChatSDK.a; sourceTree = "<group>"; };
+		1DE96730CDBF78A561E59E0AEF75DD95 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
 		272643F56613CA0D336AE3DBF19DC404 /* Pods-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
-		2C6EC4579EFD3B4779B0E5AA60DCE141 /* ASValuePopUpView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValuePopUpView.m; path = ASValueTrackingSlider/ASValuePopUpView.m; sourceTree = "<group>"; };
+		347739F2C80C2C78D1469EDA93BF2A57 /* ASValueTrackingSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASValueTrackingSlider-dummy.m"; sourceTree = "<group>"; };
 		37DB56D75062CC75FCB0966E1C6E8A8E /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
 		3E4E89230EF59BC255123B67864ACF77 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.debug.xcconfig; sourceTree = "<group>"; };
+		6770D4F732D3CB4ED6DADACB7FF22945 /* ASValuePopUpView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValuePopUpView.m; path = ASValueTrackingSlider/ASValuePopUpView.m; sourceTree = "<group>"; };
 		6911BECA35E7518D864239B7E898EEF3 /* Pods-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-frameworks.sh"; sourceTree = "<group>"; };
-		76894EB84F9BBC1B31FAFA7C13C714E6 /* MAMapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MAMapKit.framework; sourceTree = "<group>"; };
-		77D963588D3C1FC5FD99EFF7ACD4102F /* libWeChatSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeChatSDK.a; path = WeChatSDK_1.4.3/libWeChatSDK.a; sourceTree = "<group>"; };
-		927A232ED96E09B4D99657012821674B /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = WeChatSDK_1.4.3/WXApiObject.h; sourceTree = "<group>"; };
+		7A1D15B0DCBDF37AF5956A2324CD429C /* WXApiObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApiObject.h; path = WeChatSDK_1.4.3/WXApiObject.h; sourceTree = "<group>"; };
+		7DC354E2098643F2C4E56CDDB393F27B /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValueTrackingSlider.h; path = ASValueTrackingSlider/ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		8EB4EBA7587F4285A5B83CE232FA4907 /* ASValueTrackingSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASValueTrackingSlider-prefix.pch"; sourceTree = "<group>"; };
 		98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
+		A119A3523E2D92F7FBDCAC7FE654EFCD /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
 		A1A36D34413696BE466E2CA0AFF194DA /* Pods-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
-		A343E51842C088ED5DC5142807DCEAC4 /* ASValueTrackingSlider-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "ASValueTrackingSlider-dummy.m"; sourceTree = "<group>"; };
-		AC0A3403B803216C122BB6B185A9AF8A /* AMapSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AMapSearchKit.framework; sourceTree = "<group>"; };
+		B37720F9B4F6085B6359EA57B7C8363B /* ASValuePopUpView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValuePopUpView.h; path = ASValueTrackingSlider/ASValuePopUpView.h; sourceTree = "<group>"; };
 		B4189FB7FB371A12B93F0325CA45C77C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B442854BCD8C7BC4B825D83E0A52A25F /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = WeChatSDK_1.4.3/WXApi.h; sourceTree = "<group>"; };
-		B59F8CAA9657993E95AF07199EB0792F /* ASValueTrackingSlider.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ASValueTrackingSlider.xcconfig; sourceTree = "<group>"; };
-		B5E9C92F4646893B20CD7E775353BA58 /* ASValueTrackingSlider-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ASValueTrackingSlider-prefix.pch"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D0FA2313F734CEC781FAD42ADF78D28F /* ASValueTrackingSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ASValueTrackingSlider.h; path = ASValueTrackingSlider/ASValueTrackingSlider.h; sourceTree = "<group>"; };
+		D80ED74C9FFCE212350F78E91234D2A0 /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = WeChatSDK_1.4.3/WXApi.h; sourceTree = "<group>"; };
 		D830DAF7BD9172EF25086A40D7B3725A /* libASValueTrackingSlider.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libASValueTrackingSlider.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA658BD172CA1A224C3F82151F8E48CD /* AMap.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AMap.bundle; path = MAMapKit.framework/Versions/3.2.1.94eef6d.752/Resources/AMap.bundle; sourceTree = "<group>"; };
-		FE3B0A2E32214CCCF91A3DC09833C81D /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValueTrackingSlider.m; path = ASValueTrackingSlider/ASValueTrackingSlider.m; sourceTree = "<group>"; };
+		EAB7AB319E199B8D69BE1C2F5E9EA442 /* ASValueTrackingSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ASValueTrackingSlider.m; path = ASValueTrackingSlider/ASValueTrackingSlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,12 +83,16 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		0D7FFA8955DBF6E3AD05BFB2CA08A3E5 /* AMapSearch */ = {
+		0AA10E72C3573892C9C0F46756EE8843 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				57EF6E0D0C4DC20FD6D48219D3DC6DB2 /* Frameworks */,
+				2C5C693F6ED56699EEF2DA7C764A165F /* AMap3DMap */,
+				6FEB8682EC7774DDC40A50821622A8F5 /* AMapLocation */,
+				73D6B52A0B969E260D75E81CFC96481F /* AMapSearch */,
+				39742C4DF8A2BBE65365F22EFAF8712D /* ASValueTrackingSlider */,
+				712AA232D93E367FF8A36386BED9169D /* WeixinSDK */,
 			);
-			path = AMapSearch;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		1272F6389B0F5C371FE47794974AB2A9 /* Products */ = {
@@ -99,69 +104,67 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		34A833C0B087AA58F33D82F629E1D28A /* WeixinSDK */ = {
+		12D981962ECAAF7EC6568A4BE6187F4E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B442854BCD8C7BC4B825D83E0A52A25F /* WXApi.h */,
-				927A232ED96E09B4D99657012821674B /* WXApiObject.h */,
-				6A2212FC06AC90AFADEF45F46CA218AC /* Frameworks */,
+				0E22A5D04CEF892B7EB8F8C8054BD63D /* AMapLocationKit.framework */,
 			);
-			path = WeixinSDK;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		391DB7A0977CE434A4DFA1E9F040B311 /* Support Files */ = {
+		2C5C693F6ED56699EEF2DA7C764A165F /* AMap3DMap */ = {
 			isa = PBXGroup;
 			children = (
-				B59F8CAA9657993E95AF07199EB0792F /* ASValueTrackingSlider.xcconfig */,
-				A343E51842C088ED5DC5142807DCEAC4 /* ASValueTrackingSlider-dummy.m */,
-				B5E9C92F4646893B20CD7E775353BA58 /* ASValueTrackingSlider-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/ASValueTrackingSlider";
-			sourceTree = "<group>";
-		};
-		50E7BBF1A32E1F1E6664E1BF8758685A /* AMap3DMap */ = {
-			isa = PBXGroup;
-			children = (
-				BA7B425149DB162817FD86EDFDF44192 /* Frameworks */,
-				7C91BA66C940B276588C8A07B8ECC975 /* Resources */,
+				6AC69C68099C3A34BC692151B0DFF17E /* Frameworks */,
+				ADF5183D83D2A5FA1DDB659845E0F025 /* Resources */,
 			);
 			path = AMap3DMap;
 			sourceTree = "<group>";
 		};
-		57EF6E0D0C4DC20FD6D48219D3DC6DB2 /* Frameworks */ = {
+		39742C4DF8A2BBE65365F22EFAF8712D /* ASValueTrackingSlider */ = {
 			isa = PBXGroup;
 			children = (
-				AC0A3403B803216C122BB6B185A9AF8A /* AMapSearchKit.framework */,
+				B37720F9B4F6085B6359EA57B7C8363B /* ASValuePopUpView.h */,
+				6770D4F732D3CB4ED6DADACB7FF22945 /* ASValuePopUpView.m */,
+				7DC354E2098643F2C4E56CDDB393F27B /* ASValueTrackingSlider.h */,
+				EAB7AB319E199B8D69BE1C2F5E9EA442 /* ASValueTrackingSlider.m */,
+				B67FF1DC778CE95F3B68B29C1E7C0B55 /* Support Files */,
+			);
+			path = ASValueTrackingSlider;
+			sourceTree = "<group>";
+		};
+		6AC69C68099C3A34BC692151B0DFF17E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DE96730CDBF78A561E59E0AEF75DD95 /* MAMapKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5CB329A133C94009661402D52A7835D1 /* Pods */ = {
+		6FEB8682EC7774DDC40A50821622A8F5 /* AMapLocation */ = {
 			isa = PBXGroup;
 			children = (
-				50E7BBF1A32E1F1E6664E1BF8758685A /* AMap3DMap */,
-				0D7FFA8955DBF6E3AD05BFB2CA08A3E5 /* AMapSearch */,
-				E8508A507FD2ECFD01481AC03B4F7E0D /* ASValueTrackingSlider */,
-				34A833C0B087AA58F33D82F629E1D28A /* WeixinSDK */,
+				12D981962ECAAF7EC6568A4BE6187F4E /* Frameworks */,
 			);
-			name = Pods;
+			path = AMapLocation;
 			sourceTree = "<group>";
 		};
-		6A2212FC06AC90AFADEF45F46CA218AC /* Frameworks */ = {
+		712AA232D93E367FF8A36386BED9169D /* WeixinSDK */ = {
 			isa = PBXGroup;
 			children = (
-				77D963588D3C1FC5FD99EFF7ACD4102F /* libWeChatSDK.a */,
+				D80ED74C9FFCE212350F78E91234D2A0 /* WXApi.h */,
+				7A1D15B0DCBDF37AF5956A2324CD429C /* WXApiObject.h */,
+				E6AE58B4551D9E01F260058808E19D47 /* Frameworks */,
 			);
-			name = Frameworks;
+			path = WeixinSDK;
 			sourceTree = "<group>";
 		};
-		7C91BA66C940B276588C8A07B8ECC975 /* Resources */ = {
+		73D6B52A0B969E260D75E81CFC96481F /* AMapSearch */ = {
 			isa = PBXGroup;
 			children = (
-				EA658BD172CA1A224C3F82151F8E48CD /* AMap.bundle */,
+				D230008DDBE3D1C38D2B063996AE2E41 /* Frameworks */,
 			);
-			name = Resources;
+			path = AMapSearch;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -169,10 +172,18 @@
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				5CB329A133C94009661402D52A7835D1 /* Pods */,
+				0AA10E72C3573892C9C0F46756EE8843 /* Pods */,
 				1272F6389B0F5C371FE47794974AB2A9 /* Products */,
 				037C0CA694176A3C0915F62C9D20B3E6 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		ADF5183D83D2A5FA1DDB659845E0F025 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				112A198909B6AA9304561B0FBBA4FFB5 /* AMap.bundle */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		B3D1D13E0C6553800746CB8FD61CF946 /* Pods */ = {
@@ -190,12 +201,15 @@
 			path = "Target Support Files/Pods";
 			sourceTree = "<group>";
 		};
-		BA7B425149DB162817FD86EDFDF44192 /* Frameworks */ = {
+		B67FF1DC778CE95F3B68B29C1E7C0B55 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				76894EB84F9BBC1B31FAFA7C13C714E6 /* MAMapKit.framework */,
+				13B65F2644A43D00EB3951164ECDAA77 /* ASValueTrackingSlider.xcconfig */,
+				347739F2C80C2C78D1469EDA93BF2A57 /* ASValueTrackingSlider-dummy.m */,
+				8EB4EBA7587F4285A5B83CE232FA4907 /* ASValueTrackingSlider-prefix.pch */,
 			);
-			name = Frameworks;
+			name = "Support Files";
+			path = "../Target Support Files/ASValueTrackingSlider";
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -214,16 +228,20 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		E8508A507FD2ECFD01481AC03B4F7E0D /* ASValueTrackingSlider */ = {
+		D230008DDBE3D1C38D2B063996AE2E41 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				180BFDF2056F19CBCDAE53741704052F /* ASValuePopUpView.h */,
-				2C6EC4579EFD3B4779B0E5AA60DCE141 /* ASValuePopUpView.m */,
-				D0FA2313F734CEC781FAD42ADF78D28F /* ASValueTrackingSlider.h */,
-				FE3B0A2E32214CCCF91A3DC09833C81D /* ASValueTrackingSlider.m */,
-				391DB7A0977CE434A4DFA1E9F040B311 /* Support Files */,
+				A119A3523E2D92F7FBDCAC7FE654EFCD /* AMapSearchKit.framework */,
 			);
-			path = ASValueTrackingSlider;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E6AE58B4551D9E01F260058808E19D47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				147DFF8389B729267CB8918E1DC25B90 /* libWeChatSDK.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,7 +387,7 @@
 		};
 		71650A2E2FC18898515F0CFD8E464491 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B59F8CAA9657993E95AF07199EB0792F /* ASValueTrackingSlider.xcconfig */;
+			baseConfigurationReference = 13B65F2644A43D00EB3951164ECDAA77 /* ASValueTrackingSlider.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -388,7 +406,7 @@
 		};
 		AB5F9FC801C474D10FFDF4F58D95DD8F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B59F8CAA9657993E95AF07199EB0792F /* ASValueTrackingSlider.xcconfig */;
+			baseConfigurationReference = 13B65F2644A43D00EB3951164ECDAA77 /* ASValueTrackingSlider.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

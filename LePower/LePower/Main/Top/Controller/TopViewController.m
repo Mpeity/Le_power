@@ -10,9 +10,13 @@
 #import "UIColor+Wonderful.h"
 #import "WXApi.h"
 #import "Commen.h"
-
+#import "TopBgView.h"
+#import "WechatLogViewController.h"
 
 @interface TopViewController ()
+{
+    TopBgView *_topView;
+}
 
 @end
 
@@ -22,15 +26,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // 设置背景颜色
-    self.view.backgroundColor = [UIColor lightPink];
+//    self.view.backgroundColor = [UIColor lightPink];
     
     [self _createSubviews];
 }
 
 - (void)_createSubviews {
-    UIButton *clickBtn = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-100)/2, kScreenHeight*0.70, 100, 30)];
+    
+    _topView = [[TopBgView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:_topView];
+    
+    
+    UIButton *clickBtn = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-200)/2, kScreenHeight*0.75, 200, 30)];
+    clickBtn.layer.cornerRadius = 5;
+    clickBtn.layer.masksToBounds = YES;
+//    [clickBtn setBackgroundImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     clickBtn.backgroundColor = [UIColor bronzeColor];
-    [self.view addSubview:clickBtn];
+    [clickBtn setTitle:@"开始使用" forState:UIControlStateNormal];
+    [clickBtn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [_topView addSubview:clickBtn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,7 +56,8 @@
 
 // 点击按钮响应方法
 - (void)clickBtn:(UIButton *)button {
-    
+    WechatLogViewController *vc = [[WechatLogViewController alloc] init];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 /*

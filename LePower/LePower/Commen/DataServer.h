@@ -14,6 +14,10 @@ typedef void(^blockType)(id result);
 
 @interface DataServer : NSObject
 
+
++ (NSString *) decimalwithFormat:(NSString *)format  floatV:(float)floatV;
+
+
 + (void)requestWithFullUrlString:(NSString*)urlString
                           params:(NSDictionary*)params
                           method:(NSString*)method

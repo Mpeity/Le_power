@@ -85,11 +85,17 @@
     // 创建乐福利视图
     _welfareView = [[UIView alloc] initWithFrame:CGRectMake(0, _scrollView.height+30, kScreenWidth, kScreenHeight*0.20)];
     _welfareView.backgroundColor = [UIColor paleVioletRed];
+    UIImageView *welfareImgView = [[UIImageView alloc] initWithFrame:_welfareView.bounds];
+    welfareImgView.image = [UIImage imageNamed:@"le_store_bg"];
+    [_welfareView addSubview:welfareImgView];
     [self.view addSubview:_welfareView];
     
     // 创建乐活动视图
     _activityView = [[UIView alloc] initWithFrame:CGRectMake(0, _welfareView.height+_scrollView.height+40, kScreenWidth, kScreenHeight*0.20)];
     _activityView.backgroundColor = [UIColor mediumOrchid];
+    UIImageView *activityImgView = [[UIImageView alloc] initWithFrame:_activityView.bounds];
+    activityImgView.image = [UIImage imageNamed:@"le_events_bg"];
+    [_activityView addSubview:activityImgView];
     [self.view addSubview:_activityView];
     
     // 创建设置视图
@@ -97,7 +103,7 @@
     _setView.backgroundColor = [UIColor mistyRose];
     _setView.userInteractionEnabled = YES;
     _setButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, _setView.width, _setView.height)];
-    [_setButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
+//    [_setButton addTarget:self action:@selector(btnAction) forControlEvents:UIControlEventTouchUpInside];
     [_setButton setTitle:@"设置" forState:UIControlStateNormal];
     [_setButton setTitleColor:[UIColor blueViolet] forState:UIControlStateNormal];
     // 设置文字的内边距 UIEdgeInsets(上,左,下,右)

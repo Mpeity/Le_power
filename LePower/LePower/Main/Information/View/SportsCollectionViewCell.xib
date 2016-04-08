@@ -8,16 +8,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="cell" reuseIdentifier="cell" id="gTV-IL-0wX" customClass="SportsCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="90"/>
+            <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="90"/>
+                <rect key="frame" x="0.0" y="0.0" width="70" height="80"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UlK-4s-MWr">
-                        <rect key="frame" x="0.0" y="0.0" width="50" height="45"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UlK-4s-MWr">
+                        <rect key="frame" x="10" y="3" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="7A6-Ev-atC"/>
+                            <constraint firstAttribute="height" constant="50" id="Zso-6a-FaC"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="名字" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvS-KM-SQe">
-                        <rect key="frame" x="0.0" y="50" width="84" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FvS-KM-SQe">
+                        <rect key="frame" x="0.0" y="58" width="70" height="20"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -25,12 +29,28 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <size key="customSize" width="50" height="94"/>
+            <constraints>
+                <constraint firstItem="UlK-4s-MWr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2.5" id="09P-ZT-BEc"/>
+                <constraint firstAttribute="trailing" secondItem="FvS-KM-SQe" secondAttribute="trailing" id="0MF-EF-YsV"/>
+                <constraint firstItem="UlK-4s-MWr" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="47n-yk-wzk"/>
+                <constraint firstItem="FvS-KM-SQe" firstAttribute="top" secondItem="UlK-4s-MWr" secondAttribute="bottom" id="EAg-p6-Wjr"/>
+                <constraint firstItem="FvS-KM-SQe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jdE-nd-sZA"/>
+                <constraint firstAttribute="bottom" secondItem="FvS-KM-SQe" secondAttribute="bottom" constant="2.5" id="kca-ir-ueF"/>
+                <constraint firstItem="UlK-4s-MWr" firstAttribute="leading" secondItem="FvS-KM-SQe" secondAttribute="leading" id="nKf-i8-IlY"/>
+                <constraint firstItem="FvS-KM-SQe" firstAttribute="top" secondItem="UlK-4s-MWr" secondAttribute="bottom" constant="5" id="ou9-dq-PST"/>
+            </constraints>
+            <size key="customSize" width="70" height="107"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="nKf-i8-IlY"/>
+                    <exclude reference="EAg-p6-Wjr"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="iconImgView" destination="UlK-4s-MWr" id="eR2-5U-dSp"/>
                 <outlet property="nameLabel" destination="FvS-KM-SQe" id="Mj2-BS-pI6"/>
             </connections>
-            <point key="canvasLocation" x="235" y="177"/>
+            <point key="canvasLocation" x="345" y="244.5"/>
         </collectionViewCell>
     </objects>
 </document>

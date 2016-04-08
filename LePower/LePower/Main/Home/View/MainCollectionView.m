@@ -14,6 +14,12 @@ static NSString* cellId = @"MainCollectionViewCell";
 
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     
+    // 取出今日目标
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
+        NSString *countStr = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
+        count = [countStr integerValue];
+    }
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         
         self.delegate = self;
@@ -36,7 +42,7 @@ static NSString* cellId = @"MainCollectionViewCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     MainCollectionViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    
+    cell.target = count;    
     NSLog(@"%ld,item = %ld",indexPath.section,indexPath.item);
     
     

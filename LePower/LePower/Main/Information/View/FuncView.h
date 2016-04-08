@@ -10,10 +10,14 @@
 #import <QuartzCore/CALayer.h>
 
 @interface FuncView : UIView
-{
-    UIButton *_sportButton;
-    UIButton *_runButton;
-    UIButton *_weightButton;
-}
+
+
+@property (nonatomic,strong) UIButton *sportButton;
+@property (nonatomic,strong) UIButton *runButton;
+@property (nonatomic,strong) UIButton *weightButton;
+@property (nonatomic,strong) UIButton *cancelButton;
+
+
+
 
 @end

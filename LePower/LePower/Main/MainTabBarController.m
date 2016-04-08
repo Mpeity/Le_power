@@ -12,10 +12,10 @@
 #import "UIColor+Wonderful.h"
 
 
-@interface MainTabBarController ()
+@interface MainTabBarController ()<UITabBarControllerDelegate>
 {
     FuncView *_funcView; // 添加在window上的半透明视图
-
+    NSMutableArray *_items;
 }
 
 @end
@@ -25,6 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    self.delegate = self;
+    
+    _items = [[NSMutableArray alloc] init];
     
     // 添加在window上的view
     [self _addView];
@@ -77,13 +81,13 @@
     [self.tabBar addSubview:_tabBarView];
     
     // 添加背景图片 （未选好）
-    _selectImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 49)];
-    _selectImgView.image = [UIImage imageNamed:@""];
+    _selectImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth/5, 49)];
+    _selectImgView.image = [UIImage imageNamed:@"lanse.jpg"];
     [self.tabBar addSubview:_selectImgView];
     // 底部标签视图 添加5个button
     NSArray *imageNames = @[ @"tabicon_home_notsel",
                              @"tabicon_rank_notsel",
-                             @"tabicon_add_notsel",
+                             @"tab_btn_add_fake",
                              @"tabicon_discovery_notsel",
                              @"tabicon_more_notsel"
                             ];
@@ -96,6 +100,7 @@
     CGFloat kItemWidth = kScreenWidth/5.0;
     for (int i = 0; i<imageNames.count; i++) {
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(i*kItemWidth+(kItemWidth-40)/2, 4.5, 40, 40)];
+//        [button setBackgroundImage:[UIImage imageNamed:imageNames[i]] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:imageNames[i]] forState:UIControlStateNormal];
 //        [button setImage:[UIImage imageNamed:selectedImgNames[i]] forState:UIControlStateSelected];
         button.tag = i;
@@ -104,13 +109,68 @@
     }    
 }
 
+/*
+//#pragma mark - 自定义TabBar
+//- (void)_createTabBarView {
+//    NSArray *imageNames = @[ @"tabicon_home_notsel",
+//                             @"tabicon_rank_notsel",
+//                             @"tabicon_add_notsel",
+//                             @"tabicon_discovery_notsel",
+//                             @"tabicon_more_notsel"
+//                            ];
+//    NSArray *selectedImgNames = @[@"tabicon_home_sel",
+//                                  @"tabicon_rank_sel",
+//                                  @"tabicon_add_sel",
+//                                  @"tabicon_discovery_sel",
+//                                  @"tabicon_more_sel"];
+//
+////    NSArray *titles = @[@"首页",@"热门",@"分类",@"个人"];
+//    
+//    for (int i = 0; i<imageNames.count; i++) {
+//        // 可以⾃自定义title、图⽚
+//        UITabBarItem *tabBarItem = [[UITabBarItem alloc] initWithTitle:nil image:[UIImage imageNamed:imageNames[i]] tag:i];
+//        //渲染保持原图
+//        tabBarItem.selectedImage = [[UIImage imageNamed:selectedImgNames[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//        //调整image title 位置 如果同时有image和label，那这时候image的上左下是相对于button，右边是相对于label的；title的上右下是相对于button，左边是相对于image的 top left bottom right
+//        UIViewController *vc = self.viewControllers[i];
+//        vc.tabBarItem = tabBarItem;
+//
+//
+//    }
+//    
+//    self.tabBar.userInteractionEnabled = YES;
+//
+//    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((self.tabBar.width-self.tabBar.width/5)/2, 0, self.tabBar.width/5, self.tabBar.height)];
+//    button.backgroundColor = [UIColor realgarColor];
+//    [button addTarget:self action:@selector(btnAction:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.tabBar addSubview:button];
+//}
+
+//- (void)btnAction:(UIButton *)button {
+//    if (button.selected) {
+//        
+//        // 在window上添加的半透明view
+//        _funcView = [[FuncView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeight)];
+//        _funcView.hidden = NO;
+//        _funcView.backgroundColor = [UIColor lightGrayColor];
+//        _funcView.alpha = 0.6;
+//        UIWindow *window =  [UIApplication sharedApplication].keyWindow;
+//        [window addSubview:_funcView];
+//        return;
+//    } else {
+//        _funcView.hidden = YES;
+//        [_funcView removeFromSuperview];
+//        _funcView = nil;
+//    }
+//}
+ */
+
 
 #pragma mark - 添加在window上的view (第三个页面)
 - (void)_addView {
     
     // 在window上添加的半透明view
     _funcView = [[FuncView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-49)];
-    
 }
 
 
@@ -118,18 +178,15 @@
 -(void)setSelectedIndex:(NSUInteger)selectedIndex {
 
 /****** 在window上添加一个view   然后再添加小view  放三个button
- 
         在 selectedIndex == 2 的时候显示，其余时候隐藏
  */
-    
+
     if (selectedIndex == 2) {
-        
         
         // 在window上添加的半透明view
         _funcView = [[FuncView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeight)];
         _funcView.hidden = NO;
-        _funcView.backgroundColor = [UIColor lightGrayColor];
-        _funcView.alpha = 0.6;
+        _funcView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.8];
         UIWindow *window =  [UIApplication sharedApplication].keyWindow;
         [window addSubview:_funcView];
         
@@ -137,15 +194,12 @@
 //        UIButton *button = (UIButton *)[self.view viewWithTag:2];
 //        button.hidden = YES;
         return;
-    }
-    else {
-
+    } else {
         _funcView.hidden = YES;
         [_funcView removeFromSuperview];
         _funcView = nil;
     }
     [super setSelectedIndex:selectedIndex];
-    
 }
 
 #pragma mark - tabBar 上的 button 响应方法
@@ -155,6 +209,11 @@
     }
     self.selectedIndex = button.tag;
     [UIView animateWithDuration:0.2 animations:^{
+        if (button.tag == 2) {
+            _selectImgView.hidden = YES;
+        } else {
+            _selectImgView.hidden = NO;
+        }
         _selectImgView.center = button.center;
     }];
 }

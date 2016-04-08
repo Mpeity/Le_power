@@ -11,7 +11,18 @@
 @implementation UserCell
 
 - (void)awakeFromNib {
+    
+    self.layer.borderWidth = 1.0;
+    self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    self.targetInform.textAlignment = NSTextAlignmentCenter;
+    self.target.textAlignment = NSTextAlignmentCenter;
+    self.nextTarget.textAlignment = NSTextAlignmentCenter;
+    self.nextTarget.textColor = [UIColor lightGrayColor];
 }
 
 @end

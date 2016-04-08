@@ -1,17 +1,20 @@
 PODS:
   - AMap3DMap (3.2.1)
+  - AMapLocation (1.0.1)
   - AMapSearch (3.1.0)
   - ASValueTrackingSlider (0.11.2)
   - WeixinSDK (1.4.3)
 
 DEPENDENCIES:
   - AMap3DMap (~> 3.2.1)
+  - AMapLocation
   - AMapSearch (~> 3.1.0)
   - ASValueTrackingSlider
   - WeixinSDK (~> 1.4.3)
 
 SPEC CHECKSUMS:
   AMap3DMap: 1f179c4fc41a60e42243466eb188e3be946aa163
+  AMapLocation: d33782bd102563aae1824cb4fae8b4495376f016
   AMapSearch: aa7621ae8aec9cb8df116710b26e3fe3d09dc0ff
   ASValueTrackingSlider: 45c9f78252da60de01d8f2afe869aaf90dd978d9
   WeixinSDK: 012c72fbaf8cef68afa7b0d0bb81c67a7a5c9136

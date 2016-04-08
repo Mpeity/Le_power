@@ -23,6 +23,11 @@
     UILabel *_heightLabel; // 记录身高
     UILabel *_ageLabel; // 记录年份
     NSDictionary *_personInfoDic; // 记录个人信息
+    
+    CGFloat _weightData;
+    CGFloat _ageData;
+    CGFloat _heightData;
+    
 }
 
 @end
@@ -74,6 +79,7 @@
         if (label.tag == 200) {
             label.backgroundColor = [UIColor lavender];
             _ageLabel = label;
+            _ageLabel.text = @"2000 年";
             _ageRulerview = [[ZHRulerView alloc] initWithMixNuber:1949 maxNuber:2016 showType:rulerViewshowHorizontalType rulerMultiple:1];
             _ageRulerview.frame = CGRectMake(5, 120, rulerViewWidth, 50);
             _ageRulerview.backgroundColor = [UIColor lavender];
@@ -84,6 +90,7 @@
         } else if (label.tag == 201) {
             label.backgroundColor = [UIColor honeydew];
             _heightLabel = label;
+            _heightLabel.text = @"160.0 cm";
             _heightRulerview = [[ZHRulerView alloc] initWithMixNuber:100 maxNuber:250 showType:rulerViewshowHorizontalType rulerMultiple:1];
             _heightRulerview.frame = CGRectMake(5, 250, rulerViewWidth, 50);
             _heightRulerview.backgroundColor = [UIColor honeydew];
@@ -94,6 +101,7 @@
         } else {
             label.backgroundColor = [UIColor LemonChiffon];
             _weightLabel = label;
+            _weightLabel.text = @"50.0 Kg";
             _weightRulerview = [[ZHRulerView alloc] initWithMixNuber:30 maxNuber:200 showType:rulerViewshowHorizontalType rulerMultiple:10];
             _weightRulerview.frame = CGRectMake(5, 380, rulerViewWidth, 50);
             _weightRulerview.backgroundColor = [UIColor LemonChiffon];
@@ -124,10 +132,13 @@
     if (rulerView.tag == 210) {
 //        _ageLabel = (UILabel *)[self.view viewWithTag:200];
         _ageLabel.text = [NSString stringWithFormat:@"年份:%i 年",(int)roundf(rulerValue)];
+        _ageData = (int)roundf(rulerValue);
     } else if (rulerView.tag == 211) {
         _heightLabel.text = [NSString stringWithFormat:@"身高:%@ cm",[self decimalwithFormat:@"0.0" floatV:rulerValue]];
+        _heightData = [[self decimalwithFormat:@"0.0" floatV:rulerValue] floatValue];
     } else {
         _weightLabel.text = [NSString stringWithFormat:@"体重:%@ Kg",[self decimalwithFormat:@"0.0" floatV:rulerValue]];
+        _weightData = [[self decimalwithFormat:@"0.0" floatV:rulerValue] floatValue];
     }
 
 
@@ -152,9 +163,10 @@
     } else {
         NSLog(@"下一步");
         // 点击下一步时保存 年龄 身高 体重
-        NSDictionary *personInfo = [NSDictionary dictionaryWithObjectsAndKeys:_weightLabel.text,@"weightData",_heightLabel.text,@"heightData",_ageLabel.text,@"ageData", nil];
+//        NSDictionary *personInfo = [NSDictionary dictionaryWithObjectsAndKeys:_weightLabel.text,@"weightData",_heightLabel.text,@"heightData",_ageLabel.text,@"ageData", nil];
+        NSDictionary *personInfo = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithFloat:_weightData],@"weightData",[NSNumber numberWithFloat:_heightData],@"heightData",[NSNumber numberWithFloat:_ageData],@"ageData", nil];
         [[NSUserDefaults standardUserDefaults] setObject:personInfo forKey:PersonInfo];
-        [[NSUserDefaults standardUserDefaults] synchronize];        
+        [[NSUserDefaults standardUserDefaults] synchronize];
         TaskViewController *vc = [[TaskViewController alloc] initWithNibName:@"TaskViewController" bundle:nil];
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nav animated:nil completion:nil];

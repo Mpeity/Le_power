@@ -113,6 +113,11 @@
 //    
 }
 
+// 移除通知
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 #pragma mark - UIPickerView Delegate
 

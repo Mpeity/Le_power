@@ -41,8 +41,15 @@
 - (IBAction)sliderAction:(id)sender {
     self.countSlider = (ASValueTrackingSlider *)sender;
     NSLog(@"%lf",self.countSlider.value);
-    NSString *stepCount = [NSString stringWithFormat:@"今日运动目标:%i步",(int)roundf(self.countSlider.value)];
-    self.countLabel.text = stepCount;
+    
+
+    
+//    NSString *stepCount = [NSString stringWithFormat:@"今日运动目标:%i步",(int)roundf(self.countSlider.value)];
+    NSString *countStr = [NSString stringWithFormat:@"今日运动目标:"];
+    NSString *stepCount = [NSString stringWithFormat:@"%i",(int)roundf(self.countSlider.value)];
+    NSString *str = [countStr stringByAppendingString:stepCount];
+    NSString *string = [str stringByAppendingString:@"步"];
+    self.countLabel.text = string;
     _countDataDic = [NSDictionary dictionaryWithObjectsAndKeys:stepCount,@"stepCount", nil];
     [[NSUserDefaults standardUserDefaults] setObject:_countDataDic forKey:CountData];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -63,6 +70,7 @@
     self.countLabel.textAlignment = NSTextAlignmentCenter;
     self.countLabel.font = [UIFont systemFontOfSize:28];
     self.countLabel.textColor = [UIColor beigeColor];
+    self.countLabel.text = @"今日运动目标:";
     [self.view addSubview:self.countLabel];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
