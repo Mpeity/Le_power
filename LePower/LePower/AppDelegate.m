@@ -27,7 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-//   self.window.rootViewController = [[MainTabBarController alloc] init];
+    self.window.rootViewController = [[MainTabBarController alloc] init];
     
 //    self.window.rootViewController = [[GuideViewController alloc] init];
     
@@ -47,16 +47,18 @@
         NSDictionary *dic = @{@"notFirst":@YES};
         [dic writeToFile:filePath atomically:YES];
         
-//        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //        [self.window addSubview:guideView];
-        GuideViewController *vc = [[GuideViewController alloc] init];
-        [self.window setRootViewController:vc];
+//        GuideViewController *vc = [[GuideViewController alloc] init];
+//        [self.window setRootViewController:vc];
+        [self.window.rootViewController.view addSubview:guideView];
         //创建某个文件a
         
-    }else{
-        MainTabBarController *vc = [[MainTabBarController alloc] init];
-        [self.window setRootViewController:vc];
     }
+//    else{
+//        MainTabBarController *vc = [[MainTabBarController alloc] init];
+//        [self.window setRootViewController:vc];
+//    }
     
 //    // 向微信注册
 //    [WXApi registerApp:WXAppID];

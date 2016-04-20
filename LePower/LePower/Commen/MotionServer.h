@@ -18,6 +18,10 @@ typedef void(^runType)(NSInteger step);
 @property(nonatomic,strong)NSDate* begindate;
 @property(nonatomic,assign)NSInteger nowstep;
 @property(nonatomic,copy)runType block;
+@property(nonatomic,strong) CMPedometer *stepCounter;
+
+
+@property (nonatomic,strong) CMMotionManager *motionManager;
 
 
 + (instancetype)shareMotionServer;

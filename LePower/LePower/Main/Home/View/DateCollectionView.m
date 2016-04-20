@@ -43,7 +43,7 @@ static NSString* cellId = @"DateCollectionViewCell";
     DateViewCell* cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     
     
-    cell.dateLabel.text = [NSString stringWithFormat:@"%ld",indexPath.row];
+    cell.dateLabel.text = [NSString stringWithFormat:@"%li",(long)indexPath.row];
     
     return cell;
 }

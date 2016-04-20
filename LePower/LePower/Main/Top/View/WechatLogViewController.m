@@ -89,8 +89,12 @@
 
 // 如果你的程序要发消息给微信，那么需要调用WXApi的sendReq函数： 其中req参数为SendMessageToWXReq类型
 //需要注意的是，SendMessageToWXReq的scene成员，如果scene填WXSceneSession，那么消息会发送至微信的会话内。如果scene填WXSceneTimeline，那么消息会发送至朋友圈。如果scene填WXSceneFavorite,那么消息会发送到“我的收藏”中。scene默认值为WXSceneSession。
+
+
+
 -(BOOL) sendReq:(BaseReq*)req {
 //    SendMessageToWXReq
+    NSLog(@"%@ %i",req.openID,req.type);
     return YES;
 }
 
@@ -117,12 +121,11 @@
         WXAppExtendObject *obj = msg.mediaObject;
         
         NSString *strTitle = [NSString stringWithFormat:@"微信请求App显示内容"];
-        NSString *strMsg = [NSString stringWithFormat:@"标题：%@ \n内容：%@ \n附带信息：%@ \n缩略图:%u bytes\n\n", msg.title, msg.description, obj.extInfo, msg.thumbData.length];
+        NSString *strMsg = [NSString stringWithFormat:@"标题：%@ \n内容：%@ \n附带信息：%@ \n缩略图:%lu bytes\n\n", msg.title, msg.description, obj.extInfo, (unsigned long)msg.thumbData.length];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-    }
-    else if([req isKindOfClass:[LaunchFromWXReq class]])
+    }      else if([req isKindOfClass:[LaunchFromWXReq class]])
     {
         //从微信启动App
         NSString *strTitle = [NSString stringWithFormat:@"从微信启动"];

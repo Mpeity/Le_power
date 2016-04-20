@@ -9,10 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface WeightViewController : UIViewController
-{
-    UILabel *_weightLabel; // 体重    
-    UILabel *_BMILabel; // BMI
-}
 
 
 @end

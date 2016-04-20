@@ -23,6 +23,11 @@
     // Do any additional setup after loading the view from its nib.
     self.view.backgroundColor = [UIColor soilColor];
     [self _createSubviews];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
+        self.countLabel.text = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
+    }
+    
 
 }
 
@@ -41,8 +46,6 @@
 - (IBAction)sliderAction:(id)sender {
     self.countSlider = (ASValueTrackingSlider *)sender;
     NSLog(@"%lf",self.countSlider.value);
-    
-
     
 //    NSString *stepCount = [NSString stringWithFormat:@"今日运动目标:%i步",(int)roundf(self.countSlider.value)];
     NSString *countStr = [NSString stringWithFormat:@"今日运动目标:"];
@@ -72,11 +75,7 @@
     self.countLabel.textColor = [UIColor beigeColor];
     self.countLabel.text = @"今日运动目标:";
     [self.view addSubview:self.countLabel];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
-        self.countLabel.text = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
-    }
-    
+
     // 卡路里Label
     self.calLabel.backgroundColor = [UIColor clearColor];
     self.calLabel.textAlignment = NSTextAlignmentCenter;

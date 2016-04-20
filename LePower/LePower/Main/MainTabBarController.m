@@ -52,7 +52,6 @@
 #pragma mark - CreateSubVC 从storyBoard中创建五个viewController
 
 - (void)_createSubVc {
-    
     NSArray *names = @[@"Home",@"Top",@"Run",@"Information",@"More"];
     NSMutableArray *vcArray = [[NSMutableArray alloc] init];
     for (NSString *name in names) {
@@ -61,7 +60,6 @@
         [vcArray addObject:vc];
     }
     self.viewControllers = vcArray;
-    
 }
 
 
@@ -82,7 +80,7 @@
     
     // 添加背景图片 （未选好）
     _selectImgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth/5, 49)];
-    _selectImgView.image = [UIImage imageNamed:@"lanse.jpg"];
+//    _selectImgView.image = [UIImage imageNamed:@"lanse.jpg"];
     [self.tabBar addSubview:_selectImgView];
     // 底部标签视图 添加5个button
     NSArray *imageNames = @[ @"tabicon_home_notsel",

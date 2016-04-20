@@ -25,11 +25,9 @@
 }
 
 - (void)_creatView{
-    
     _weatherLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     _weatherLabel.numberOfLines = 0;
-    [self addSubview:_weatherLabel];
-    
+    [self addSubview:_weatherLabel];    
 }
 
 - (void)layoutSubviews{

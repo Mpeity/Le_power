@@ -40,6 +40,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
+    
+
+    
     [self _createCollectionView];
     [self _createHeaderView];
     [self _createLabel];
@@ -55,9 +60,10 @@
         _targetDataLabel.text = [NSString stringWithFormat:@"%@ 步",[[defualts2 objectForKey:CountData] objectForKey:@"stepCount"]];
     }
     NSUserDefaults *defualts3 = [NSUserDefaults standardUserDefaults];
-    if ([[defualts3 objectForKey:@"BMIDic"] objectForKey:@"BMIData"]) {
-        _BMIDataLabel.text = [[defualts3 objectForKey:@"BMIDic"] objectForKey:@"BMIData"];
+    if ([defualts3 objectForKey:@"BMIData"]) {
+        _BMIDataLabel.text = [NSString stringWithFormat:@"%@",[defualts3 objectForKey:@"BMIData"]];
     }
+
 }
 
 - (void)didReceiveMemoryWarning {

@@ -16,7 +16,7 @@
 @property (nonatomic,copy) NSString *name;
 @property (nonatomic,assign) NSNumber *activityType;
 @property (nonatomic,copy) NSString *icon;
-
+@property (nonatomic,strong) NSNumber *proportion;
 
 
 @end

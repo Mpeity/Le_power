@@ -16,6 +16,10 @@
 static NSString *cellId = @"cell";
 
 @interface SportsViewController ()
+{
+    UICollectionView *_collectionView;
+    NSMutableArray *_sportsModelArray;
+}
 
 @end
 
@@ -49,14 +53,11 @@ static NSString *cellId = @"cell";
 
 - (void)_createSubviews {
     
-    // 设置返回按钮
-    UIButton *itemBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
-    [itemBtn setTitle:@"选择运动" forState:UIControlStateNormal];
-    [itemBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [itemBtn addTarget:self action:@selector(itemBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:itemBtn];
-    
-    
+    // 自定义左侧按钮 设置返回按钮
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:@"选择运动" style:UIBarButtonItemStylePlain target:self action:@selector(itemBtnAction:)];
+    // 设置导航栏右侧按钮
+    self.navigationItem.leftBarButtonItem = leftItem;
+
     // 创建 CollectionView
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
@@ -78,7 +79,6 @@ static NSString *cellId = @"cell";
 #pragma mark - LoadData  解析数据
 
 - (void)_loadData {
-
     _sportsModelArray = [[NSMutableArray alloc] init];
     NSString *file = [[NSBundle mainBundle] pathForResource:@"ActivityTypeList" ofType:@"plist"];
     NSArray *array = [[NSArray alloc] initWithContentsOfFile:file];
@@ -117,10 +117,12 @@ static NSString *cellId = @"cell";
     // 点击对应的cell push到 下一个页面
     DetailSportsViewController *vc = [[DetailSportsViewController alloc] init];
     
-    [self.navigationController pushViewController:vc animated:NO];
-    SportsModel *model = _sportsModelArray[indexPath.row];    
+//    [self.navigationController pushViewController:vc animated:NO];
+    SportsModel *model = _sportsModelArray[indexPath.row];
     // 将数据传给 DetailSportsViewController
     vc.sportsModel = model;
+    [self presentViewController:vc animated:NO completion:nil];
+
 }
 
 

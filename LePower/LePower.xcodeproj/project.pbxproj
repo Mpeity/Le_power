@@ -165,7 +165,7 @@
 		1226EF8D1C8D751200358971 /* abc_btn_switch_to_on_mtrl_00012.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD11C8D750E00358971 /* abc_btn_switch_to_on_mtrl_00012.9.png */; };
 		1226EF8E1C8D751200358971 /* abc_cab_background_top_mtrl_alpha.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD21C8D750E00358971 /* abc_cab_background_top_mtrl_alpha.9.png */; };
 		1226EF8F1C8D751200358971 /* abc_ic_ab_back_mtrl_am_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD31C8D750E00358971 /* abc_ic_ab_back_mtrl_am_alpha.png */; };
-		1226EF901C8D751200358971 /* abc_ic_clear_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD41C8D750E00358971 /* abc_ic_clear_mtrl_alpha.png */; };
+		1226EF901C8D751200358971 /* Xabc_ic_clear_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD41C8D750E00358971 /* Xabc_ic_clear_mtrl_alpha.png */; };
 		1226EF911C8D751200358971 /* abc_ic_commit_search_api_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD51C8D750E00358971 /* abc_ic_commit_search_api_mtrl_alpha.png */; };
 		1226EF921C8D751200358971 /* abc_ic_go_search_api_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD61C8D750E00358971 /* abc_ic_go_search_api_mtrl_alpha.png */; };
 		1226EF931C8D751200358971 /* abc_ic_menu_copy_mtrl_am_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226EAD71C8D750E00358971 /* abc_ic_menu_copy_mtrl_am_alpha.png */; };
@@ -805,7 +805,7 @@
 		1226F20D1C8D751200358971 /* abc_btn_switch_to_on_mtrl_00012.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED521C8D751000358971 /* abc_btn_switch_to_on_mtrl_00012.9.png */; };
 		1226F20E1C8D751200358971 /* abc_cab_background_top_mtrl_alpha.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED531C8D751000358971 /* abc_cab_background_top_mtrl_alpha.9.png */; };
 		1226F20F1C8D751200358971 /* abc_ic_ab_back_mtrl_am_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED541C8D751000358971 /* abc_ic_ab_back_mtrl_am_alpha.png */; };
-		1226F2101C8D751200358971 /* abc_ic_clear_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED551C8D751000358971 /* abc_ic_clear_mtrl_alpha.png */; };
+		1226F2101C8D751200358971 /* XXabc_ic_clear_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED551C8D751000358971 /* XXabc_ic_clear_mtrl_alpha.png */; };
 		1226F2111C8D751200358971 /* abc_ic_commit_search_api_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED561C8D751000358971 /* abc_ic_commit_search_api_mtrl_alpha.png */; };
 		1226F2121C8D751200358971 /* abc_ic_go_search_api_mtrl_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED571C8D751000358971 /* abc_ic_go_search_api_mtrl_alpha.png */; };
 		1226F2131C8D751200358971 /* abc_ic_menu_copy_mtrl_am_alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 1226ED581C8D751000358971 /* abc_ic_menu_copy_mtrl_am_alpha.png */; };
@@ -1589,7 +1589,7 @@
 		1226EAD11C8D750E00358971 /* abc_btn_switch_to_on_mtrl_00012.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_btn_switch_to_on_mtrl_00012.9.png; sourceTree = "<group>"; };
 		1226EAD21C8D750E00358971 /* abc_cab_background_top_mtrl_alpha.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_cab_background_top_mtrl_alpha.9.png; sourceTree = "<group>"; };
 		1226EAD31C8D750E00358971 /* abc_ic_ab_back_mtrl_am_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_ab_back_mtrl_am_alpha.png; sourceTree = "<group>"; };
-		1226EAD41C8D750E00358971 /* abc_ic_clear_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_clear_mtrl_alpha.png; sourceTree = "<group>"; };
+		1226EAD41C8D750E00358971 /* Xabc_ic_clear_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Xabc_ic_clear_mtrl_alpha.png; sourceTree = "<group>"; };
 		1226EAD51C8D750E00358971 /* abc_ic_commit_search_api_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_commit_search_api_mtrl_alpha.png; sourceTree = "<group>"; };
 		1226EAD61C8D750E00358971 /* abc_ic_go_search_api_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_go_search_api_mtrl_alpha.png; sourceTree = "<group>"; };
 		1226EAD71C8D750E00358971 /* abc_ic_menu_copy_mtrl_am_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_menu_copy_mtrl_am_alpha.png; sourceTree = "<group>"; };
@@ -2229,7 +2229,7 @@
 		1226ED521C8D751000358971 /* abc_btn_switch_to_on_mtrl_00012.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_btn_switch_to_on_mtrl_00012.9.png; sourceTree = "<group>"; };
 		1226ED531C8D751000358971 /* abc_cab_background_top_mtrl_alpha.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_cab_background_top_mtrl_alpha.9.png; sourceTree = "<group>"; };
 		1226ED541C8D751000358971 /* abc_ic_ab_back_mtrl_am_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_ab_back_mtrl_am_alpha.png; sourceTree = "<group>"; };
-		1226ED551C8D751000358971 /* abc_ic_clear_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_clear_mtrl_alpha.png; sourceTree = "<group>"; };
+		1226ED551C8D751000358971 /* XXabc_ic_clear_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = XXabc_ic_clear_mtrl_alpha.png; sourceTree = "<group>"; };
 		1226ED561C8D751000358971 /* abc_ic_commit_search_api_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_commit_search_api_mtrl_alpha.png; sourceTree = "<group>"; };
 		1226ED571C8D751000358971 /* abc_ic_go_search_api_mtrl_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_go_search_api_mtrl_alpha.png; sourceTree = "<group>"; };
 		1226ED581C8D751000358971 /* abc_ic_menu_copy_mtrl_am_alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = abc_ic_menu_copy_mtrl_am_alpha.png; sourceTree = "<group>"; };
@@ -3203,7 +3203,7 @@
 				1226EAD11C8D750E00358971 /* abc_btn_switch_to_on_mtrl_00012.9.png */,
 				1226EAD21C8D750E00358971 /* abc_cab_background_top_mtrl_alpha.9.png */,
 				1226EAD31C8D750E00358971 /* abc_ic_ab_back_mtrl_am_alpha.png */,
-				1226EAD41C8D750E00358971 /* abc_ic_clear_mtrl_alpha.png */,
+				1226EAD41C8D750E00358971 /* Xabc_ic_clear_mtrl_alpha.png */,
 				1226EAD51C8D750E00358971 /* abc_ic_commit_search_api_mtrl_alpha.png */,
 				1226EAD61C8D750E00358971 /* abc_ic_go_search_api_mtrl_alpha.png */,
 				1226EAD71C8D750E00358971 /* abc_ic_menu_copy_mtrl_am_alpha.png */,
@@ -3850,7 +3850,7 @@
 				1226ED521C8D751000358971 /* abc_btn_switch_to_on_mtrl_00012.9.png */,
 				1226ED531C8D751000358971 /* abc_cab_background_top_mtrl_alpha.9.png */,
 				1226ED541C8D751000358971 /* abc_ic_ab_back_mtrl_am_alpha.png */,
-				1226ED551C8D751000358971 /* abc_ic_clear_mtrl_alpha.png */,
+				1226ED551C8D751000358971 /* XXabc_ic_clear_mtrl_alpha.png */,
 				1226ED561C8D751000358971 /* abc_ic_commit_search_api_mtrl_alpha.png */,
 				1226ED571C8D751000358971 /* abc_ic_go_search_api_mtrl_alpha.png */,
 				1226ED581C8D751000358971 /* abc_ic_menu_copy_mtrl_am_alpha.png */,
@@ -5002,6 +5002,7 @@
 				TargetAttributes = {
 					126E70DE1C3A798A0062C8F6 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 57SHQCZQAR;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -5531,7 +5532,7 @@
 				1226F1AF1C8D751200358971 /* share_female_1.png in Resources */,
 				1226EF7F1C8D751200358971 /* vpi__tab_selected_focused_holo.9.png in Resources */,
 				1226F1201C8D751200358971 /* more_new_message.png in Resources */,
-				1226F2101C8D751200358971 /* abc_ic_clear_mtrl_alpha.png in Resources */,
+				1226F2101C8D751200358971 /* XXabc_ic_clear_mtrl_alpha.png in Resources */,
 				1226F0DC1C8D751200358971 /* login_btn_cancel.png in Resources */,
 				1226F1F01C8D751200358971 /* userinfo_scroll_height.png in Resources */,
 				126E71851C3A7B2E0062C8F6 /* UserCell.xib in Resources */,
@@ -5633,7 +5634,7 @@
 				1226F0B21C8D751200358971 /* left_icon_msg_down.png in Resources */,
 				1226EF211C8D751200358971 /* abc_text_cursor_mtrl_alpha.9.png in Resources */,
 				1226F2721C8D751200358971 /* friend_rank_qq_down.png in Resources */,
-				1226EF901C8D751200358971 /* abc_ic_clear_mtrl_alpha.png in Resources */,
+				1226EF901C8D751200358971 /* Xabc_ic_clear_mtrl_alpha.png in Resources */,
 				1226EF471C8D751200358971 /* abc_spinner_mtrl_am_alpha.9.png in Resources */,
 				1226F06F1C8D751200358971 /* friends_btn_concern_down.png in Resources */,
 				1226F3571C8D751200358971 /* share_male_10.png in Resources */,
@@ -6634,6 +6635,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
@@ -6644,18 +6647,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = /Users/nick_beibei/Desktop/MTY/LePower/Le_power/LePower/PrefixHeader.pch;
 				INFOPLIST_FILE = LePower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/WeixinSDK/WeChatSDK_1.4.3\"",
 					"$(PROJECT_DIR)/Pods/WeixinSDK/WeChatSDK_1.4.3",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wjh.LePower;
+				PRODUCT_BUNDLE_IDENTIFIER = tengyama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -6665,6 +6671,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pods/AMap3DMap",
@@ -6675,18 +6683,21 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = /Users/nick_beibei/Desktop/MTY/LePower/Le_power/LePower/PrefixHeader.pch;
 				INFOPLIST_FILE = LePower/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"\"${PODS_ROOT}/WeixinSDK/WeChatSDK_1.4.3\"",
 					"$(PROJECT_DIR)/Pods/WeixinSDK/WeChatSDK_1.4.3",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.wjh.LePower;
+				PRODUCT_BUNDLE_IDENTIFIER = tengyama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Release;
 		};

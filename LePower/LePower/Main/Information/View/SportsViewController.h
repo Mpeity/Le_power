@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SportsViewController : UIViewController<UICollectionViewDelegateFlowLayout,UICollectionViewDataSource,UICollectionViewDelegate>
-{
-    UICollectionView *_collectionView;
-    NSMutableArray *_sportsModelArray;
-}
+
 
 @end

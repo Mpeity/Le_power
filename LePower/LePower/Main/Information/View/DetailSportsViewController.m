@@ -12,7 +12,6 @@
 
 @interface DetailSportsViewController ()
 {
-    
     UILabel *_dateLabel; // 日期Label
     UILabel *_timeLabel; // 时间Label
     UIView *_deletionOrcompletionView; // 创建取消视图以及确定视图
@@ -20,6 +19,7 @@
     UIButton *_completionBtn; // 确定按钮
     UIButton *_nextBtn; // 下一步
     UIImageView *_iconImgView;
+    UILabel *_calLabel;
 }
 
 
@@ -45,16 +45,32 @@
 
 // 自定义左侧按钮
 - (void)_createNavigationItem {
-    NSString *title = self.sportsModel.name;
-    // 自定义左侧按钮
-    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(popButtonAction:)];
+//    NSString *title = self.sportsModel.name;
+//    // 自定义左侧按钮
+//    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(popButtonAction:)];
+//    self.navigationItem.leftBarButtonItem = leftItem;
+    
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 32, 80, 20)];
+    [backBtn setTitle:self.sportsModel.name forState:UIControlStateNormal];
+    [backBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(popButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backBtn];
+    
+
     // 设置导航栏右侧按钮
-    self.navigationItem.leftBarButtonItem = leftItem;
+    _calLabel = [[UILabel alloc] initWithFrame:CGRectMake(kScreenWidth-120, 32, 100, 20)];
+    _calLabel.text = [NSString stringWithFormat:@"%@kCal",self.sportsModel.proportion];
+//    [self.navigationController.navigationBar addSubview:_calLabel];
+    [self.view addSubview:_calLabel];
+    _calLabel.textAlignment = NSTextAlignmentRight;
+    _calLabel.font = [UIFont systemFontOfSize:20];
+    _calLabel.textColor = [UIColor orangeColor];
 }
 
 //  左边按钮 响应方法
 - (void)popButtonAction:(UIButton *)button {
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 #pragma mark - 创建子视图
@@ -185,12 +201,15 @@
     NSInteger count = [[NSNumber numberWithDouble:datePicker.countDownDuration/60] integerValue];
     NSString *timeString = [NSString stringWithFormat:@"%02li:%02li",count/60,count%60];
     _timeLabel.text = timeString;
+    NSString *text = [NSString stringWithFormat:@"%@kCal",[DataServer decimalwithFormat:@"0" floatV:count*[self.sportsModel.proportion floatValue]/30]];
+    _calLabel.text = text;
 }
 
 
 // 取消按钮
 - (void)deletionBtnAction:(UIButton *)button {
-    [self.navigationController popViewControllerAnimated:NO];
+//    [self.navigationController popViewControllerAnimated:NO];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 // 下一步按钮  保存起始时间
@@ -203,10 +222,11 @@
 
 // 确定按钮 (可以用HUD试一下)
 - (void)completionBtnAction:(UIButton *)button {
-    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"活动添加成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController popViewControllerAnimated:NO];
+//        [self.navigationController popViewControllerAnimated:NO];
+        [self dismissViewControllerAnimated:NO completion:nil];
+
     }];
     [alertController addAction:action];
     [self presentViewController:alertController animated:NO completion:nil];

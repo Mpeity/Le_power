@@ -77,8 +77,12 @@
 //    self.targetValueLabel.attributedText = showedTargetString;
     
  
-    self.targetValueLabel.text = [NSString stringWithFormat:@"%ld步",_target];
-    self.completedValueLabel.text = [NSString stringWithFormat:@"%ld步",_completed];
+    self.targetValueLabel.text = [NSString stringWithFormat:@"%ld步",(long)_target];
+    NSLog(@"%ld",(long)_target);
+    
+    self.completedValueLabel.text = [NSString stringWithFormat:@"%ld步",(long)_completed];
+    NSLog(@"%ld",(long)_completed);
+    
     self.targetValueLabel.font = [UIFont systemFontOfSize:30];
     self.completedValueLabel.font = [UIFont systemFontOfSize:30];
 

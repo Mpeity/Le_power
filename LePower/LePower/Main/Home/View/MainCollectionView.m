@@ -15,11 +15,11 @@ static NSString* cellId = @"MainCollectionViewCell";
 - (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout{
     
     // 取出今日目标
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
-        NSString *countStr = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
-        count = [countStr integerValue];
-    }
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
+//        NSString *countStr = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
+//        count = [countStr integerValue];
+//    }
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         
         self.delegate = self;

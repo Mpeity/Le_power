@@ -42,7 +42,7 @@
     
     // 取消按钮
     _cancelButton = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-49)/2, kScreenHeight-49, 49, 49)];
-    [_cancelButton setImage:[UIImage imageNamed:@"abc_ic_clear_mtrl_alpha"] forState:UIControlStateNormal];
+    [_cancelButton setImage:[UIImage imageNamed:@"XXabc_ic_clear_mtrl_alpha"] forState:UIControlStateNormal];
     [_cancelButton addTarget:self action:@selector(buttonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     // 创建sportButton
@@ -155,6 +155,8 @@
     self.hidden = YES;
     SportsViewController *vc = [[SportsViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window.rootViewController presentViewController:nav animated:NO completion:nil];
 //    MainTabBarController *vca = [[MainTabBarController alloc] init];
     
 //    UIResponder *next = self.nextResponder;
@@ -167,7 +169,7 @@
 //        }
 //        next = next.nextResponder;
 //    }
-    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
+//    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
 
 //    [vca presentViewController:nav animated:NO completion:nil];
     
@@ -181,17 +183,20 @@
     self.hidden = YES;
     RunningViewController *vc = [[RunningViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
+//    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window.rootViewController presentViewController:nav animated:NO completion:nil];
     
 }
 
 // weightButton 纪录体重
 - (void)weightBtnAction:(UIButton *)button {
-    
     self.hidden = YES;
     WeightViewController *vc = [[WeightViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
+    
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    [window.rootViewController presentViewController:nav animated:NO completion:nil];
 }
 
 
