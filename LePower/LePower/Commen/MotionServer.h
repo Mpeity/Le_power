@@ -21,7 +21,6 @@ typedef void(^runType)(NSInteger step);
 @property(nonatomic,strong) CMPedometer *stepCounter;
 
 
-@property (nonatomic,strong) CMMotionManager *motionManager;
 
 
 + (instancetype)shareMotionServer;

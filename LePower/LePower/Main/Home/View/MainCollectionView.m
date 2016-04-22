@@ -20,6 +20,7 @@ static NSString* cellId = @"MainCollectionViewCell";
 //        NSString *countStr = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
 //        count = [countStr integerValue];
 //    }
+    
     if (self = [super initWithFrame:frame collectionViewLayout:layout]) {
         
         self.delegate = self;
