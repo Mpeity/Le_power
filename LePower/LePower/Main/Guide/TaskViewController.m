@@ -25,7 +25,7 @@
     [self _createSubviews];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([[defaults objectForKey:CountData] objectForKey:@"stepCount"]) {
-        self.countLabel.text = [NSString stringWithFormat:@"%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
+        self.countLabel.text = [NSString stringWithFormat:@"今日运动目标:%@",[[defaults objectForKey:CountData] objectForKey:@"stepCount"]];
     }
     
 
@@ -39,7 +39,7 @@
 #pragma mark - 完成按钮响应方法
 - (IBAction)completeBtnAction:(id)sender {
     MainTabBarController *vc = [[MainTabBarController alloc] init];
-    [self.navigationController presentViewController:vc animated:nil completion:nil];
+    [self.navigationController presentViewController:vc animated:NO completion:nil];
 }
 
 #pragma mark - 滑块视图响应方法
@@ -128,7 +128,7 @@
 
 #pragma mark - tools
 - (void)backAction {
-    [self dismissViewControllerAnimated:nil completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 /*

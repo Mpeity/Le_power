@@ -76,9 +76,7 @@
 
 #warning -性别选择
 - (void)buttonAction:(UIButton *)btn {
-    PersonalViewController *vc = [[PersonalViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav animated:NO completion:nil];
+
     NSString *sexValue = btn.currentTitle;
     if (btn.tag == 10) {
         sexValue = @"女";
@@ -92,6 +90,9 @@
     NSUserDefaults *sexValueDefaults = [NSUserDefaults standardUserDefaults]; // 保存到本地
     [sexValueDefaults setValue:sexValue forKey:SexValue];
     [[NSNotificationCenter defaultCenter] postNotificationName:SexValueNotification object:self userInfo:dic];
+    PersonalViewController *vc = [[PersonalViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nav animated:NO completion:nil];
 }
 
 

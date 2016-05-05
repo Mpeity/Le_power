@@ -16,6 +16,8 @@
 {
     FuncView *_funcView; // 添加在window上的半透明视图
     NSMutableArray *_items;
+    UIImageView *_tabBarView; // 标签栏
+    UIImageView *_selectImgView; // 标签栏背景图片
 }
 
 @end

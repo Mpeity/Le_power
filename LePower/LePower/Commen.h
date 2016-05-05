@@ -22,23 +22,27 @@
 #define ActivityTypeList @"ActivityTypeList.plist"
 
 
-/* 使用高德地图API，请注册Key，注册地址：http://lbs.amap.com/console/key */
+///* 使用高德地图API，请注册Key，注册地址：http://lbs.amap.com/console/key */
 #define APIKey @"8b37b0cecf4b6ae96ab5934f6d6116a5"
 
 
 // 百度地图 信息
-//#define BaiDuAPIKey @"8y6GYygGFUbKBoY5XIYw0nO0"
+#define BaiDuAPIKey @"8y6GYygGFUbKBoY5XIYw0nO0"
 //App ID：7378129
 //Api Key：8y6GYygGFUbKBoY5XIYw0nO0
 //Secret Key： uvloQTXSQlf3tpu2yCNK4t1y5SH6GW54
 //访问密匙（AK） UM8GYxrnYn8v3vKgt2rI3LSU
+
+//8086729		qKBGFIv5nKeLv34kuhAbluURUaAOgNot
 
 // 微信SDK信息
 //AppID：wx5d8a7cafde5441d1
 //AppSecret：90fd2104acacbc2c9006ca63c4ecdf71
 #define WXAppID @"wx5d8a7cafde5441d1"
 #define WXAppSecret @"90fd2104acacbc2c9006ca63c4ecdf71"
-
+#define WX_ACCESS_TOKEN @"WX_ACCESS_TOKEN"
+#define WX_OPEN_ID @"WX_OPEN_ID"
+#define WX_REFRESH_TOKEN @"WX_REFRESH_TOKEN"
 #define PersonInfo @"personInfo" // 个人身高体重出生年份数据
 #define CountData @"countData" //步数记录
 

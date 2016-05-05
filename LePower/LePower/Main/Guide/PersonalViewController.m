@@ -44,9 +44,9 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _personInfoDic = [defaults objectForKey:PersonInfo];
     if ([_personInfoDic objectForKey:@"weightData"] && [_personInfoDic objectForKey:@"ageData"] && [_personInfoDic objectForKey:@"heightData"]) {
-        _weightLabel.text = [_personInfoDic objectForKey:@"weightData"];
-        _ageLabel.text = [_personInfoDic objectForKey:@"ageData"];
-        _heightLabel.text = [_personInfoDic objectForKey:@"heightData"];
+        _weightLabel.text = [NSString stringWithFormat:@"体重:%@ Kg",[_personInfoDic objectForKey:@"weightData"]];
+        _ageLabel.text = [NSString stringWithFormat:@"年份:%@ 年",[_personInfoDic objectForKey:@"ageData"]];
+        _heightLabel.text = [NSString stringWithFormat:@"身高:%@ cm",[_personInfoDic objectForKey:@"heightData"]];
     }
 }
 

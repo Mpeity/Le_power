@@ -49,7 +49,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>本应用需要使用您的定位信息，否则可能无法提供</string>
+	<string>To be able to track your run we need access to your location.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

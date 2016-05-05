@@ -13,8 +13,17 @@
 #import "GuideViewController.h"
 #import "DataServer.h"
 #import "GuideView.h"
+#import "SOLocationManager.h"
+#import <BaiduMapAPI/BMapKit.h>
+#import <BaiduMapAPI/BMKMapView.h>
 
-@interface AppDelegate ()
+
+@interface AppDelegate ()<BMKGeneralDelegate>
+//{
+//    BMKMapManager *_mapManager;
+//}
+@property (nonatomic,strong) BMKMapManager *mapManager;
+
 
 @end
 
@@ -23,13 +32,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[MainTabBarController alloc] init];
+//    self.window.rootViewController = [[MainTabBarController alloc] init];
+    //    self.window.rootViewController = [[GuideViewController alloc] init];
     
-//    self.window.rootViewController = [[GuideViewController alloc] init];
+    [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound
+                                                                                    categories:nil]];
+    if ([launchOptions objectForKey:UIApplicationLaunchOptionsLocationKey]) {
+        UILocalNotification *note = [UILocalNotification new];
+        note.alertBody = @"App has been launched by reason of significant location update";
+        note.soundName = UILocalNotificationDefaultSoundName;
+        [application presentLocalNotificationNow:note];
+    }
+    
+    [[SOLocationManager sharedInstance] startSignificant];
+    
+
+    
+
+
+    
+
+    
+    
+
     
     /**
      *  思路一(1)判断 沙盒有没有某个文件a
@@ -47,25 +76,75 @@
         NSDictionary *dic = @{@"notFirst":@YES};
         [dic writeToFile:filePath atomically:YES];
         
-        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+//        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 //        [self.window addSubview:guideView];
-//        GuideViewController *vc = [[GuideViewController alloc] init];
-//        [self.window setRootViewController:vc];
-        [self.window.rootViewController.view addSubview:guideView];
+        GuideViewController *vc = [[GuideViewController alloc] init];
+        [self.window setRootViewController:vc];
+//        [self.window.rootViewController.view addSubview:guideView];
         //创建某个文件a
         
     }
-//    else{
-//        MainTabBarController *vc = [[MainTabBarController alloc] init];
-//        [self.window setRootViewController:vc];
+    else{
+        MainTabBarController *vc = [[MainTabBarController alloc] init];
+        [self.window setRootViewController:vc];
+    }
+    
+    // 要使用百度地图先实例化 BMKMapManager
+//    self.mapManager = [[BMKMapManager alloc]init];
+    
+    // 如果要关注网络及授权验证事件，请设定 generalDelegate 参数
+//        [_mapManager start:BaiDuAPIKey generalDelegate:self];
+    
+//    BOOL ret = [_mapManager start:@"OjYbYha0YULmuLPaHT9wgMcA" generalDelegate:self];
+//    if (!ret) {
+//        NSLog(@"manager start failed");
 //    }
     
 //    // 向微信注册
-//    [WXApi registerApp:WXAppID];
+    [WXApi registerApp:WXAppID withDescription:@"Wechat"];
 //    [self sendAuthRequest];
 //    [self logIn];
     
     return YES;
+}
+- (void)onGetNetworkState:(int)iError
+
+{
+    
+    if (0 == iError) {
+        
+        NSLog(@"联网成功");
+        
+    }
+    
+    else{
+        
+        NSLog(@"onGetNetworkState %d",iError);
+        
+    }
+    
+    
+    
+}
+
+
+
+- (void)onGetPermissionState:(int)iError
+
+{
+    
+    if (0 == iError) {
+        
+        NSLog(@"授权成功");
+        
+    }
+    
+    else {
+        
+        NSLog(@"onGetPermissionState %d",iError);
+        
+    }
+    
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {

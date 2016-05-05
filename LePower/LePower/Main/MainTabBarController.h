@@ -12,8 +12,7 @@
 
 {
     
-    UIImageView *_tabBarView; // 标签栏
-    UIImageView *_selectImgView; // 标签栏背景图片
+
     
 }
 

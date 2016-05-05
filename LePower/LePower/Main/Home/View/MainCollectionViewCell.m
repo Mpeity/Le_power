@@ -17,7 +17,7 @@
     
     if (self = [super initWithFrame:frame]) {
         
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBG"]];
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBG"]];
 
     }
     
@@ -27,11 +27,9 @@
 - (id)initWithCoder:(NSCoder *)aDecoder{
     
     if (self = [super initWithCoder:aDecoder]) {
-        
 
-        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBG.jpg"]];
+//        self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"homeBG.jpg"]];
     }
-    
     return self;
 }
 
@@ -48,7 +46,7 @@
 
 - (void)setTarget:(NSInteger)target{
     
-    if (!target == _target) {
+    if (target != _target) {
         _target = target;
         
         [self setNeedsLayout];
@@ -56,7 +54,6 @@
 }
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
     
 //    NSDictionary* targetAttributeDic = @{
 //                                   NSFontAttributeName:@"27"

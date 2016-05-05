@@ -12,6 +12,7 @@
 @interface WechatLogViewController ()<WXApiDelegate>
 {
     UIImageView *_bgImgView;
+    NSString *_code;
 }
 
 @end
@@ -70,8 +71,6 @@
     // 向微信注册
     [WXApi registerApp:WXAppID];
     [self sendAuthRequest];
-    [self logIn];
-    
 }
 
 
@@ -81,7 +80,7 @@
 {
     //构造SendAuthReq结构体
     SendAuthReq* req =[[SendAuthReq alloc ] init ];
-    req.scope = @"snsapi_userinfo" ;
+    req.scope = @"snsapi_userinfo" ; // snsapi_base snsapi_userinfo
     req.state = @"123" ;
     //第三方向微信终端发送一个SendAuthReq消息结构
     [WXApi sendReq:req];
@@ -90,13 +89,124 @@
 // 如果你的程序要发消息给微信，那么需要调用WXApi的sendReq函数： 其中req参数为SendMessageToWXReq类型
 //需要注意的是，SendMessageToWXReq的scene成员，如果scene填WXSceneSession，那么消息会发送至微信的会话内。如果scene填WXSceneTimeline，那么消息会发送至朋友圈。如果scene填WXSceneFavorite,那么消息会发送到“我的收藏”中。scene默认值为WXSceneSession。
 
-
-
 -(BOOL) sendReq:(BaseReq*)req {
 //    SendMessageToWXReq
     NSLog(@"%@ %i",req.openID,req.type);
     return YES;
 }
+
+//授权后回调 WXApiDelegate
+-(void)onResp:(BaseReq *)resp
+{
+    /*
+     ErrCode ERR_OK = 0(用户同意)
+     ERR_AUTH_DENIED = -4（用户拒绝授权）
+     ERR_USER_CANCEL = -2（用户取消）
+     code    用户换取access_token的code，仅在ErrCode为0时有效
+     state   第三方程序发送时用来标识其请求的唯一性的标志，由第三方程序调用sendReq时传入，由微信终端回传，state字符串长度不能超过1K
+     lang    微信客户端当前语言
+     country 微信用户当前国家信息
+     */
+    SendAuthResp *aresp = (SendAuthResp *)resp;
+    if (aresp.errCode== 0) {
+        _code = aresp.code;
+        NSDictionary *dic = @{@"code":_code};
+    }
+}
+
+- (void)logIn {
+    //    https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+    
+//    https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect
+    
+//    https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf0e81c3bee622d60&redirect_uri=http%3A%2F%2Fnba.bluewebgame.com%2Foauth_response.php&scope=snsapi_userinfo&response_type=code&state=STATE#wechat_redirect
+    
+    NSString *urlString = @"https://api.weixin.qq.com/sns/oauth2/access_token?";
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    NSString *appid = WXAppID;
+    NSString *secret = WXAppSecret;
+    NSString *code = @"CODE";
+    NSString *grant_type = @"authorization_code";
+    [params setObject:appid forKey:@"appid"];
+    [params setObject:secret forKey:@"secret"];
+    [params setObject:code forKey:@"code"];
+    [params setObject:grant_type forKey:@"grant_type"];
+    NSString *url = [NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",WXAppID,WXAppSecret,_code];
+    
+    [DataServer requestWithFullUrlString:url params:nil method:@"GET" data:nil block:^(id result) {
+        NSLog(@"%@",result);
+    }];
+}
+
+//-(void)getAccess_token
+//{
+//    //https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+//    
+//    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/oauth2/access_token?appid=%@&secret=%@&code=%@&grant_type=authorization_code",kWXAPP_ID,kWXAPP_SECRET,self.wxCode.text];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSURL *zoneUrl = [NSURL URLWithString:url];
+//        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
+//        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (data) {
+//                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//                /*
+//                 {
+//                 "access_token" = "OezXcEiiBSKSxW0eoylIeJDUKD6z6dmr42JANLPjNN7Kaf3e4GZ2OncrCfiKnGWiusJMZwzQU8kXcnT1hNs_ykAFDfDEuNp6waj-bDdepEzooL_k1vb7EQzhP8plTbD0AgR8zCRi1It3eNS7yRyd5A";
+//                 "expires_in" = 7200;
+//                 openid = oyAaTjsDx7pl4Q42O3sDzDtA7gZs;
+//                 "refresh_token" = "OezXcEiiBSKSxW0eoylIeJDUKD6z6dmr42JANLPjNN7Kaf3e4GZ2OncrCfiKnGWi2ZzH_XfVVxZbmha9oSFnKAhFsS0iyARkXCa7zPu4MqVRdwyb8J16V8cWw7oNIff0l-5F-4-GJwD8MopmjHXKiA";
+//                 scope = "snsapi_userinfo,snsapi_base";
+//                 }
+//                 */
+//                
+//                NSString *token = [dic objectForKey:@"access_token"];
+//                NSString *openid = [dic objectForKey:@"openid"];
+//                
+//            }
+//        });
+//    });
+//}
+
+//-(void)getUserInfo
+//{
+//    // https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID
+//    
+//    NSString *url =[NSString stringWithFormat:@"https://api.weixin.qq.com/sns/userinfo?access_token=%@&openid=%@",self.access_token.text,self.openid.text];
+//    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        NSURL *zoneUrl = [NSURL URLWithString:url];
+//        NSString *zoneStr = [NSString stringWithContentsOfURL:zoneUrl encoding:NSUTF8StringEncoding error:nil];
+//        NSData *data = [zoneStr dataUsingEncoding:NSUTF8StringEncoding];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (data) {
+//                NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+//                /*
+//                 {
+//                 city = Haidian;
+//                 country = CN;
+//                 headimgurl = "http://wx.qlogo.cn/mmopen/FrdAUicrPIibcpGzxuD0kjfnvc2klwzQ62a1brlWq1sjNfWREia6W8Cf8kNCbErowsSUcGSIltXTqrhQgPEibYakpl5EokGMibMPU/0";
+//                 language = "zh_CN";
+//                 nickname = "xxx";
+//                 openid = oyAaTjsDx7pl4xxxxxxx;
+//                 privilege =     (
+//                 );
+//                 province = Beijing;
+//                 sex = 1;
+//                 unionid = oyAaTjsxxxxxxQ42O3xxxxxxs;
+//                 }
+//                 */
+//                
+//                self.nickname.text = [dic objectForKey:@"nickname"];
+//                self.wxHeadImg.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dic objectForKey:@"headimgurl"]]]];
+//                
+//            }
+//        });
+//        
+//    });
+//}
+
 
 
 // onReq是微信终端向第三方程序发起请求，要求第三方程序响应。第三方程序响应完后必须调用sendRsp返回。在调用sendRsp返回时，会切回到微信终端程序界面。
@@ -136,39 +246,8 @@
     }
 }
 
-// 如果第三方程序向微信发送了sendReq的请求，那么onResp会被回调。sendReq请求调用后，会切到微信终端程序界面
--(void) onResp:(BaseResp*)resp {
-    NSLog(@"--------%i %@ %i",resp.errCode,resp.errStr,resp.type);
-    if([resp isKindOfClass:[SendMessageToWXResp class]])
-    {
-        NSString *strTitle = [NSString stringWithFormat:@"发送媒体消息结果"];
-        NSString *strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-}
 
 
-- (void)logIn {
-    //    https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
-    
-    NSString *urlString = @"https://api.weixin.qq.com/sns/oauth2/access_token?";
-    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-    NSString *appid = WXAppID;
-    NSString *secret = WXAppSecret;
-    NSString *code = @"CODE";
-    NSString *grant_type = @"authorization_code";
-    [params setObject:appid forKey:@"appid"];
-    [params setObject:secret forKey:@"secret"];
-    [params setObject:code forKey:@"code"];
-    [params setObject:grant_type forKey:@"grant_type"];
-    
-    [DataServer requestWithFullUrlString:urlString params:params method:@"GET" data:nil block:^(id result) {
-        
-        NSLog(@"%@",result);
-    }];
-}
 
 
 

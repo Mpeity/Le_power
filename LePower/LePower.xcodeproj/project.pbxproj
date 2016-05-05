@@ -1350,6 +1350,22 @@
 		12AF022D1CACF2AF00E94C2B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AF02281CACF2AF00E94C2B /* FMResultSet.m */; };
 		12AF02301CACF2EE00E94C2B /* FMDB_weight.m in Sources */ = {isa = PBXBuildFile; fileRef = 12AF022F1CACF2EE00E94C2B /* FMDB_weight.m */; };
 		12B16A741C900A87004F819F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12B16A731C900A87004F819F /* CoreTelephony.framework */; };
+		12BC52AF1CD1E8EA007B8323 /* MotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52AD1CD1E8EA007B8323 /* MotionViewController.m */; };
+		12BC52B81CD1EBFE007B8323 /* SOLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52B31CD1EBFE007B8323 /* SOLocationManager.m */; };
+		12BC52B91CD1EBFE007B8323 /* SOMotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52B51CD1EBFE007B8323 /* SOMotionDetector.m */; };
+		12BC52BA1CD1EBFE007B8323 /* SOStepDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52B71CD1EBFE007B8323 /* SOStepDetector.m */; };
+		12BC52BC1CD1EC23007B8323 /* UIView+Localizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52BB1CD1EC23007B8323 /* UIView+Localizable.m */; };
+		12BC52C11CD87189007B8323 /* TrackingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52C01CD87189007B8323 /* TrackingViewController.m */; };
+		12BC52C41CD871DA007B8323 /* Tracking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52C31CD871DA007B8323 /* Tracking.m */; };
+		12BC52C61CD8723E007B8323 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC52C51CD8723E007B8323 /* Security.framework */; };
+		12BC52C81CD87273007B8323 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC52C71CD87273007B8323 /* QuartzCore.framework */; };
+		12BC52CA1CD87287007B8323 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC52C91CD87287007B8323 /* OpenGLES.framework */; };
+		12BC52CD1CD87E37007B8323 /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52CC1CD87E37007B8323 /* MapViewController.mm */; };
+		12BC52D01CD890A6007B8323 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 12BC52CF1CD890A6007B8323 /* mapapi.bundle */; };
+		12BC52D61CD891D1007B8323 /* KZStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52D41CD891D1007B8323 /* KZStatusView.m */; };
+		12BC52D71CD891D1007B8323 /* KZStatusView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12BC52D51CD891D1007B8323 /* KZStatusView.xib */; };
+		12BC52DA1CD89238007B8323 /* MZTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 12BC52D91CD89238007B8323 /* MZTimerLabel.m */; };
+		12BC52DC1CD9C5B7007B8323 /* BaiduMapAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12BC52D11CD890BB007B8323 /* BaiduMapAPI.framework */; };
 		12C4C36F1C8EC65000E817FF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12C4C36E1C8EC65000E817FF /* MapKit.framework */; };
 		12C776E11CB4E7980089229C /* 背景.png in Resources */ = {isa = PBXBuildFile; fileRef = 12C776E01CB4E7980089229C /* 背景.png */; };
 		12C776E31CB4E9250089229C /* 天蓝.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 12C776E21CB4E9250089229C /* 天蓝.jpg */; };
@@ -2815,6 +2831,31 @@
 		12AF022E1CACF2EE00E94C2B /* FMDB_weight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB_weight.h; sourceTree = "<group>"; };
 		12AF022F1CACF2EE00E94C2B /* FMDB_weight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDB_weight.m; sourceTree = "<group>"; };
 		12B16A731C900A87004F819F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		12BC52AC1CD1E8EA007B8323 /* MotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionViewController.h; sourceTree = "<group>"; };
+		12BC52AD1CD1E8EA007B8323 /* MotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionViewController.m; sourceTree = "<group>"; };
+		12BC52B21CD1EBFE007B8323 /* SOLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOLocationManager.h; sourceTree = "<group>"; };
+		12BC52B31CD1EBFE007B8323 /* SOLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOLocationManager.m; sourceTree = "<group>"; };
+		12BC52B41CD1EBFE007B8323 /* SOMotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOMotionDetector.h; sourceTree = "<group>"; };
+		12BC52B51CD1EBFE007B8323 /* SOMotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOMotionDetector.m; sourceTree = "<group>"; };
+		12BC52B61CD1EBFE007B8323 /* SOStepDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOStepDetector.h; sourceTree = "<group>"; };
+		12BC52B71CD1EBFE007B8323 /* SOStepDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOStepDetector.m; sourceTree = "<group>"; };
+		12BC52BB1CD1EC23007B8323 /* UIView+Localizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Localizable.m"; sourceTree = "<group>"; };
+		12BC52BF1CD87189007B8323 /* TrackingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackingViewController.h; sourceTree = "<group>"; };
+		12BC52C01CD87189007B8323 /* TrackingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackingViewController.m; sourceTree = "<group>"; };
+		12BC52C21CD871DA007B8323 /* Tracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tracking.h; sourceTree = "<group>"; };
+		12BC52C31CD871DA007B8323 /* Tracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tracking.m; sourceTree = "<group>"; };
+		12BC52C51CD8723E007B8323 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		12BC52C71CD87273007B8323 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		12BC52C91CD87287007B8323 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		12BC52CB1CD87E37007B8323 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		12BC52CC1CD87E37007B8323 /* MapViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MapViewController.mm; sourceTree = "<group>"; };
+		12BC52CF1CD890A6007B8323 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
+		12BC52D11CD890BB007B8323 /* BaiduMapAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI.framework; sourceTree = "<group>"; };
+		12BC52D31CD891D1007B8323 /* KZStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZStatusView.h; sourceTree = "<group>"; };
+		12BC52D41CD891D1007B8323 /* KZStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZStatusView.m; sourceTree = "<group>"; };
+		12BC52D51CD891D1007B8323 /* KZStatusView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KZStatusView.xib; sourceTree = "<group>"; };
+		12BC52D81CD89238007B8323 /* MZTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MZTimerLabel.h; sourceTree = "<group>"; };
+		12BC52D91CD89238007B8323 /* MZTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MZTimerLabel.m; sourceTree = "<group>"; };
 		12C4C36E1C8EC65000E817FF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		12C776E01CB4E7980089229C /* 背景.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "背景.png"; sourceTree = "<group>"; };
 		12C776E21CB4E9250089229C /* 天蓝.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "天蓝.jpg"; sourceTree = "<group>"; };
@@ -2924,9 +2965,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12BC52DC1CD9C5B7007B8323 /* BaiduMapAPI.framework in Frameworks */,
+				12BC52C61CD8723E007B8323 /* Security.framework in Frameworks */,
+				12BC52CA1CD87287007B8323 /* OpenGLES.framework in Frameworks */,
+				12BC52C81CD87273007B8323 /* QuartzCore.framework in Frameworks */,
+				12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */,
+				12B16A741C900A87004F819F /* CoreTelephony.framework in Frameworks */,
+				126E72111C3A7BFF0062C8F6 /* CoreLocation.framework in Frameworks */,
 				12C776F11CB644D80089229C /* AMapLocationKit.framework in Frameworks */,
 				12AF016F1CABBC6A00E94C2B /* CoreData.framework in Frameworks */,
-				12B16A741C900A87004F819F /* CoreTelephony.framework in Frameworks */,
 				12C4C36F1C8EC65000E817FF /* MapKit.framework in Frameworks */,
 				1208C9901C7BF84A00CD5480 /* UIKit.framework in Frameworks */,
 				1208C98F1C7BF83D00CD5480 /* Foundation.framework in Frameworks */,
@@ -2934,13 +2981,11 @@
 				123A16961C7AB420003F41C4 /* libASValueTrackingSlider.a in Frameworks */,
 				121AD3AF1C433EAA00570843 /* libWeChatSDK.a in Frameworks */,
 				12AAED151C3FC0AC0042FD78 /* libsqlite3.0.tbd in Frameworks */,
-				12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */,
 				1238B8061C3B9FD100CFF0E5 /* AMapSearchKit.framework in Frameworks */,
 				1238B8051C3B9FC800CFF0E5 /* MAMapKit.framework in Frameworks */,
 				1238B8041C3B9FB600CFF0E5 /* libc++.tbd in Frameworks */,
 				1238B8021C3B9FA200CFF0E5 /* libstdc++.6.0.9.tbd in Frameworks */,
 				1238B8001C3B9F8B00CFF0E5 /* libz.tbd in Frameworks */,
-				126E72111C3A7BFF0062C8F6 /* CoreLocation.framework in Frameworks */,
 				126E720F1C3A7BF20062C8F6 /* CoreMotion.framework in Frameworks */,
 				126E720D1C3A7BE30062C8F6 /* CoreText.framework in Frameworks */,
 				7D2A3768E0A7BB798CAB4AD8 /* libPods.a in Frameworks */,
@@ -4324,6 +4369,17 @@
 			children = (
 				126E71401C3A7B2E0062C8F6 /* RunningViewController.h */,
 				126E71411C3A7B2E0062C8F6 /* RunningViewController.m */,
+				12BC52C21CD871DA007B8323 /* Tracking.h */,
+				12BC52C31CD871DA007B8323 /* Tracking.m */,
+				12BC52BF1CD87189007B8323 /* TrackingViewController.h */,
+				12BC52C01CD87189007B8323 /* TrackingViewController.m */,
+				12BC52CB1CD87E37007B8323 /* MapViewController.h */,
+				12BC52CC1CD87E37007B8323 /* MapViewController.mm */,
+				12BC52D31CD891D1007B8323 /* KZStatusView.h */,
+				12BC52D41CD891D1007B8323 /* KZStatusView.m */,
+				12BC52D51CD891D1007B8323 /* KZStatusView.xib */,
+				12BC52D81CD89238007B8323 /* MZTimerLabel.h */,
+				12BC52D91CD89238007B8323 /* MZTimerLabel.m */,
 			);
 			name = Running;
 			path = ../../Information/View;
@@ -4371,6 +4427,7 @@
 		126E70E11C3A798A0062C8F6 /* LePower */ = {
 			isa = PBXGroup;
 			children = (
+				12BC52CE1CD89087007B8323 /* baiduMap */,
 				1226EA3A1C8D750E00358971 /* Resource */,
 				12E784711C7AF33300A2141C /* Commen */,
 				126E71171C3A7B2E0062C8F6 /* Main */,
@@ -4455,6 +4512,8 @@
 			children = (
 				126E711D1C3A7B2E0062C8F6 /* HomeViewController.h */,
 				126E711E1C3A7B2E0062C8F6 /* HomeViewController.m */,
+				12BC52AC1CD1E8EA007B8323 /* MotionViewController.h */,
+				12BC52AD1CD1E8EA007B8323 /* MotionViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -4751,9 +4810,33 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		12BC52B11CD1EBFE007B8323 /* SOMotionDetector */ = {
+			isa = PBXGroup;
+			children = (
+				12BC52BB1CD1EC23007B8323 /* UIView+Localizable.m */,
+				12BC52B21CD1EBFE007B8323 /* SOLocationManager.h */,
+				12BC52B31CD1EBFE007B8323 /* SOLocationManager.m */,
+				12BC52B41CD1EBFE007B8323 /* SOMotionDetector.h */,
+				12BC52B51CD1EBFE007B8323 /* SOMotionDetector.m */,
+				12BC52B61CD1EBFE007B8323 /* SOStepDetector.h */,
+				12BC52B71CD1EBFE007B8323 /* SOStepDetector.m */,
+			);
+			path = SOMotionDetector;
+			sourceTree = "<group>";
+		};
+		12BC52CE1CD89087007B8323 /* baiduMap */ = {
+			isa = PBXGroup;
+			children = (
+				12BC52D11CD890BB007B8323 /* BaiduMapAPI.framework */,
+				12BC52CF1CD890A6007B8323 /* mapapi.bundle */,
+			);
+			name = baiduMap;
+			sourceTree = "<group>";
+		};
 		12E784711C7AF33300A2141C /* Commen */ = {
 			isa = PBXGroup;
 			children = (
+				12BC52B11CD1EBFE007B8323 /* SOMotionDetector */,
 				12AF021D1CACF2AF00E94C2B /* FMDB */,
 				12E784721C7AF33300A2141C /* ActivityTypeList.plist */,
 				12E784731C7AF33300A2141C /* AFNetworking */,
@@ -4910,6 +4993,9 @@
 		A8B09553BEFF97ADCF6A1284 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				12BC52C91CD87287007B8323 /* OpenGLES.framework */,
+				12BC52C71CD87273007B8323 /* QuartzCore.framework */,
+				12BC52C51CD8723E007B8323 /* Security.framework */,
 				12C776F01CB644D80089229C /* AMapLocationKit.framework */,
 				12AF016E1CABBC6A00E94C2B /* CoreData.framework */,
 				12B16A731C900A87004F819F /* CoreTelephony.framework */,
@@ -5395,6 +5481,7 @@
 				1206F39D1C55B7F300111062 /* TaskViewController.xib in Resources */,
 				1226F10E1C8D751200358971 /* manual_walk_up.png in Resources */,
 				1226EFC01C8D751200358971 /* animation_building.png in Resources */,
+				12BC52D01CD890A6007B8323 /* mapapi.bundle in Resources */,
 				1226F0401C8D751200358971 /* custom_info_bubble.9.png in Resources */,
 				1226EF921C8D751200358971 /* abc_ic_go_search_api_mtrl_alpha.png in Resources */,
 				1226EF9B1C8D751200358971 /* abc_list_divider_mtrl_alpha.9.png in Resources */,
@@ -5672,6 +5759,7 @@
 				1226EF431C8D751200358971 /* vpi__tab_unselected_pressed_holo.9.png in Resources */,
 				1226F3041C8D751200358971 /* plank_info.png in Resources */,
 				126E72051C3A7BAD0062C8F6 /* icon_surf.png in Resources */,
+				12BC52D71CD891D1007B8323 /* KZStatusView.xib in Resources */,
 				1226F08C1C8D751200358971 /* group_post_icon_top.png in Resources */,
 				126E72021C3A7BAD0062C8F6 /* icon_snowboard.png in Resources */,
 				1226F10A1C8D751200358971 /* manual_start_background.png in Resources */,
@@ -6414,6 +6502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12BC52BA1CD1EBFE007B8323 /* SOStepDetector.m in Sources */,
 				12E784CD1C7AF33400A2141C /* AFURLSessionManager.m in Sources */,
 				12E784C91C7AF33400A2141C /* AFSecurityPolicy.m in Sources */,
 				126E71771C3A7B2E0062C8F6 /* FuncView.m in Sources */,
@@ -6421,11 +6510,13 @@
 				12E784E81C7AF33400A2141C /* ZHRulerScrollView.m in Sources */,
 				12E2A0591C924FA6003AD193 /* GuideView.m in Sources */,
 				12AF022D1CACF2AF00E94C2B /* FMResultSet.m in Sources */,
+				12BC52C41CD871DA007B8323 /* Tracking.m in Sources */,
 				126E716A1C3A7B2E0062C8F6 /* DateCollectionView.m in Sources */,
 				126E717F1C3A7B2E0062C8F6 /* MoreViewController.m in Sources */,
 				12E784E71C7AF33400A2141C /* UIColor+Wonderful.m in Sources */,
 				12E784E31C7AF33400A2141C /* SXColorGradientView.m in Sources */,
 				12E784E91C7AF33400A2141C /* ZHRulerView.m in Sources */,
+				12BC52BC1CD1EC23007B8323 /* UIView+Localizable.m in Sources */,
 				126E70EA1C3A798A0062C8F6 /* ViewController.m in Sources */,
 				126E717C1C3A7B2E0062C8F6 /* SportsViewController.m in Sources */,
 				126E716E1C3A7B2E0062C8F6 /* MainCollectionViewCell.m in Sources */,
@@ -6437,11 +6528,13 @@
 				12E784C51C7AF33400A2141C /* AFHTTPRequestOperation.m in Sources */,
 				120104C71C4CB49300EF6D25 /* TaskViewController.m in Sources */,
 				12AF022B1CACF2AF00E94C2B /* FMDatabasePool.m in Sources */,
+				12BC52DA1CD89238007B8323 /* MZTimerLabel.m in Sources */,
 				12E784E41C7AF33400A2141C /* SXColorLabel.m in Sources */,
 				121199E21C3F94B1002DBD20 /* TargetViewController.m in Sources */,
 				12E784D71C7AF33400A2141C /* SDWebImageDownloader.m in Sources */,
 				12E784D91C7AF33400A2141C /* SDWebImageManager.m in Sources */,
 				12E784C71C7AF33400A2141C /* AFHTTPSessionManager.m in Sources */,
+				12BC52B81CD1EBFE007B8323 /* SOLocationManager.m in Sources */,
 				12E784DC1C7AF33400A2141C /* UIImage+GIF.m in Sources */,
 				126E716D1C3A7B2E0062C8F6 /* MainCollectionView.m in Sources */,
 				12AF022A1CACF2AF00E94C2B /* FMDatabaseAdditions.m in Sources */,
@@ -6452,8 +6545,10 @@
 				126E71841C3A7B2E0062C8F6 /* UserCell.m in Sources */,
 				126E71711C3A7B2E0062C8F6 /* WeatherView.m in Sources */,
 				12AF02301CACF2EE00E94C2B /* FMDB_weight.m in Sources */,
+				12BC52B91CD1EBFE007B8323 /* SOMotionDetector.m in Sources */,
 				12E784E11C7AF33400A2141C /* UIView+WebCacheOperation.m in Sources */,
 				126E71701C3A7B2E0062C8F6 /* TargetProgressView.m in Sources */,
+				12BC52D61CD891D1007B8323 /* KZStatusView.m in Sources */,
 				120104C11C4C825900EF6D25 /* GuideViewController.m in Sources */,
 				12E784D41C7AF33400A2141C /* SDImageCache.m in Sources */,
 				12E784D21C7AF33400A2141C /* MKAnnotationView+WebCache.m in Sources */,
@@ -6484,11 +6579,14 @@
 				126E71691C3A7B2E0062C8F6 /* HomeViewController.m in Sources */,
 				126E716B1C3A7B2E0062C8F6 /* DateViewCell.m in Sources */,
 				12E784D31C7AF33400A2141C /* NSData+ImageContentType.m in Sources */,
+				12BC52AF1CD1E8EA007B8323 /* MotionViewController.m in Sources */,
 				12E784DD1C7AF33400A2141C /* UIImage+MultiFormat.m in Sources */,
 				12E784DF1C7AF33400A2141C /* UIImageView+HighlightedWebCache.m in Sources */,
 				126E71881C3A7B2E0062C8F6 /* TopViewController.m in Sources */,
 				126E70E41C3A798A0062C8F6 /* main.m in Sources */,
 				126E71A11C3A7B3F0062C8F6 /* MainTabBarController.m in Sources */,
+				12BC52CD1CD87E37007B8323 /* MapViewController.mm in Sources */,
+				12BC52C11CD87189007B8323 /* TrackingViewController.m in Sources */,
 				12E784C61C7AF33400A2141C /* AFHTTPRequestOperationManager.m in Sources */,
 				12C776E81CB508650089229C /* TopBgView.m in Sources */,
 				126E71861C3A7B2E0062C8F6 /* RunViewController.m in Sources */,
@@ -6643,6 +6741,7 @@
 					"$(PROJECT_DIR)/Pods/AMapSearch",
 					"$(PROJECT_DIR)/Pods/WeixinSDK",
 					"$(PROJECT_DIR)/Pods/AMapLocation",
+					"$(PROJECT_DIR)/LePower",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = /Users/nick_beibei/Desktop/MTY/LePower/Le_power/LePower/PrefixHeader.pch;
@@ -6679,6 +6778,7 @@
 					"$(PROJECT_DIR)/Pods/AMapSearch",
 					"$(PROJECT_DIR)/Pods/WeixinSDK",
 					"$(PROJECT_DIR)/Pods/AMapLocation",
+					"$(PROJECT_DIR)/LePower",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = /Users/nick_beibei/Desktop/MTY/LePower/Le_power/LePower/PrefixHeader.pch;

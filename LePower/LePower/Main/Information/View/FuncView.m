@@ -12,8 +12,8 @@
 #import "RunningViewController.h"
 #import "Commen.h"
 #import "MainTabBarController.h"
-
-
+#import "TrackingViewController.h"
+#import "MapViewController.h"
 
 
 @implementation FuncView
@@ -181,9 +181,9 @@
 - (void)runBtnAction:(UIButton *)button {
     
     self.hidden = YES;
-    RunningViewController *vc = [[RunningViewController alloc] init];
+//    TrackingViewController *vc = [[TrackingViewController alloc] init];
+    MapViewController *vc = [[MapViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-//    [self.window.rootViewController presentViewController:nav animated:NO completion:nil];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window.rootViewController presentViewController:nav animated:NO completion:nil];
     
