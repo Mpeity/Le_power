@@ -1339,6 +1339,7 @@
 		126E720D1C3A7BE30062C8F6 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126E720C1C3A7BE20062C8F6 /* CoreText.framework */; };
 		126E720F1C3A7BF20062C8F6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126E720E1C3A7BF20062C8F6 /* CoreMotion.framework */; };
 		126E72111C3A7BFF0062C8F6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126E72101C3A7BFF0062C8F6 /* CoreLocation.framework */; };
+		1271E5D01CDC399B0087E5A5 /* YSMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1271E5CF1CDC399B0087E5A5 /* YSMapViewController.m */; };
 		12AAED111C3FA0120042FD78 /* *28.png in Resources */ = {isa = PBXBuildFile; fileRef = 12AAED101C3FA0120042FD78 /* *28.png */; };
 		12AAED131C3FC0940042FD78 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */; };
 		12AAED151C3FC0AC0042FD78 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */; };
@@ -2813,6 +2814,8 @@
 		126E720E1C3A7BF20062C8F6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		126E72101C3A7BFF0062C8F6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		126E72131C3A7D170062C8F6 /* Commen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Commen.h; sourceTree = "<group>"; };
+		1271E5CE1CDC399B0087E5A5 /* YSMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMapViewController.h; sourceTree = "<group>"; };
+		1271E5CF1CDC399B0087E5A5 /* YSMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMapViewController.m; sourceTree = "<group>"; };
 		12AAED101C3FA0120042FD78 /* *28.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "*28.png"; sourceTree = "<group>"; };
 		12AAED121C3FC0940042FD78 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		12AAED141C3FC0AC0042FD78 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
@@ -4380,6 +4383,8 @@
 				12BC52D51CD891D1007B8323 /* KZStatusView.xib */,
 				12BC52D81CD89238007B8323 /* MZTimerLabel.h */,
 				12BC52D91CD89238007B8323 /* MZTimerLabel.m */,
+				1271E5CE1CDC399B0087E5A5 /* YSMapViewController.h */,
+				1271E5CF1CDC399B0087E5A5 /* YSMapViewController.m */,
 			);
 			name = Running;
 			path = ../../Information/View;
@@ -6563,6 +6568,7 @@
 				12E784CE1C7AF33400A2141C /* DataServer.m in Sources */,
 				120104C41C4C835B00EF6D25 /* PersonalViewController.m in Sources */,
 				12E784CC1C7AF33400A2141C /* AFURLResponseSerialization.m in Sources */,
+				1271E5D01CDC399B0087E5A5 /* YSMapViewController.m in Sources */,
 				12AF022C1CACF2AF00E94C2B /* FMDatabaseQueue.m in Sources */,
 				12E784D61C7AF33400A2141C /* SDWebImageDecoder.m in Sources */,
 				121199DF1C3F9426002DBD20 /* InfoViewController.m in Sources */,

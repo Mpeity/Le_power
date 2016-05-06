@@ -14,6 +14,7 @@
 #import "MainTabBarController.h"
 #import "TrackingViewController.h"
 #import "MapViewController.h"
+#import "YSMapViewController.h"
 
 
 @implementation FuncView
@@ -183,6 +184,7 @@
     self.hidden = YES;
 //    TrackingViewController *vc = [[TrackingViewController alloc] init];
     MapViewController *vc = [[MapViewController alloc] init];
+//    YSMapViewController *vc = [[YSMapViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window.rootViewController presentViewController:nav animated:NO completion:nil];
