@@ -31,9 +31,24 @@
     // Do any additional setup after loading the view.
     
     // 设置背景颜色
-//    self.view.backgroundColor = [UIColor greenYellow];
-    [self _createSubviews];
+//    [self _createSubviews];
+    
+    // 从网络直接加载
+    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, kScreenHeight-20)];
+    NSURL *url = [NSURL URLWithString:@"http://news.163.com"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:request];
+    [self.view addSubview:webView];
+    
+    UIButton *backBtn = [[UIButton alloc] initWithFrame:CGRectMake(10, 30, 20, 20)];
+    [backBtn setImage:[UIImage imageNamed:@"com_taobao_tae_sdk_web_view_title_bar_back.9"] forState:UIControlStateNormal];
+    [backBtn addTarget:self action:@selector(backBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backBtn];
 
+}
+
+- (void)backBtnAction:(UIButton *)button {
+    [self dismissViewControllerAnimated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

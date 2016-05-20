@@ -36,6 +36,15 @@
     UIButton *_logInBtn;
     
     UIView *_funView;
+    
+    NSInteger _count;
+    NSString *_cellTarget;
+    NSInteger _dayCount;
+    
+    
+    CGFloat _heightData;
+    CGFloat _weightData;
+
 }
 
 - (void)viewDidLoad {
@@ -43,6 +52,7 @@
     
     self.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeBottom | UIRectEdgeRight;
     
+    _dayCount = 0;
 
     
     [self _createCollectionView];
@@ -53,7 +63,10 @@
     NSUserDefaults *defualts1 = [NSUserDefaults standardUserDefaults];
     if ([[defualts1 objectForKey:PersonInfo] objectForKey:@"heightData"] && [[defualts1 objectForKey:PersonInfo] objectForKey:@"weightData"]) {
         _weightDataLabel.text = [NSString stringWithFormat:@"%@ kg",[[[defualts1 objectForKey:PersonInfo] objectForKey:@"weightData"] stringValue]];
+        _weightData = [[[defualts1 objectForKey:PersonInfo] objectForKey:@"weightData"] floatValue];
         _heightDataLabel.text = [NSString stringWithFormat:@"%@ cm",[[[defualts1 objectForKey:PersonInfo] objectForKey:@"heightData"] stringValue]];
+        _heightData = [[[defualts1 objectForKey:PersonInfo] objectForKey:@"heightData"] floatValue];
+        _BMIDataLabel.text = [NSString stringWithFormat:@"%.2lf",_weightData *10000/(_heightData *_heightData)];
     }
     NSUserDefaults *defualts2 = [NSUserDefaults standardUserDefaults];
     if ([[defualts2 objectForKey:CountData] objectForKey:@"stepCount"]) {
@@ -63,7 +76,14 @@
     if ([defualts3 objectForKey:@"BMIData"]) {
         _BMIDataLabel.text = [NSString stringWithFormat:@"%@",[defualts3 objectForKey:@"BMIData"]];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationAction:) name:@"completedNotification" object:nil];
+    _cellTarget = [[NSString alloc] init];
 
+}
+
+- (void)notificationAction:(NSNotification *)notification {
+    _count = [[notification.userInfo objectForKey:@"completed"] integerValue];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +95,7 @@
     layout.itemSize = CGSizeMake(kScreenWidth/2, kScreenWidth*5/8);
     layout.minimumInteritemSpacing = 0;
     layout.minimumLineSpacing = 0;
-    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
+    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight-60) collectionViewLayout:layout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     _collectionView.backgroundColor = [UIColor skyBlue];
@@ -201,6 +221,8 @@
     _BMIDataLabel.textAlignment = NSTextAlignmentCenter;
     _BMIDataLabel.font = [UIFont systemFontOfSize:15];
     _BMIDataLabel.textColor = [UIColor blackColor];
+    _BMIDataLabel.text = [NSString stringWithFormat:@"%lf",_weightData *10000/(_heightData *_heightData)];
+    NSLog(@"%lf %lf %@",_weightData,_heightData,_BMIDataLabel.text);
     [_funView addSubview:_BMIDataLabel];
 
     
@@ -237,6 +259,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
     UserCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor clearColor];
     
@@ -245,24 +268,24 @@
         cell.viewImage.image = [UIImage imageNamed:@"disable_daka"];
         cell.targetInform.text = @"最长连续打卡";
         cell.nextTarget.text = @"下一个目标 3天";
-        cell.target.text = @"0天";
+        cell.target.text = [NSString stringWithFormat:@"%li天",(long)_dayCount];
     } else if (indexPath.row == 1) {
         cell.viewImage.image = [UIImage imageNamed:@"disable_zuigaobushu"];
         cell.targetInform.text = @"单日最好成绩";
         cell.nextTarget.text = @"下一个目标 5000步";
-        cell.target.text = @"0步";
+        cell.target.text = [NSString stringWithFormat:@"%li",(long)_count];
 
     } else if (indexPath.row == 2) {
         cell.viewImage.image = [UIImage imageNamed:@"disable_leijijuli"];
         cell.targetInform.text = @"步行累计";
         cell.nextTarget.text = @"下一个目标 10公里";
-        cell.target.text = @"0.0公里";
+        cell.target.text = [NSString stringWithFormat:@"%.2lf公里",_count*0.7/1000];
 
     } else {
         cell.viewImage.image = [UIImage imageNamed:@"disable_lijidabiao"];
         cell.targetInform.text = @"累计达标";
         cell.nextTarget.text = @"下一个目标 3天";
-        cell.target.text = @"0天";
+        cell.target.text = [NSString stringWithFormat:@"%li天",(long)_dayCount];
     }
     
 //    cell.target.text = [NSString stringWithFormat:@"kkkk"];
@@ -271,7 +294,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0) {
+        _dayCount++;
+    }
 }
 
 

@@ -37,8 +37,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receaveNotification:) name:@"nowStepChanged" object:nil];
 }
 
-- (void)_creatSubview{
-    
+- (void)_creatSubview{    
     [self _createDateCollectionView];
     [self _creatMainCollectionView];
     [self _creatWeatherView];

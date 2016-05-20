@@ -19,6 +19,7 @@
     WeatherView* _weatherView;
     NSDate* _beginDate;
     MainCollectionView* _mainCollectionView;
+    NSDictionary *_completedDic;
 }
 
 @end
@@ -79,16 +80,13 @@
         }
         weakSelf.motionTypeLabel.text = type;
     };
-    
     [SOMotionDetector sharedInstance].locationChangedBlock = ^(CLLocation *location) {
-        weakSelf.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",[SOMotionDetector sharedInstance].currentSpeed * 3.6f];
+//        weakSelf.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",[SOMotionDetector sharedInstance].currentSpeed * 3.6f];
     };
-    
     [SOMotionDetector sharedInstance].accelerationChangedBlock = ^(CMAcceleration acceleration) {
         BOOL isShaking = [SOMotionDetector sharedInstance].isShaking;
         weakSelf.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
     };
-    
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [SOMotionDetector sharedInstance].useM7IfAvailable = YES; //Use M7 chip if available, otherwise use lib's algorithm
     }
@@ -105,10 +103,9 @@
             return;
         }        
         self.completed++;
-//        self.stepCountLabel.text = [NSString stringWithFormat:@"Step count: %li", _completed];
         self.stepCountLabel.text = [NSString stringWithFormat:@"已完成: %li", (long)self.completed];
-        
-
+        [_completedDic setValue:[NSNumber numberWithInteger:self.completed] forKey:@"completed"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"completedNotification" object:self userInfo:_completedDic];
     }];
 }
 

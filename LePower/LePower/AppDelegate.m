@@ -37,7 +37,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     self.window.rootViewController = [[MainTabBarController alloc] init];
-    //    self.window.rootViewController = [[GuideViewController alloc] init];
+//    self.window.rootViewController = [[GuideViewController alloc] init];
     
     //        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
 
@@ -62,35 +62,35 @@
     
     
 
-    
-    /**
-     *  思路一(1)判断 沙盒有没有某个文件a
-     如果有 则不是第一次
-     如果没有 则是第一次
-     思路二 根据文件中的某个值来判断是否是第一次启动
-     
-     */
-    BOOL notFirst = YES;
-    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/firstStart.plist"];    
-    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
-    NSNumber *number = [dic objectForKey:@"notFirst"];
-    notFirst = [number boolValue];
-    if (!notFirst) {//第一次
-        NSDictionary *dic = @{@"notFirst":@YES};
-        [dic writeToFile:filePath atomically:YES];
-        
-        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-//        [self.window addSubview:guideView];
-//        GuideViewController *vc = [[GuideViewController alloc] init];
+//    
+//    /**
+//     *  思路一(1)判断 沙盒有没有某个文件a
+//     如果有 则不是第一次
+//     如果没有 则是第一次
+//     思路二 根据文件中的某个值来判断是否是第一次启动
+//     
+//     */
+//    BOOL notFirst = YES;
+//    NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/firstStart.plist"];    
+//    NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:filePath];
+//    NSNumber *number = [dic objectForKey:@"notFirst"];
+//    notFirst = [number boolValue];
+//    if (!notFirst) {//第一次
+//        NSDictionary *dic = @{@"notFirst":@YES};
+//        [dic writeToFile:filePath atomically:YES];
+//        
+//        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+////        [self.window addSubview:guideView];
+////        GuideViewController *vc = [[GuideViewController alloc] init];
+////        [self.window setRootViewController:vc];
+//        [self.window.rootViewController.view addSubview:guideView];
+//        //创建某个文件a
+//        
+//    }
+//    else{
+//        MainTabBarController *vc = [[MainTabBarController alloc] init];
 //        [self.window setRootViewController:vc];
-        [self.window.rootViewController.view addSubview:guideView];
-        //创建某个文件a
-        
-    }
-    else{
-        MainTabBarController *vc = [[MainTabBarController alloc] init];
-        [self.window setRootViewController:vc];
-    }
+//    }
     
     // 要使用百度地图先实例化 BMKMapManager
 //    self.mapManager = [[BMKMapManager alloc]init];
