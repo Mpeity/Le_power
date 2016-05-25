@@ -32,15 +32,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    self.window.rootViewController = [[MainTabBarController alloc] init];
-//    self.window.rootViewController = [[GuideViewController alloc] init];
-    
-    //        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-
     
     [application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert | UIUserNotificationTypeSound
                                                                                     categories:nil]];
@@ -53,6 +44,17 @@
     
     [[SOLocationManager sharedInstance] startSignificant];
     
+
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    self.window.rootViewController = [[MainTabBarController alloc] init];
+//    self.window.rootViewController = [[GuideViewController alloc] init];
+    
+    //        GuideView *guideView = [[GuideView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+
+    
+
 
     
 

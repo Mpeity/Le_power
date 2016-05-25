@@ -26,13 +26,15 @@
 //
 //@property (weak, nonatomic) IBOutlet TargetProgressView *targetProgressView;
 
+
+
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *motionTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *isShakingLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *stepCountLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *targetLabel;
+
+
 
 
 @property (assign,nonatomic) NSInteger target; // 目标

@@ -20,6 +20,8 @@
     NSDate* _beginDate;
     MainCollectionView* _mainCollectionView;
     NSDictionary *_completedDic;
+    UIView *_homePage; // 起始页
+    UIImageView *_imageView; //
 }
 
 @end
@@ -46,10 +48,41 @@
 }
 
 - (void)_creatSubview{
-    
     [self _createDateCollectionView];
     [self _creatWeatherView];
+    [self _createBackgroundImg];
     
+}
+
+
+- (void)_createBackgroundImg {
+    _homePage = [[UIView alloc] initWithFrame:CGRectMake(35, 64, kScreenWidth-70, kScreenWidth-70)];
+//    _homePage.backgroundColor = [UIColor seaShell];
+//    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake((kScreenWidth-100)/2, kScreenHeight*0.75, 100, 40)];
+//    [button setTitle:@"欢迎使用" forState:UIControlStateNormal];
+//    button.backgroundColor = [UIColor lightGreen];
+//    [_homePage addSubview:button];
+//    [button addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_homePage];
+    
+    //创建UIImageView，添加到界面
+    _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(35, 64, kScreenWidth-70, kScreenWidth-70)];
+    [self.view addSubview:_imageView];
+    //创建一个数组，数组中按顺序添加要播放的图片（图片为静态的图片）
+    NSMutableArray *imgArray = [NSMutableArray array];
+    for (int i=0; i<10; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"share_male_%02d.png",i+1];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [imgArray addObject:image];
+    }
+    //把存有UIImage的数组赋给动画图片数组
+    _imageView.animationImages = imgArray;
+    //设置执行一次完整动画的时长
+    _imageView.animationDuration = 7;
+    //动画重复次数 （0为重复播放）
+    _imageView.animationRepeatCount = 0;
+    //开始播放动画
+    [_imageView startAnimating];
 }
 
 
@@ -78,14 +111,15 @@
                 type = @"Automotive";
                 break;
         }
-        weakSelf.motionTypeLabel.text = type;
+        weakSelf.motionTypeLabel.text = [NSString stringWithFormat:@"运动类型：%@",type];
     };
     [SOMotionDetector sharedInstance].locationChangedBlock = ^(CLLocation *location) {
 //        weakSelf.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",[SOMotionDetector sharedInstance].currentSpeed * 3.6f];
     };
     [SOMotionDetector sharedInstance].accelerationChangedBlock = ^(CMAcceleration acceleration) {
         BOOL isShaking = [SOMotionDetector sharedInstance].isShaking;
-        weakSelf.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
+        NSString *shakingStr = isShaking ? @"shaking":@"not shaking";
+        weakSelf.isShakingLabel.text = [NSString stringWithFormat:@"状态：%@",shakingStr];
     };
     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [SOMotionDetector sharedInstance].useM7IfAvailable = YES; //Use M7 chip if available, otherwise use lib's algorithm
